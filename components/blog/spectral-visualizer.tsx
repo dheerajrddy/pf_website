@@ -84,6 +84,9 @@ export function SpectralVisualizer() {
                                 >
                                     {Array.from({ length: 50 }).map((_, i) => {
                                         const isGlitch = i % 7 === 0 || i % 11 === 0
+                                        const h1 = ((i * 7 + 3) % 20) + 10
+                                        const h2 = ((i * 13 + 7) % 40) + 20
+                                        const h3 = ((i * 11 + 5) % 20) + 10
                                         return (
                                             <motion.div
                                                 key={i}
@@ -92,11 +95,7 @@ export function SpectralVisualizer() {
                                                         : "bg-gradient-to-t from-indigo-400 to-violet-400"
                                                     }`}
                                                 animate={{
-                                                    height: [
-                                                        Math.random() * 20 + 10,
-                                                        Math.random() * 40 + 20,
-                                                        Math.random() * 20 + 10,
-                                                    ],
+                                                    height: [h1, h2, h3],
                                                     opacity: isGlitch ? [1, 0.5, 1] : [1, 1, 1],
                                                 }}
                                                 transition={{
@@ -182,6 +181,9 @@ export function SpectralVisualizer() {
                                 >
                                     {Array.from({ length: 35 }).map((_, i) => {
                                         const isGlitch = i % 5 === 0 || i % 8 === 0
+                                        const h1 = ((i * 7 + 3) % 15) + 8
+                                        const h2 = ((i * 13 + 7) % 30) + 15
+                                        const h3 = ((i * 11 + 5) % 15) + 8
                                         return (
                                             <motion.div
                                                 key={i}
@@ -190,11 +192,7 @@ export function SpectralVisualizer() {
                                                         : "bg-gradient-to-t from-indigo-400 to-violet-400"
                                                     }`}
                                                 animate={{
-                                                    height: [
-                                                        Math.random() * 15 + 8,
-                                                        Math.random() * 30 + 15,
-                                                        Math.random() * 15 + 8,
-                                                    ],
+                                                    height: [h1, h2, h3],
                                                     opacity: isGlitch ? [1, 0.5, 1] : [1, 1, 1],
                                                 }}
                                                 transition={{

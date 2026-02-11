@@ -17,8 +17,8 @@ const categoryColors = {
     text: "text-indigo-600",
   },
   emerald: {
-    bg: "bg-indigo-50",
-    text: "text-indigo-600",
+    bg: "bg-emerald-50",
+    text: "text-emerald-600",
   },
   rose: {
     bg: "bg-rose-50",

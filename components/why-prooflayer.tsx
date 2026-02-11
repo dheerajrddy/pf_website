@@ -14,7 +14,7 @@ const capabilities = [
   { feature: "Free open-source core", prooflayer: "yes", snyk: "partial", semgrep: "yes" },
   { feature: "< 5 min setup", prooflayer: "yes", snyk: "no", semgrep: "no" },
   { feature: "CWE + OWASP mapped", prooflayer: "yes", snyk: "yes", semgrep: "yes" },
-]
+] as const
 
 function FeatureStatus({ status }: { status: "yes" | "no" | "partial" }) {
   if (status === "yes") {

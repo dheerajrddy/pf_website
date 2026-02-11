@@ -62,16 +62,16 @@ export function SafetyPipelineDiagram() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
-              {Array.from({ length: 40 }).map((_, i) => (
+              {Array.from({ length: 40 }).map((_, i) => {
+                const h1 = ((i * 7 + 3) % 20) + 10
+                const h2 = ((i * 13 + 7) % 40) + 20
+                const h3 = ((i * 11 + 5) % 20) + 10
+                return (
                 <motion.div
                   key={i}
                   className="w-1 bg-gradient-to-t from-indigo-400 to-violet-400 rounded-full"
                   animate={{
-                    height: [
-                      Math.random() * 20 + 10,
-                      Math.random() * 40 + 20,
-                      Math.random() * 20 + 10,
-                    ],
+                    height: [h1, h2, h3],
                   }}
                   transition={{
                     duration: 0.8,
@@ -80,7 +80,7 @@ export function SafetyPipelineDiagram() {
                     ease: "easeInOut",
                   }}
                 />
-              ))}
+              )})}
             </motion.div>
           </div>
         </motion.div>

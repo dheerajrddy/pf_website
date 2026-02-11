@@ -3,7 +3,6 @@
 import { motion } from "framer-motion"
 import { Clock, Calendar, ArrowLeft } from "lucide-react"
 import Link from "next/link"
-import { SocialShare } from "./social-share"
 
 interface BlogHeaderProps {
   title: string
@@ -108,7 +107,6 @@ export function BlogHeader({
                 {readTime}
               </span>
             </div>
-            <SocialShare title={title} />
           </div>
         </motion.div>
       </div>
