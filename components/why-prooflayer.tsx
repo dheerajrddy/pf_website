@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Check, Minus, CircleDot } from "lucide-react"
+import { fadeUp, scaleIn } from "@/lib/animations"
 
 const capabilities = [
   { feature: "Scans inside AI coding agents (MCP)", prooflayer: "yes", snyk: "no", semgrep: "no" },
@@ -12,7 +13,7 @@ const capabilities = [
   { feature: "Auto-fix with one command", prooflayer: "yes", snyk: "partial", semgrep: "partial" },
   { feature: "Works with Cursor, Claude Code, Copilot", prooflayer: "yes", snyk: "no", semgrep: "no" },
   { feature: "Free open-source core", prooflayer: "yes", snyk: "partial", semgrep: "yes" },
-  { feature: "< 5 min setup", prooflayer: "yes", snyk: "no", semgrep: "no" },
+  { feature: "< 30s setup", prooflayer: "yes", snyk: "no", semgrep: "no" },
   { feature: "CWE + OWASP mapped", prooflayer: "yes", snyk: "yes", semgrep: "yes" },
 ] as const
 
@@ -31,9 +32,10 @@ export function WhyProofLayer() {
     <section id="features" className="scroll-mt-24 px-4 py-32 sm:px-6 lg:px-8 lg:py-48">
       <div className="mx-auto max-w-5xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
+          variants={fadeUp}
           transition={{ duration: 0.6 }}
           className="text-center"
         >
@@ -51,9 +53,10 @@ export function WhyProofLayer() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
+          variants={scaleIn}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-16 overflow-x-auto"
         >

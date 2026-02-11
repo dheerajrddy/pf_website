@@ -2,46 +2,87 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { motion } from "framer-motion"
-import { Code2, AlertTriangle, CheckCircle2, Shield, Package, Fingerprint } from "lucide-react"
+import { Code2, AlertTriangle, CheckCircle2 } from "lucide-react"
+import { fadeUp, scaleIn } from "@/lib/animations"
 
 const tabs = [
-  {
-    id: "write",
-    label: "The Agent Writes",
-    icon: Code2,
-  },
-  {
-    id: "catch",
-    label: "The Scanner Catches",
-    icon: AlertTriangle,
-  },
-  {
-    id: "fix",
-    label: "Auto-Fix Applied",
-    icon: CheckCircle2,
-  },
+  { id: "write", label: "The Agent Writes", icon: Code2 },
+  { id: "catch", label: "The Scanner Catches", icon: AlertTriangle },
+  { id: "fix", label: "Auto-Fix Applied", icon: CheckCircle2 },
 ]
 
-const capabilities = [
-  {
-    icon: Shield,
-    title: "Code Vulnerability Scanning",
-    description: "359 rules",
-    metric: "359 rules",
-  },
-  {
-    icon: Package,
-    title: "Package Hallucination Detection",
-    description: "4.3M packages",
-    metric: "4.3M packages",
-  },
-  {
-    icon: Fingerprint,
-    title: "Prompt Injection Firewall",
-    description: "80%+ detection",
-    metric: "80%+ detection",
-  },
+type TokenStyle = "comment" | "violet" | "blue" | "emerald" | "orange" | "gray" | "red-badge" | "emerald-badge" | "amber" | "indigo" | "white"
+
+interface Token { text: string; style: TokenStyle }
+type Line = Token[]
+
+const tokenColors: Record<TokenStyle, string> = {
+  comment: "text-gray-500",
+  violet: "text-violet-400",
+  blue: "text-blue-400",
+  emerald: "text-emerald-400",
+  orange: "text-orange-300",
+  gray: "text-gray-300",
+  "red-badge": "rounded bg-red-500/20 px-2 py-0.5 text-xs font-bold text-red-400",
+  "emerald-badge": "rounded bg-emerald-500/20 px-2 py-0.5 text-xs font-bold text-emerald-400",
+  amber: "text-amber-400",
+  indigo: "text-indigo-400",
+  white: "text-white font-semibold",
+}
+
+// Shared route handler opening
+const routeOpen: Line[] = [
+  [{ text: "app", style: "violet" }, { text: ".", style: "gray" }, { text: "get", style: "blue" }, { text: "(", style: "gray" }, { text: "'/user/:id'", style: "emerald" }, { text: ", (", style: "gray" }, { text: "req", style: "orange" }, { text: ", ", style: "gray" }, { text: "res", style: "orange" }, { text: ") => {", style: "gray" }],
 ]
+
+// Shared callback close
+const routeClose: Line[] = [
+  [{ text: "});", style: "gray" }],
+]
+
+const writeLines: Line[] = [
+  [{ text: "// Claude Code generates a database query", style: "comment" }],
+  [], // blank line
+  ...routeOpen,
+  [{ text: "  ", style: "gray" }, { text: "const", style: "violet" }, { text: " query = ", style: "gray" }, { text: '"SELECT * FROM users WHERE id = "', style: "emerald" }, { text: " + ", style: "gray" }, { text: "req", style: "orange" }, { text: ".", style: "gray" }, { text: "params", style: "blue" }, { text: ".", style: "gray" }, { text: "id", style: "blue" }, { text: ";", style: "gray" }],
+  [{ text: "  ", style: "gray" }, { text: "db", style: "violet" }, { text: ".", style: "gray" }, { text: "query", style: "blue" }, { text: "(query, (", style: "gray" }, { text: "err", style: "orange" }, { text: ", ", style: "gray" }, { text: "result", style: "orange" }, { text: ") => ", style: "gray" }, { text: "res", style: "orange" }, { text: ".", style: "gray" }, { text: "json", style: "blue" }, { text: "(result));", style: "gray" }],
+  ...routeClose,
+]
+
+const catchLines: Line[] = [
+  [{ text: "CRITICAL", style: "red-badge" }, { text: " ", style: "gray" }, { text: "SQL Injection (CWE-89)", style: "white" }],
+  [], // blank line
+  [{ text: "Line 3: ", style: "comment" }, { text: "String concatenation in SQL query", style: "amber" }],
+  [{ text: "OWASP:  ", style: "comment" }, { text: "A03:2021 - Injection", style: "gray" }],
+  [{ text: "Risk:   ", style: "comment" }, { text: "User input directly interpolated into query", style: "gray" }],
+  [], // blank line
+  [{ text: "Auto-fix available \u2192", style: "indigo" }, { text: " Use parameterized query", style: "comment" }],
+]
+
+const fixLines: Line[] = [
+  [{ text: "FIXED", style: "emerald-badge" }, { text: " ", style: "gray" }, { text: "Parameterized query applied", style: "comment" }],
+  [], // blank line
+  ...routeOpen,
+  [{ text: "  ", style: "gray" }, { text: "const", style: "violet" }, { text: " query = ", style: "gray" }, { text: '"SELECT * FROM users WHERE id = ?"', style: "emerald" }, { text: ";", style: "gray" }],
+  [{ text: "  ", style: "gray" }, { text: "db", style: "violet" }, { text: ".", style: "gray" }, { text: "query", style: "blue" }, { text: "(query, [", style: "gray" }, { text: "req", style: "orange" }, { text: ".", style: "gray" }, { text: "params", style: "blue" }, { text: ".", style: "gray" }, { text: "id", style: "blue" }, { text: "], (", style: "gray" }, { text: "err", style: "orange" }, { text: ", ", style: "gray" }, { text: "result", style: "orange" }, { text: ") => ", style: "gray" }, { text: "res", style: "orange" }, { text: ".", style: "gray" }, { text: "json", style: "blue" }, { text: "(result));", style: "gray" }],
+  ...routeClose,
+]
+
+const tabContent = [writeLines, catchLines, fixLines]
+
+function CodeBlock({ lines, highlightLines }: { lines: Line[]; highlightLines?: number[] }) {
+  return (
+    <motion.div key={lines === writeLines ? "write" : lines === catchLines ? "catch" : "fix"} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+      {lines.map((line, i) => (
+        <div key={i} className={highlightLines?.includes(i) ? "border-l-2 border-emerald-500/50 pl-3" : ""}>
+          {line.length === 0 ? <br /> : line.map((token, j) => (
+            <span key={j} className={tokenColors[token.style]}>{token.text}</span>
+          ))}
+        </div>
+      ))}
+    </motion.div>
+  )
+}
 
 export function DemoSection() {
   const [activeTab, setActiveTab] = useState(0)
@@ -57,14 +98,18 @@ export function DemoSection() {
     return () => clearInterval(interval)
   }, [isHovering, nextTab])
 
+  // Lines 3-4 in fix tab get the green highlight border
+  const highlightLines = activeTab === 2 ? [3, 4] : undefined
+
   return (
     <section id="demo" className="scroll-mt-24 px-4 py-32 sm:px-6 lg:px-8 lg:py-48">
       <div className="mx-auto max-w-5xl">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
+          variants={fadeUp}
           transition={{ duration: 0.6 }}
           className="text-center"
         >
@@ -78,9 +123,10 @@ export function DemoSection() {
 
         {/* Demo terminal */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
+          variants={scaleIn}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-16"
           onMouseEnter={() => setIsHovering(true)}
@@ -89,7 +135,6 @@ export function DemoSection() {
           <div className="overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-2xl">
             {/* Window chrome + Tab bar */}
             <div className="border-b border-gray-100">
-              {/* Window dots and path */}
               <div className="flex items-center gap-2 px-4 pt-3 pb-0">
                 <div className="flex items-center gap-1.5">
                   <div className="h-3 w-3 rounded-full bg-red-400" />
@@ -98,7 +143,6 @@ export function DemoSection() {
                 </div>
                 <span className="ml-2 font-mono text-xs text-gray-400">~/project/src</span>
               </div>
-              {/* Tabs */}
               <div className="flex mt-2">
                 {tabs.map((tab, index) => {
                   const Icon = tab.icon
@@ -123,148 +167,7 @@ export function DemoSection() {
 
             {/* Terminal body */}
             <div className="bg-gray-950 p-6 sm:p-8 font-mono text-sm leading-relaxed min-h-[280px]">
-              {activeTab === 0 && (
-                <motion.div
-                  key="write"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="text-gray-500">{"// Claude Code generates a database query"}</div>
-                  <div className="mt-2">
-                    <span className="text-violet-400">app</span>
-                    <span className="text-gray-300">.</span>
-                    <span className="text-blue-400">get</span>
-                    <span className="text-gray-300">(</span>
-                    <span className="text-emerald-400">&apos;/user/:id&apos;</span>
-                    <span className="text-gray-300">, (</span>
-                    <span className="text-orange-300">req</span>
-                    <span className="text-gray-300">, </span>
-                    <span className="text-orange-300">res</span>
-                    <span className="text-gray-300">) =&gt; {"{"}</span>
-                  </div>
-                  <div>
-                    <span className="text-gray-300">{"  "}</span>
-                    <span className="text-violet-400">const</span>
-                    <span className="text-gray-300"> query = </span>
-                    <span className="text-emerald-400">&quot;SELECT * FROM users WHERE id = &quot;</span>
-                    <span className="text-gray-300"> + </span>
-                    <span className="text-orange-300">req</span>
-                    <span className="text-gray-300">.</span>
-                    <span className="text-blue-400">params</span>
-                    <span className="text-gray-300">.</span>
-                    <span className="text-blue-400">id</span>
-                    <span className="text-gray-300">;</span>
-                  </div>
-                  <div>
-                    <span className="text-gray-300">{"  "}</span>
-                    <span className="text-violet-400">db</span>
-                    <span className="text-gray-300">.</span>
-                    <span className="text-blue-400">query</span>
-                    <span className="text-gray-300">(query, (</span>
-                    <span className="text-orange-300">err</span>
-                    <span className="text-gray-300">, </span>
-                    <span className="text-orange-300">result</span>
-                    <span className="text-gray-300">) =&gt; </span>
-                    <span className="text-orange-300">res</span>
-                    <span className="text-gray-300">.</span>
-                    <span className="text-blue-400">json</span>
-                    <span className="text-gray-300">(result));</span>
-                  </div>
-                  <div>
-                    <span className="text-gray-300">{"}"});</span>
-                  </div>
-                </motion.div>
-              )}
-
-              {activeTab === 1 && (
-                <motion.div
-                  key="catch"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="rounded bg-red-500/20 px-2 py-0.5 text-xs font-bold text-red-400">CRITICAL</span>
-                    <span className="text-white font-semibold">SQL Injection (CWE-89)</span>
-                  </div>
-                  <div className="mt-4 space-y-2">
-                    <div>
-                      <span className="text-gray-500">Line 3: </span>
-                      <span className="text-amber-400">String concatenation in SQL query</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-500">OWASP: </span>
-                      <span className="text-gray-300">A03:2021 - Injection</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-500">Risk: </span>
-                      <span className="text-gray-300">User input directly interpolated into query</span>
-                    </div>
-                  </div>
-                  <div className="mt-6 border-t border-gray-800 pt-4">
-                    <span className="text-indigo-400">Auto-fix available →</span>
-                    <span className="text-gray-400"> Use parameterized query</span>
-                  </div>
-                </motion.div>
-              )}
-
-              {activeTab === 2 && (
-                <motion.div
-                  key="fix"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="rounded bg-emerald-500/20 px-2 py-0.5 text-xs font-bold text-emerald-400">FIXED</span>
-                    <span className="text-gray-400">Parameterized query applied</span>
-                  </div>
-                  <div>
-                    <span className="text-violet-400">app</span>
-                    <span className="text-gray-300">.</span>
-                    <span className="text-blue-400">get</span>
-                    <span className="text-gray-300">(</span>
-                    <span className="text-emerald-400">&apos;/user/:id&apos;</span>
-                    <span className="text-gray-300">, (</span>
-                    <span className="text-orange-300">req</span>
-                    <span className="text-gray-300">, </span>
-                    <span className="text-orange-300">res</span>
-                    <span className="text-gray-300">) =&gt; {"{"}</span>
-                  </div>
-                  <div className="border-l-2 border-emerald-500/50 pl-3">
-                    <span className="text-gray-300">{"  "}</span>
-                    <span className="text-violet-400">const</span>
-                    <span className="text-gray-300"> query = </span>
-                    <span className="text-emerald-400">&quot;SELECT * FROM users WHERE id = ?&quot;</span>
-                    <span className="text-gray-300">;</span>
-                  </div>
-                  <div className="border-l-2 border-emerald-500/50 pl-3">
-                    <span className="text-gray-300">{"  "}</span>
-                    <span className="text-violet-400">db</span>
-                    <span className="text-gray-300">.</span>
-                    <span className="text-blue-400">query</span>
-                    <span className="text-gray-300">(query, [</span>
-                    <span className="text-orange-300">req</span>
-                    <span className="text-gray-300">.</span>
-                    <span className="text-blue-400">params</span>
-                    <span className="text-gray-300">.</span>
-                    <span className="text-blue-400">id</span>
-                    <span className="text-gray-300">], (</span>
-                    <span className="text-orange-300">err</span>
-                    <span className="text-gray-300">, </span>
-                    <span className="text-orange-300">result</span>
-                    <span className="text-gray-300">) =&gt; </span>
-                    <span className="text-orange-300">res</span>
-                    <span className="text-gray-300">.</span>
-                    <span className="text-blue-400">json</span>
-                    <span className="text-gray-300">(result));</span>
-                  </div>
-                  <div>
-                    <span className="text-gray-300">{"}"});</span>
-                  </div>
-                </motion.div>
-              )}
+              <CodeBlock lines={tabContent[activeTab]} highlightLines={highlightLines} />
             </div>
           </div>
 
@@ -294,29 +197,6 @@ export function DemoSection() {
             ))}
           </div>
         </motion.div>
-
-        {/* Capability pills */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-3">
-          {capabilities.map((cap, index) => {
-            const Icon = cap.icon
-            return (
-              <motion.div
-                key={cap.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="rounded-xl border border-gray-100 bg-white p-6 text-center hover:border-indigo-100 hover:shadow-sm transition-all"
-              >
-                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-50">
-                  <Icon className="h-5 w-5 text-indigo-600" />
-                </div>
-                <h3 className="mt-4 text-sm font-semibold text-gray-900">{cap.title}</h3>
-                <p className="mt-1 font-mono text-sm text-indigo-600">{cap.metric}</p>
-              </motion.div>
-            )
-          })}
-        </div>
       </div>
     </section>
   )

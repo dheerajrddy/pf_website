@@ -1,17 +1,14 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
-import { CompatibilityBar } from "@/components/compatibility-bar"
-import { TrustBar } from "@/components/trust-bar"
 import { WhySection } from "@/components/why-section"
 import { DemoSection } from "@/components/demo-section"
 import { WhyProofLayer } from "@/components/why-prooflayer"
 import { FinalCta } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
-import { getNpmStats, formatDownloads } from "@/lib/npm-stats"
+import { getNpmStats } from "@/lib/npm-stats"
 
 export default async function Home() {
   const stats = await getNpmStats()
-  const formattedDownloads = formatDownloads(stats.weeklyDownloads)
 
   return (
     <main className="relative min-h-screen bg-white bg-dot-pattern text-gray-900">
@@ -24,8 +21,6 @@ export default async function Home() {
       <div className="relative">
         <Header stats={stats} />
         <Hero />
-        <CompatibilityBar />
-        <TrustBar downloads={formattedDownloads} />
         <WhySection />
         <DemoSection />
         <WhyProofLayer />
