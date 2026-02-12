@@ -21,6 +21,17 @@ export interface Author {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "autonomous-agent-security",
+    title: "Securing Autonomous AI Assistants: The New Attack Surface",
+    subtitle: "Why AI agents with system access need a prompt firewall",
+    excerpt: "Autonomous AI assistants like OpenClaw can manage your email, files, and payments. That power creates 31 distinct attack patterns across 5 categories. Here's the threat model — and how to defend against it.",
+    category: "Security Analysis",
+    categoryColor: "amber",
+    readTime: "7 min read",
+    date: "February 12, 2026",
+    featured: true,
+  },
+  {
     slug: "deepfake-detection",
     title: "Real-Time Deepfake Detection Without STT: A Technical Deep Dive",
     subtitle: "How audio-first guardrails outperform text-based approaches for voice security",

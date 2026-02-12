@@ -62,6 +62,9 @@ export function Footer() {
           <p className="text-sm text-gray-400">
             &copy; {new Date().getFullYear()} ProofLayer. All rights reserved.
           </p>
+          <p className="text-xs text-gray-300 mt-2">
+            ProofLayer is a product of Sinewave AI, Inc.
+          </p>
         </div>
       </div>
     </footer>
