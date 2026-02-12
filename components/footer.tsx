@@ -63,7 +63,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} ProofLayer. All rights reserved.
           </p>
           <p className="text-xs text-gray-300 mt-2">
-            ProofLayer is a product of Sinewave AI, Inc.
+            ProofLayer is a product of SineWave AI, Inc.
           </p>
         </div>
       </div>
