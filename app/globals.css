@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-/* ProofLayer - Agent Security Platform */
+/* ProofLayer - Minimal Light Theme */
 :root {
   /* Backgrounds */
   --background: #FFFFFF;
@@ -29,11 +29,6 @@
   --input: #E5E7EB;
   --ring: #4F46E5;
 
-  /* Dark hero zone */
-  --hero-bg: #0A0A0F;
-  --hero-surface: #12121A;
-  --hero-border: #1E1E2E;
-
   /* Radius */
   --radius: 0.75rem;
 
@@ -47,10 +42,9 @@
 }
 
 @theme inline {
-  /* Typography */
+  /* Modern, clean sans-serif stack */
   --font-sans: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-mono), 'JetBrains Mono', 'SF Mono', monospace;
-  --font-display: var(--font-space-grotesk), 'Space Grotesk', system-ui, sans-serif;
 
   /* Colors */
   --color-background: var(--background);
@@ -104,19 +98,9 @@
     @apply bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-500 bg-clip-text text-transparent;
   }
 
-  /* Gradient text for dark backgrounds */
-  .text-gradient-light {
-    @apply bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400 bg-clip-text text-transparent;
-  }
-
   /* Dot grid texture */
   .bg-dot-pattern {
     background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
     background-size: 28px 28px;
-  }
-
-  /* Dark hero radial glow */
-  .bg-hero-gradient {
-    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(79, 70, 229, 0.15), transparent);
   }
 }

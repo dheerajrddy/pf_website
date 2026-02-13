@@ -3,8 +3,9 @@ import type { Metadata } from "next"
 
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
-import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 
+// Initialize fonts - Clean, modern sans-serif
 const inter = Inter({
   subsets: ['latin'],
   weight: ["400", "500", "600", "700", "800"],
@@ -15,12 +16,6 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   weight: ["400", "500"],
   variable: '--font-mono',
-})
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  weight: ["500", "700"],
-  variable: '--font-space-grotesk',
 })
 
 export const metadata: Metadata = {
@@ -53,7 +48,6 @@ export const metadata: Metadata = {
     title: "ProofLayer — Security for Autonomous AI Agents",
     description: "AI agents are taking real-world actions. We make sure they're safe.",
   },
-
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
@@ -73,7 +67,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>

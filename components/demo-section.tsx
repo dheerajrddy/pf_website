@@ -114,7 +114,7 @@ export function DemoSection() {
   }, [isHovering, nextTab])
 
   return (
-    <section id="demo" className="scroll-mt-24 px-4 py-32 sm:px-6 lg:px-8 lg:py-40">
+    <section id="demo" className="scroll-mt-24 px-4 py-32 sm:px-6 lg:px-8 lg:py-48">
       <div className="mx-auto max-w-5xl">
         {/* Header */}
         <motion.div
@@ -128,7 +128,7 @@ export function DemoSection() {
           <span className="text-sm font-medium uppercase tracking-[0.2em] text-indigo-600/80">
             See It In Action
           </span>
-          <h2 className="mt-5 font-display text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.1]">
+          <h2 className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[64px] lg:leading-[1.05]">
             Block threats before
             <br className="hidden sm:block" />
             agents&nbsp;act.
