@@ -31,8 +31,8 @@ const layers = [
   {
     step: 4,
     icon: ShieldCheck,
-    title: "Action Enforcement",
-    description: "Final verdict with risk scores: BLOCK dangerous prompts, WARN on suspicious activity, ALLOW safe requests.",
+    title: "Exit Codes for Automation",
+    description: "Machine-readable exit codes for CI/CD integration: BLOCK (exit 1), WARN (exit 2), ALLOW (exit 0). Enables automated pipeline gates and policy enforcement.",
     timing: "< 1ms",
     color: "indigo",
   },

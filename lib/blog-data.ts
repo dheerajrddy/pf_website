@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Autonomous AI assistants like OpenClaw can manage your email, files, and payments. That power creates 31 distinct attack patterns across 5 categories. Here's the threat model — and how to defend against it.",
     category: "Security Analysis",
     categoryColor: "amber",
-    readTime: "7 min read",
+    readTime: "12 min read",
     date: "February 12, 2026",
     featured: true,
   },
