@@ -1,20 +1,24 @@
 export interface NpmStats {
-  weeklyDownloads: number
+  totalDownloads: number
   version: string
   license: string
 }
 
 export async function getNpmStats(): Promise<NpmStats> {
-  const fallback: NpmStats = { weeklyDownloads: 1553, version: "3.0.0", license: "MIT" }
+  const fallback: NpmStats = { totalDownloads: 2962, version: "3.3.0", license: "MIT" }
   try {
     const [dlRes, pkgRes] = await Promise.all([
-      fetch("https://api.npmjs.org/downloads/point/last-week/agent-security-scanner-mcp", { next: { revalidate: 3600 } }),
+      fetch("https://api.npmjs.org/downloads/range/2000-01-01:2099-12-31/agent-security-scanner-mcp", { next: { revalidate: 3600 } }),
       fetch("https://registry.npmjs.org/agent-security-scanner-mcp/latest", { next: { revalidate: 3600 } }),
     ])
     const dl = await dlRes.json()
     const pkg = await pkgRes.json()
+    const total = (dl?.downloads as { downloads: number }[])?.reduce(
+      (sum: number, day: { downloads: number }) => sum + day.downloads,
+      0
+    ) ?? fallback.totalDownloads
     return {
-      weeklyDownloads: dl?.downloads ?? fallback.weeklyDownloads,
+      totalDownloads: total,
       version: pkg?.version ?? fallback.version,
       license: pkg?.license ?? fallback.license,
     }

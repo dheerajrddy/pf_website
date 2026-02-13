@@ -21,7 +21,6 @@ const tocItems: TocItem[] = [
   { id: "attack-catalog", title: "Attack Pattern Catalog", level: 2 },
   { id: "defense-in-depth", title: "Defense in Depth", level: 2 },
   { id: "best-practices", title: "Best Practices", level: 2 },
-  { id: "get-protected", title: "Get Protected in 30 Seconds", level: 2 },
   { id: "whats-next", title: "What\u2019s Next", level: 2 },
 ]
 
@@ -457,7 +456,7 @@ a 1x1 tracking pixel pointing to the same domain.`}
                     {
                       num: 1,
                       title: "Install the scanner",
-                      desc: "Deploy scan_agent_prompt as an MCP server alongside your AI assistant. One command, zero configuration required. The scanner intercepts every prompt before the agent acts on it.",
+                      desc: "Run npx agent-security-scanner-mcp init to deploy scan_agent_prompt as an MCP server alongside your AI assistant. Works with Claude Code, Cursor, Windsurf, OpenClaw, ClawdBot, and any MCP-compatible agent. The scanner intercepts every prompt before the agent acts on it.",
                     },
                     {
                       num: 2,
@@ -502,72 +501,6 @@ a 1x1 tracking pixel pointing to the same domain.`}
                 </div>
               </motion.div>
 
-              {/* Section: Get Protected */}
-              <motion.div {...sectionAnimation} className="mb-16">
-                <h2 id="get-protected" className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 mt-16 mb-6 scroll-mt-24">
-                  Get Protected in 30 Seconds
-                </h2>
-
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  The scanner runs as an MCP server that integrates directly with your AI assistant.
-                  Setup takes one command:
-                </p>
-
-                <pre className="bg-gray-950 text-gray-100 p-6 rounded-xl text-sm mb-8 shadow-lg font-mono overflow-x-auto">
-{`npx agent-security-scanner-mcp init openclaw`}
-                </pre>
-
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  Compatible with all major AI assistant platforms:
-                </p>
-
-                <div className="overflow-x-auto mb-8">
-                  <table className="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
-                    <thead>
-                      <tr className="bg-gray-50">
-                        <th className="text-left px-4 py-3 font-semibold text-gray-900">Client</th>
-                        <th className="text-left px-4 py-3 font-semibold text-gray-900">Config Location</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-100">
-                      {[
-                        { client: "OpenClaw", config: "~/.openclaw/mcp_servers.json" },
-                        { client: "ClawdBot", config: "~/.clawdbot/config.json" },
-                        { client: "Claude Code", config: "~/.claude/settings.json" },
-                        { client: "Cursor", config: ".cursor/mcp.json" },
-                        { client: "Windsurf", config: "~/.windsurf/mcp.json" },
-                      ].map((row, i) => (
-                        <tr key={i} className="hover:bg-gray-50 transition-colors">
-                          <td className="px-4 py-3 text-gray-900 font-medium">{row.client}</td>
-                          <td className="px-4 py-3 text-gray-600 font-mono text-xs">{row.config}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  The scanner ships 56 rules across 6 categories, with{" "}
-                  <a
-                    href="https://www.npmjs.com/package/agent-security-scanner-mcp"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-indigo-600 hover:text-indigo-700 underline"
-                  >
-                    v3.3.0 available on npm
-                  </a>{" "}
-                  and source on{" "}
-                  <a
-                    href="https://github.com/AISafetyLab/agent-security-scanner-mcp"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-indigo-600 hover:text-indigo-700 underline"
-                  >
-                    GitHub
-                  </a>.
-                </p>
-              </motion.div>
-
               {/* Section: What's Next */}
               <motion.div {...sectionAnimation}>
                 <h2 id="whats-next" className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 mt-16 mb-6 scroll-mt-24">
@@ -582,16 +515,18 @@ a 1x1 tracking pixel pointing to the same domain.`}
                 </p>
 
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  ProofLayer&apos;s roadmap addresses each of these vectors: <strong>behavioral analysis</strong> to
+                  Planned defenses include: <strong>behavioral analysis</strong> to
                   detect anomalous agent actions in real time, <strong>sandboxed execution</strong> to test
                   agent responses before they reach production systems, and <strong>user intent
                   verification</strong> to ensure the agent&apos;s actions align with what the user actually
                   wanted.
                 </p>
 
-                <p className="text-xl font-medium text-gray-900 mb-8">
-                  Autonomous AI assistants are the future of productivity. Securing them isn&apos;t optional&mdash;it&apos;s
-                  the prerequisite for trust. ProofLayer makes that security invisible, instant, and comprehensive.
+                <p className="text-lg text-gray-700 leading-relaxed mb-8">
+                  Autonomous AI assistants are the future of productivity. Securing them requires
+                  purpose-built tooling that understands agent-specific threat models&mdash;not
+                  retrofitted code scanners. The 31 attack patterns documented here are just
+                  the beginning.
                 </p>
               </motion.div>
             </div>

@@ -32,17 +32,6 @@ export const blogPosts: BlogPost[] = [
     featured: true,
   },
   {
-    slug: "deepfake-detection",
-    title: "Real-Time Deepfake Detection Without STT: A Technical Deep Dive",
-    subtitle: "How audio-first guardrails outperform text-based approaches for voice security",
-    excerpt: "Direct audio analysis can achieve near-perfect deepfake detection while maintaining real-time performance. We explore the science of spectral forensics, our dual-task WavLM architecture, and honest benchmarking on ASVspoof 2019.",
-    category: "Technical Research",
-    categoryColor: "violet",
-    readTime: "12 min read",
-    date: "January 30, 2026",
-    featured: true,
-  },
-  {
     slug: "coding-agent-security",
     title: "The Growing Attack Surface: AI Coding Agent Security in 2025",
     subtitle: "From Amazon Q exploits to Cursor crypto drains — real incidents, real lessons",
@@ -53,24 +42,13 @@ export const blogPosts: BlogPost[] = [
     date: "January 26, 2026",
     featured: true,
   },
-  {
-    slug: "voice-ai-security",
-    title: "The Anatomy of Voice AI Security",
-    subtitle: "Why Text-Based Guardrails Aren't Enough for the Audio-Native Era",
-    excerpt: "Voice AI is experiencing explosive growth, but security tools built for text don't work for voice. Learn about the threat landscape, audio-level attacks, and how to protect voice agents in production.",
-    category: "Engineering",
-    categoryColor: "rose",
-    readTime: "5 min read",
-    date: "January 18, 2026",
-    featured: true,
-  },
 ]
 
 export const authors: Record<string, Author> = {
   research: {
     name: "ProofLayer Research Team",
     role: "Security Research",
-    bio: "Our research team focuses on advancing the frontier of AI security, from audio forensics and deepfake detection to code generation safety.",
+    bio: "Our research team focuses on securing autonomous AI agents — from prompt injection defense to supply-chain verification.",
     twitter: "prooflayer",
     linkedin: "prooflayer",
   },
