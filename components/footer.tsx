@@ -21,7 +21,7 @@ export function Footer() {
                 Proof<span className="text-indigo-600">Layer</span>
               </span>
             </div>
-            <p className="mt-4 text-base text-gray-500">Security for AI coding agents.</p>
+            <p className="mt-4 text-base text-gray-500">Security for autonomous AI agents.</p>
             <div className="mt-6">
               <a
                 href="https://linkedin.com/company/prooflayer"

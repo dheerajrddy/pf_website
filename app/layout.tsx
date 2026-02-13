@@ -3,9 +3,8 @@ import type { Metadata } from "next"
 
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google'
 
-// Initialize fonts - Clean, modern sans-serif
 const inter = Inter({
   subsets: ['latin'],
   weight: ["400", "500", "600", "700", "800"],
@@ -18,35 +17,41 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-mono',
 })
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ["500", "700"],
+  variable: '--font-space-grotesk',
+})
+
 export const metadata: Metadata = {
-  title: "ProofLayer — AI Coding Agent Security Scanner",
+  title: "ProofLayer — Security for Autonomous AI Agents",
   description:
-    "Catch vulnerabilities, hallucinated packages, and prompt injection in AI-generated code. Works with Cursor, Claude Code, and Copilot. Free open-source scanner.",
+    "Prompt injection firewall, hallucination detection, and behavior guardrails for AI agents. Works with ClawdBot, Claude Code, Cursor, and any MCP agent. Free and open source.",
   keywords: [
-    "AI coding agent security",
-    "AI code scanner",
-    "AI-generated code vulnerabilities",
-    "package hallucination detection",
+    "AI agent security",
+    "autonomous AI security",
     "prompt injection firewall",
-    "Cursor security",
-    "Claude Code security",
-    "Copilot security scanner",
+    "ClawdBot security",
+    "AI agent guardrails",
+    "package hallucination detection",
     "MCP security",
-    "OWASP AI",
-    "CWE",
-    "code vulnerability scanner",
+    "OpenClaw security",
+    "agentic AI security",
+    "AI assistant security",
+    "prompt injection detection",
+    "AI agent behavior monitoring",
   ],
   authors: [{ name: "ProofLayer" }],
   openGraph: {
-    title: "ProofLayer — AI Coding Agent Security Scanner",
-    description: "62% of AI-generated code has vulnerabilities. Catch them before they ship.",
+    title: "ProofLayer — Security for Autonomous AI Agents",
+    description: "AI agents are taking real-world actions. We make sure they're safe.",
     type: "website",
     siteName: "ProofLayer",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ProofLayer — AI Coding Agent Security Scanner",
-    description: "62% of AI-generated code has vulnerabilities. Catch them before they ship.",
+    title: "ProofLayer — Security for Autonomous AI Agents",
+    description: "AI agents are taking real-world actions. We make sure they're safe.",
   },
 
   icons: {
@@ -68,7 +73,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>
