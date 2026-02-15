@@ -19,9 +19,9 @@ export function FinalCta() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-5xl font-extrabold tracking-tighter text-gray-900 sm:text-6xl lg:text-[72px] lg:leading-[1.05]">
-            Start securing your
+            Give your agents
             <br className="hidden sm:block" />
-            AI&nbsp;agents.
+            an immune&nbsp;system.
           </h2>
           <p className="mt-8 text-xl text-gray-400 sm:text-2xl lg:text-[28px] lg:leading-relaxed">
             One command. Works with any MCP agent. Free and open source.

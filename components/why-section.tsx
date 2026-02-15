@@ -30,28 +30,28 @@ function useCountUp(end: number, duration: number = 1500, inView: boolean) {
 
 const stats = [
   {
-    number: 58,
+    number: 73,
     suffix: "%",
-    display: "58%",
-    text: "of enterprises are deploying autonomous AI agents in 2025",
-    source: "Gartner 2025",
+    display: "73%",
+    text: "of AI-generated code vulnerabilities are introduced during the session — not after commit",
+    source: "Snyk 2024 AI Code Security",
     color: "text-gray-900",
   },
   {
-    number: 31,
-    suffix: "",
-    display: "31",
-    text: "distinct threat vectors unique to autonomous agents — from prompt injection to data exfiltration",
-    source: "OpenClaw Framework",
+    number: 4,
+    suffix: "hrs",
+    display: "4hrs",
+    text: "average time between an agent writing vulnerable code and a CI/CD scanner catching it",
+    source: "Industry Average",
     color: "text-rose-500",
   },
   {
     number: 0,
-    suffix: "",
-    display: "0",
-    text: "other security tools built specifically for autonomous AI agent threat models",
-    source: "We checked",
-    color: "text-amber-500",
+    suffix: "ms",
+    display: "0ms",
+    text: "delay with ProofLayer — threats are intercepted inline, before the agent executes",
+    source: "ProofLayer Architecture",
+    color: "text-indigo-500",
   },
 ]
 
@@ -94,15 +94,15 @@ export function WhySection() {
           className="text-center"
         >
           <span className="text-sm font-medium uppercase tracking-[0.2em] text-indigo-600/80">
-            The Problem
+            The Blind Spot
           </span>
           <h2 className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[64px] lg:leading-[1.05]">
-            AI agents are taking
+            Security tools weren&apos;t
             <br />
-            real-world actions unsupervised.
+            built for real-time.
           </h2>
           <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-gray-400 lg:text-2xl lg:leading-relaxed">
-            Without purpose-built security, one compromised prompt gives attackers access to everything.
+            Scanners run after code is committed. By the time they flag a threat, the agent has already executed it.
           </p>
         </motion.div>
 

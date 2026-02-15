@@ -20,7 +20,7 @@ export default async function Home() {
 
       <div className="relative">
         <Header stats={stats} />
-        <Hero />
+        <Hero stats={stats} />
         <WhySection />
         <DemoSection />
         <WhyProofLayer />

@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { ArrowRight, Copy, Check, Calendar, ExternalLink, Bot, Code2, MousePointerClick, Zap, Terminal } from "lucide-react"
 import { useCopyToClipboard } from "@/lib/use-copy"
 import { fadeUp, fadeIn, staggerContainer } from "@/lib/animations"
+import type { NpmStats } from "@/lib/npm-stats"
 
 const agents = [
   { name: "ClawdBot", icon: Bot },
@@ -13,7 +14,7 @@ const agents = [
   { name: "Windsurf", icon: Code2 },
 ]
 
-export function Hero() {
+export function Hero({ stats }: { stats?: NpmStats }) {
   const { copied, copy } = useCopyToClipboard("npx agent-security-scanner-mcp init")
 
   return (
@@ -38,7 +39,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
             </span>
-            Now protecting ClawdBot &middot; 31 threat vectors covered
+            Now live on npm &middot; MIT open source
             <ExternalLink className="h-3.5 w-3.5 text-emerald-500" />
           </motion.a>
 
@@ -48,9 +49,9 @@ export function Hero() {
             transition={{ duration: 0.7 }}
             className="max-w-5xl text-[52px] font-extrabold leading-[1.0] tracking-tighter text-gray-900 sm:text-[80px] lg:text-[96px]"
           >
-            AI agents act in the real&nbsp;world.
+            The immune system
             <br />
-            <span className="text-gradient">We make sure they&apos;re safe.</span>
+            <span className="text-gradient">for AI agents.</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -59,7 +60,7 @@ export function Hero() {
             transition={{ duration: 0.7 }}
             className="mt-8 max-w-2xl text-xl leading-relaxed text-gray-400 sm:text-2xl lg:text-[28px] lg:leading-relaxed"
           >
-            Autonomous agents manage your email, files, payments, and code. One compromised prompt gives attackers the keys to everything.
+            Traditional security tools scan code after it&apos;s written. ProofLayer intercepts threats as AI writes code — catching hallucinated packages, injected prompts, and exfiltration attempts in real-time.
           </motion.p>
 
           {/* Stats line */}
@@ -68,7 +69,7 @@ export function Hero() {
             transition={{ duration: 0.7 }}
             className="mt-8 font-mono text-sm text-gray-400"
           >
-            56 firewall rules &middot; 4.3M packages verified &middot; 31 threat vectors blocked
+            {stats?.totalDownloads?.toLocaleString() ?? "2,962"} npm downloads &middot; &lt;30s setup &middot; 9 agent clients &middot; MIT license
           </motion.p>
 
           {/* CTAs */}
