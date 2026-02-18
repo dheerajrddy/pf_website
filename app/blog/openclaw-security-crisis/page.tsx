@@ -6,7 +6,7 @@ import { Footer } from "@/components/footer"
 import { BlogHeader } from "@/components/blog/blog-header"
 import { ReadingProgressBar } from "@/components/blog/reading-progress-bar"
 import { TableOfContents, type TocItem } from "@/components/blog/table-of-contents"
-import { Shield, AlertTriangle, Search, Layers, GitCompare, Bug, Zap, ArrowRight, Check, X, Minus } from "lucide-react"
+import { Shield, AlertTriangle, Search, Layers, Bug, Zap, ArrowRight } from "lucide-react"
 
 const tocItems: TocItem[] = [
   { id: "openclaw-explosion", title: "The OpenClaw Explosion", level: 2 },
@@ -14,7 +14,7 @@ const tocItems: TocItem[] = [
   { id: "config-auditing-limits", title: "Why Config Auditing Falls Short", level: 2 },
   { id: "deep-code-analysis", title: "Deep Code Analysis", level: 2 },
   { id: "clawproof-architecture", title: "ClawProof Architecture", level: 2 },
-  { id: "clawproof-vs-secureclaw", title: "ClawProof vs SecureClaw", level: 2 },
+  { id: "clawproof-by-the-numbers", title: "ClawProof by the Numbers", level: 2 },
   { id: "what-clawproof-catches", title: "What ClawProof Catches", level: 2 },
   { id: "getting-started", title: "Getting Started", level: 2 },
 ]
@@ -24,27 +24,6 @@ const sectionAnimation = {
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
   transition: { duration: 0.5 },
-}
-
-const comparisonRows = [
-  { capability: "Skill code analysis (AST + taint tracking)", clawproof: true, secureclaw: false },
-  { capability: "Gateway / config security audit", clawproof: true, secureclaw: true },
-  { capability: "Prompt injection detection", clawproof: true, secureclaw: true },
-  { capability: "Package hallucination prevention", clawproof: true, secureclaw: false },
-  { capability: "Auto-fix vulnerabilities", clawproof: true, secureclaw: false },
-  { capability: "1,700+ security rules", clawproof: true, secureclaw: false },
-  { capability: "CWE + OWASP ASI mapping", clawproof: true, secureclaw: "partial" as const },
-  { capability: "False positive rate < 3%", clawproof: true, secureclaw: "partial" as const },
-  { capability: "Open source core", clawproof: true, secureclaw: true },
-  { capability: "Available as OpenClaw plugin", clawproof: true, secureclaw: true },
-  { capability: "Behavioral security skill", clawproof: true, secureclaw: false },
-  { capability: "CLI + MCP server fallback", clawproof: true, secureclaw: false },
-]
-
-function StatusIcon({ status }: { status: boolean | "partial" }) {
-  if (status === true) return <Check className="h-4 w-4 text-violet-500" />
-  if (status === false) return <X className="h-4 w-4 text-gray-300" />
-  return <Minus className="h-4 w-4 text-amber-500" />
 }
 
 export default function OpenClawSecurityCrisisPost() {
@@ -83,8 +62,8 @@ export default function OpenClawSecurityCrisisPost() {
                 </p>
 
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  On February 18, 2026, Adversa AI launched <strong>SecureClaw</strong>&mdash;an open-source
-                  security plugin that audits your OpenClaw gateway configuration. It&apos;s a good start.
+                  Most security tools for OpenClaw focus on auditing your gateway configuration&mdash;checking
+                  for exposed ports, weak auth, and permissive tool policies. That&apos;s a good start.
                   But configuration auditing only scratches the surface. The real threats live in the
                   code your skills execute.
                 </p>
@@ -203,8 +182,8 @@ export default function OpenClawSecurityCrisisPost() {
                 </div>
 
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  SecureClaw by Adversa AI takes an important first step: it audits your <code className="rounded bg-gray-100 px-1.5 py-0.5 text-sm font-mono text-gray-800">openclaw.json</code> configuration
-                  for insecure settings&mdash;exposed gateways, weak auth, permissive tool policies. This is
+                  Config auditing tools check your <code className="rounded bg-gray-100 px-1.5 py-0.5 text-sm font-mono text-gray-800">openclaw.json</code> for
+                  insecure settings&mdash;exposed gateways, weak auth, permissive tool policies. This is
                   valuable. You should absolutely audit your config.
                 </p>
 
@@ -247,7 +226,7 @@ export default function OpenClawSecurityCrisisPost() {
                 </div>
 
                 <p className="text-xl text-gray-600 leading-relaxed mb-6 border-l-4 border-amber-500 pl-6 italic">
-                  &ldquo;SecureClaw checks your locks. ClawProof reads the code.&rdquo;
+                  &ldquo;Config tools check your locks. ClawProof reads the code.&rdquo;
                 </p>
               </motion.div>
 
@@ -385,51 +364,49 @@ export default function OpenClawSecurityCrisisPost() {
                 </p>
               </motion.div>
 
-              {/* Section 6: ClawProof vs SecureClaw */}
+              {/* Section 6: ClawProof by the Numbers */}
               <motion.div {...sectionAnimation} className="mb-16">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-9 w-9 rounded-lg bg-violet-100 flex items-center justify-center">
-                    <GitCompare className="h-[18px] w-[18px] text-violet-600" />
+                    <Shield className="h-[18px] w-[18px] text-violet-600" />
                   </div>
-                  <h2 id="clawproof-vs-secureclaw" className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 scroll-mt-24">
-                    ClawProof vs SecureClaw
+                  <h2 id="clawproof-by-the-numbers" className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 scroll-mt-24">
+                    ClawProof by the Numbers
                   </h2>
                 </div>
 
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  Both tools aim to secure OpenClaw. But their approaches are fundamentally different.
-                  SecureClaw audits configuration. ClawProof analyzes code. Here&apos;s the full comparison:
+                  ClawProof goes far beyond configuration auditing. Here&apos;s what the engine delivers:
                 </p>
 
-                {/* Comparison table */}
-                <div className="overflow-hidden rounded-2xl border border-gray-200 mb-8">
-                  <div className="grid grid-cols-[1fr_100px_100px] border-b border-gray-200 bg-gray-50/80">
-                    <div className="px-4 py-3 text-xs font-semibold text-gray-900 uppercase tracking-wider">Capability</div>
-                    <div className="px-3 py-3 text-xs font-semibold text-violet-700 uppercase tracking-wider text-center">ClawProof</div>
-                    <div className="px-3 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider text-center">SecureClaw</div>
-                  </div>
-                  {comparisonRows.map((row, i) => (
-                    <div
-                      key={row.capability}
-                      className={`grid grid-cols-[1fr_100px_100px] border-b border-gray-100 last:border-b-0 ${
-                        i % 2 === 0 ? "bg-white" : "bg-gray-50/40"
-                      }`}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
+                  {[
+                    { number: "1,700+", label: "Security Rules", sub: "YAML-defined, CWE mapped" },
+                    { number: "4.3M+", label: "Packages Verified", sub: "7 ecosystems" },
+                    { number: "97.7%", label: "Precision Rate", sub: "2.3% false positive" },
+                    { number: "60+", label: "Config Checks", sub: "Gateway audit" },
+                    { number: "120", label: "Auto-fix Templates", sub: "One-command fixes" },
+                    { number: "12", label: "Languages", sub: "AST + taint analysis" },
+                  ].map((stat, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.1 + i * 0.05 }}
+                      className="rounded-xl border border-violet-100 bg-violet-50/40 p-4 text-center"
                     >
-                      <div className="px-4 py-2.5 text-sm text-gray-700">{row.capability}</div>
-                      <div className="flex items-center justify-center bg-violet-50/30 px-3 py-2.5">
-                        <StatusIcon status={row.clawproof} />
-                      </div>
-                      <div className="flex items-center justify-center px-3 py-2.5">
-                        <StatusIcon status={row.secureclaw} />
-                      </div>
-                    </div>
+                      <div className="text-xl font-bold text-gray-900 font-mono">{stat.number}</div>
+                      <div className="text-sm font-medium text-gray-700 mt-1">{stat.label}</div>
+                      <div className="text-xs text-gray-500 mt-0.5">{stat.sub}</div>
+                    </motion.div>
                   ))}
                 </div>
 
                 <div className="rounded-2xl border border-violet-100 bg-violet-50/60 p-6 mb-6">
                   <p className="text-base leading-relaxed text-gray-700 text-center">
-                    SecureClaw has <strong>51 config checks</strong>. ClawProof has 60+ config checks
-                    <em> plus</em> <strong>1,700+ code analysis rules</strong> with AST parsing,
+                    Config auditing tools check your gateway settings. ClawProof checks your gateway settings
+                    <em> plus</em> performs <strong>deep code analysis</strong> with AST parsing,
                     inter-procedural taint tracking, and package hallucination detection across
                     4.3 million packages in 7 ecosystems.
                   </p>
@@ -535,7 +512,7 @@ export default function OpenClawSecurityCrisisPost() {
                     },
                     {
                       step: "Audit your OpenClaw config",
-                      desc: "Use any available tool — including SecureClaw — to audit your openclaw.json. Config hardening is the baseline. Deep code analysis is the next layer.",
+                      desc: "Audit your openclaw.json for insecure settings — exposed gateways, weak auth, permissive tool policies. Config hardening is the baseline. Deep code analysis is the next layer.",
                     },
                     {
                       step: "Review your installed skills",

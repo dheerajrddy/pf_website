@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "ClawProof",
     "OpenClaw security plugin",
     "OpenClaw vulnerability scanner",
-    "SecureClaw alternative",
+    "Snyk alternative for AI agents",
     "agentic AI security",
     "AI assistant security",
     "prompt injection detection",

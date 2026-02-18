@@ -5,72 +5,77 @@ import { Check, X, Minus } from "lucide-react"
 
 type Status = "yes" | "no" | "partial"
 
-const rows: { capability: string; clawproof: Status; secureclaw: Status }[] = [
+const rows: {
+  capability: string
+  prooflayer: Status
+  snyk: Status
+  semgrep: Status
+}[] = [
   {
-    capability: "Skill code analysis (AST + taint tracking)",
-    clawproof: "yes",
-    secureclaw: "no",
+    capability: "Scans inside AI coding agents (MCP)",
+    prooflayer: "yes",
+    snyk: "no",
+    semgrep: "no",
   },
   {
-    capability: "Gateway / config security audit",
-    clawproof: "yes",
-    secureclaw: "yes",
+    capability: "Real-time scanning as code is written",
+    prooflayer: "yes",
+    snyk: "no",
+    semgrep: "no",
   },
   {
-    capability: "Prompt injection detection",
-    clawproof: "yes",
-    secureclaw: "yes",
+    capability: "AI-generated code-specific rules",
+    prooflayer: "yes",
+    snyk: "no",
+    semgrep: "partial",
   },
   {
-    capability: "Package hallucination prevention",
-    clawproof: "yes",
-    secureclaw: "no",
+    capability: "Package hallucination detection",
+    prooflayer: "yes",
+    snyk: "no",
+    semgrep: "no",
   },
   {
-    capability: "Auto-fix vulnerabilities",
-    clawproof: "yes",
-    secureclaw: "no",
+    capability: "Prompt injection firewall",
+    prooflayer: "yes",
+    snyk: "no",
+    semgrep: "no",
   },
   {
-    capability: "1,700+ security rules",
-    clawproof: "yes",
-    secureclaw: "no",
+    capability: "Auto-fix with one command",
+    prooflayer: "yes",
+    snyk: "partial",
+    semgrep: "partial",
   },
   {
-    capability: "CWE + OWASP ASI mapping",
-    clawproof: "yes",
-    secureclaw: "partial",
+    capability: "Works with Cursor, Claude Code, Copilot",
+    prooflayer: "yes",
+    snyk: "no",
+    semgrep: "no",
   },
   {
-    capability: "False positive rate < 3%",
-    clawproof: "yes",
-    secureclaw: "partial",
+    capability: "Free open-source core",
+    prooflayer: "yes",
+    snyk: "partial",
+    semgrep: "yes",
   },
   {
-    capability: "Open source core",
-    clawproof: "yes",
-    secureclaw: "yes",
+    capability: "< 5 min setup",
+    prooflayer: "yes",
+    snyk: "no",
+    semgrep: "no",
   },
   {
-    capability: "OpenClaw plugin",
-    clawproof: "yes",
-    secureclaw: "yes",
-  },
-  {
-    capability: "Behavioral security skill",
-    clawproof: "yes",
-    secureclaw: "no",
-  },
-  {
-    capability: "CLI + MCP server fallback",
-    clawproof: "yes",
-    secureclaw: "no",
+    capability: "CWE + OWASP mapped",
+    prooflayer: "yes",
+    snyk: "yes",
+    semgrep: "yes",
   },
 ]
 
 function StatusIcon({ status }: { status: Status }) {
   if (status === "yes")
-    return <Check className="h-5 w-5 text-violet-500" />
+    return <Check className="h-5 w-5 text-indigo-500" />
   if (status === "no")
     return <X className="h-5 w-5 text-gray-300" />
   return <Minus className="h-5 w-5 text-amber-500" />
@@ -78,7 +83,7 @@ function StatusIcon({ status }: { status: Status }) {
 
 function StatusPill({ status, label }: { status: Status; label: string }) {
   const styles = {
-    yes: "bg-violet-50 text-violet-700 border-violet-200",
+    yes: "bg-indigo-50 text-indigo-700 border-indigo-200",
     no: "bg-gray-50 text-gray-400 border-gray-200",
     partial: "bg-amber-50 text-amber-700 border-amber-200",
   }
@@ -99,7 +104,7 @@ function StatusPill({ status, label }: { status: Status; label: string }) {
 export function ComparisonTable() {
   return (
     <section className="px-4 py-32 sm:px-6 lg:px-8 lg:py-48">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-5xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -108,17 +113,17 @@ export function ComparisonTable() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <span className="text-sm font-medium uppercase tracking-[0.2em] text-violet-600/80">
-            ClawProof vs SecureClaw
+          <span className="text-sm font-medium uppercase tracking-[0.2em] text-indigo-600/80">
+            Why ProofLayer
           </span>
           <h2 className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[64px] lg:leading-[1.05]">
-            Deep code analysis.
+            Built for AI agents.
             <br />
-            Not just config&nbsp;checks.
+            <span className="text-gradient">Not&nbsp;retrofitted.</span>
           </h2>
           <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-gray-400 lg:text-2xl lg:leading-relaxed">
-            SecureClaw by Adversa AI checks your gateway configuration. ClawProof
-            analyzes the actual code your skills execute.
+            See how ProofLayer compares to traditional security tools
+            that were designed for human-written code.
           </p>
         </motion.div>
 
@@ -131,15 +136,18 @@ export function ComparisonTable() {
           className="mt-20 hidden overflow-hidden rounded-2xl border border-gray-200 md:block lg:mt-24"
         >
           {/* Table header */}
-          <div className="grid grid-cols-[1fr_140px_140px] border-b border-gray-200 bg-gray-50/80">
+          <div className="grid grid-cols-[1fr_140px_120px_120px] border-b border-gray-200 bg-gray-50/80">
             <div className="px-6 py-4 text-sm font-semibold text-gray-900">
               Capability
             </div>
-            <div className="px-4 py-4 text-center text-sm font-semibold text-violet-700">
-              ClawProof
+            <div className="px-4 py-4 text-center text-sm font-bold text-indigo-600">
+              ProofLayer
             </div>
             <div className="px-4 py-4 text-center text-sm font-semibold text-gray-500">
-              SecureClaw
+              Snyk
+            </div>
+            <div className="px-4 py-4 text-center text-sm font-semibold text-gray-500">
+              Semgrep
             </div>
           </div>
 
@@ -147,18 +155,21 @@ export function ComparisonTable() {
           {rows.map((row, i) => (
             <div
               key={row.capability}
-              className={`grid grid-cols-[1fr_140px_140px] border-b border-gray-100 last:border-b-0 ${
+              className={`grid grid-cols-[1fr_140px_120px_120px] border-b border-gray-100 last:border-b-0 ${
                 i % 2 === 0 ? "bg-white" : "bg-gray-50/40"
               }`}
             >
               <div className="px-6 py-3.5 text-sm text-gray-700">
                 {row.capability}
               </div>
-              <div className="flex items-center justify-center bg-violet-50/30 px-4 py-3.5">
-                <StatusIcon status={row.clawproof} />
+              <div className="flex items-center justify-center bg-indigo-50/30 px-4 py-3.5">
+                <StatusIcon status={row.prooflayer} />
               </div>
               <div className="flex items-center justify-center px-4 py-3.5">
-                <StatusIcon status={row.secureclaw} />
+                <StatusIcon status={row.snyk} />
+              </div>
+              <div className="flex items-center justify-center px-4 py-3.5">
+                <StatusIcon status={row.semgrep} />
               </div>
             </div>
           ))}
@@ -179,8 +190,9 @@ export function ComparisonTable() {
                 {row.capability}
               </p>
               <div className="space-y-2">
-                <StatusPill status={row.clawproof} label="ClawProof" />
-                <StatusPill status={row.secureclaw} label="SecureClaw" />
+                <StatusPill status={row.prooflayer} label="ProofLayer" />
+                <StatusPill status={row.snyk} label="Snyk" />
+                <StatusPill status={row.semgrep} label="Semgrep" />
               </div>
             </motion.div>
           ))}
@@ -192,16 +204,17 @@ export function ComparisonTable() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-12 rounded-2xl border border-violet-100 bg-violet-50/60 p-8 text-center lg:mt-16"
+          className="mt-12 rounded-2xl border border-indigo-100 bg-indigo-50/60 p-8 text-center lg:mt-16"
         >
           <p className="text-lg leading-relaxed text-gray-600 lg:text-xl">
-            SecureClaw checks if your gateway is configured correctly.
+            <span className="font-semibold text-gray-700">Snyk</span> is valued at{" "}
+            <span className="font-semibold text-gray-700">$8.5B</span>{" "}
+            protecting human-written code.
             <br className="hidden sm:block" />
-            ClawProof reads every line of code your skills execute — using the same{" "}
-            <span className="font-semibold text-violet-600">
-              AST + taint analysis engine
-            </span>{" "}
-            trusted by 3,000+ developers.
+            We&apos;re building the security layer for the{" "}
+            <span className="font-semibold text-indigo-600">
+              41% that AI writes
+            </span>.
           </p>
         </motion.div>
       </div>
