@@ -45,19 +45,15 @@ export function Hero({ stats }: { stats?: NpmStats }) {
               Now live on npm &middot; MIT open source
               <ExternalLink className="h-3.5 w-3.5 text-emerald-500" />
             </a>
-            <a
-              href="https://clawproof.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-violet-200/60 bg-violet-50/80 px-4 py-1.5 text-sm font-medium text-violet-700 transition-colors hover:bg-violet-100/80"
+            <span
+              className="inline-flex items-center gap-2 rounded-full border border-violet-200/60 bg-violet-50/80 px-4 py-1.5 text-sm font-medium text-violet-700"
             >
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-violet-500" />
               </span>
               ClawProof for OpenClaw &mdash; launching Feb 20
-              <ExternalLink className="h-3.5 w-3.5 text-violet-500" />
-            </a>
+            </span>
           </motion.div>
 
           {/* Headline */}

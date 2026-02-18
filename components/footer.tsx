@@ -51,17 +51,12 @@ export function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://clawproof.dev"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-900 transition-colors"
-                  >
+                  <span className="inline-flex items-center gap-2 text-gray-400">
                     ClawProof
                     <span className="inline-flex items-center rounded-full bg-violet-100 px-1.5 py-0.5 text-[10px] font-semibold text-violet-600">
                       Soon
                     </span>
-                  </a>
+                  </span>
                 </li>
               </ul>
             </div>

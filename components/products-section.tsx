@@ -7,7 +7,6 @@ import {
   Check,
   Copy,
   ArrowRight,
-  ExternalLink,
   Sparkles,
 } from "lucide-react"
 import { useCopyToClipboard } from "@/lib/use-copy"
@@ -40,7 +39,7 @@ const products = [
       "The first deep security plugin for OpenClaw. Scans skills for malicious code, audits gateway config, detects prompt injection, prevents package hallucinations, and auto-fixes vulnerabilities.",
     status: "coming_soon" as const,
     launchDate: "Feb 20",
-    link: "https://clawproof.dev",
+    link: "",
     icon: Shield,
     accent: "violet",
     features: [
@@ -182,17 +181,7 @@ function ProductCard({
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
-        ) : (
-          <a
-            href={product.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-medium transition-all hover:scale-[1.02] ${styles.cta}`}
-          >
-            {styles.ctaText}
-            <ExternalLink className="h-3.5 w-3.5" />
-          </a>
-        )}
+        ) : null}
       </div>
     </motion.div>
   )

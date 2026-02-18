@@ -21,6 +21,17 @@ export interface Author {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "openclaw-security-crisis",
+    title: "Why Config Auditing Isn't Enough: Deep Code Analysis for OpenClaw",
+    subtitle: "36.8% of OpenClaw skills have security flaws. Here's why scanning configs won't save you.",
+    excerpt: "OpenClaw has 200K+ GitHub stars and 720K weekly npm downloads — but 135,000+ exposed instances and 76 confirmed malicious skills. We break down the security crisis and why ClawProof's deep code analysis catches what config-only tools miss.",
+    category: "Product",
+    categoryColor: "violet",
+    readTime: "8 min read",
+    date: "February 18, 2026",
+    featured: true,
+  },
+  {
     slug: "autonomous-agent-security",
     title: "Securing Autonomous AI Assistants: The New Attack Surface",
     subtitle: "Why AI agents with system access need a prompt firewall",

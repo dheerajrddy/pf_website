@@ -27,15 +27,15 @@ export function FinalCta() {
             One command for MCP agents. One plugin for OpenClaw. Free and open source.
           </p>
 
-          <div className="mt-12 mx-auto max-w-lg space-y-6">
+          <div className="mt-12 mx-auto max-w-lg rounded-2xl bg-gray-900 p-6 shadow-[0_0_60px_-15px_rgba(79,70,229,0.15)]">
             {/* MCP Scanner */}
             <div>
-              <p className="mb-2 text-xs font-medium uppercase tracking-wider text-gray-400">
+              <p className="mb-2 text-xs font-medium uppercase tracking-wider text-gray-500">
                 MCP Agent Security
               </p>
               <button
                 onClick={copy}
-                className="group flex w-full items-center justify-between rounded-xl bg-gray-950 px-6 py-4 font-mono text-sm text-gray-300 shadow-[0_0_60px_-15px_rgba(79,70,229,0.15)] transition-all hover:bg-gray-900"
+                className="group flex w-full items-center justify-between rounded-lg bg-gray-950/50 px-5 py-3 font-mono text-sm text-gray-300 transition-all hover:bg-gray-950/70"
               >
                 <span>
                   <span className="text-gray-500">$ </span>
@@ -49,17 +49,19 @@ export function FinalCta() {
               </button>
             </div>
 
+            <div className="my-4 border-t border-gray-800" />
+
             {/* ClawProof */}
             <div>
-              <div className="mb-2 flex items-center justify-center gap-2">
-                <p className="text-xs font-medium uppercase tracking-wider text-violet-500">
+              <div className="mb-2 flex items-center gap-2">
+                <p className="text-xs font-medium uppercase tracking-wider text-violet-400">
                   OpenClaw Security
                 </p>
-                <span className="inline-flex items-center gap-1 rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-semibold text-violet-600">
+                <span className="inline-flex items-center gap-1 rounded-full bg-violet-500/20 px-2 py-0.5 text-[10px] font-semibold text-violet-300">
                   Feb 20
                 </span>
               </div>
-              <div className="flex w-full items-center justify-between rounded-xl bg-gray-950/60 px-6 py-4 font-mono text-sm text-gray-500 border border-gray-800">
+              <div className="flex w-full items-center justify-between rounded-lg bg-gray-950/30 px-5 py-3 font-mono text-sm text-gray-500">
                 <span>
                   <span className="text-gray-600">$ </span>
                   openclaw install clawproof
