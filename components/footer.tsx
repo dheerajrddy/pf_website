@@ -35,25 +35,58 @@ export function Footer() {
           </div>
 
           {/* Links */}
-          <div>
-            <h4 className="text-sm font-medium uppercase tracking-wider text-gray-400">Product</h4>
-            <ul className="mt-4 space-y-3 text-base">
-              <li>
-                <a href="#features" className="text-gray-500 hover:text-gray-900 transition-colors">
-                  Features
-                </a>
-              </li>
-              <li>
-                <a href="#demo" className="text-gray-500 hover:text-gray-900 transition-colors">
-                  How It Works
-                </a>
-              </li>
-              <li>
-                <Link href="/blog" className="text-gray-500 hover:text-gray-900 transition-colors">
-                  Blog
-                </Link>
-              </li>
-            </ul>
+          <div className="flex gap-16">
+            {/* Products */}
+            <div>
+              <h4 className="text-sm font-medium uppercase tracking-wider text-gray-400">Products</h4>
+              <ul className="mt-4 space-y-3 text-base">
+                <li>
+                  <a
+                    href="https://www.npmjs.com/package/agent-security-scanner-mcp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-gray-900 transition-colors"
+                  >
+                    Agent Security Scanner
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://clawproof.dev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-900 transition-colors"
+                  >
+                    ClawProof
+                    <span className="inline-flex items-center rounded-full bg-violet-100 px-1.5 py-0.5 text-[10px] font-semibold text-violet-600">
+                      Soon
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h4 className="text-sm font-medium uppercase tracking-wider text-gray-400">Resources</h4>
+              <ul className="mt-4 space-y-3 text-base">
+                <li>
+                  <a href="#features" className="text-gray-500 hover:text-gray-900 transition-colors">
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a href="#demo" className="text-gray-500 hover:text-gray-900 transition-colors">
+                    How It Works
+                  </a>
+                </li>
+                <li>
+                  <Link href="/blog" className="text-gray-500 hover:text-gray-900 transition-colors">
+                    Blog
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 

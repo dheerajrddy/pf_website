@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "ProofLayer — Security for Autonomous AI Agents",
   description:
-    "Prompt injection firewall, hallucination detection, and behavior guardrails for AI agents. Works with ClawdBot, Claude Code, Cursor, and any MCP agent. Free and open source.",
+    "Prompt injection firewall, hallucination detection, and behavior guardrails for AI agents. Agent Security Scanner for MCP agents. ClawProof plugin for OpenClaw. Free and open source.",
   keywords: [
     "AI agent security",
     "autonomous AI security",
@@ -31,6 +31,10 @@ export const metadata: Metadata = {
     "package hallucination detection",
     "MCP security",
     "OpenClaw security",
+    "ClawProof",
+    "OpenClaw security plugin",
+    "OpenClaw vulnerability scanner",
+    "SecureClaw alternative",
     "agentic AI security",
     "AI assistant security",
     "prompt injection detection",
@@ -39,14 +43,14 @@ export const metadata: Metadata = {
   authors: [{ name: "ProofLayer" }],
   openGraph: {
     title: "ProofLayer — Security for Autonomous AI Agents",
-    description: "AI agents are taking real-world actions. We make sure they're safe.",
+    description: "AI agents are taking real-world actions. We make sure they're safe. Agent Security Scanner + ClawProof for OpenClaw.",
     type: "website",
     siteName: "ProofLayer",
   },
   twitter: {
     card: "summary_large_image",
     title: "ProofLayer — Security for Autonomous AI Agents",
-    description: "AI agents are taking real-world actions. We make sure they're safe.",
+    description: "AI agents are taking real-world actions. We make sure they're safe. Agent Security Scanner + ClawProof for OpenClaw.",
   },
   icons: {
     icon: [

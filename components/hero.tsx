@@ -10,7 +10,7 @@ const agents = [
   { name: "ClawdBot", icon: Bot },
   { name: "Claude Code", icon: Terminal },
   { name: "Cursor", icon: MousePointerClick },
-  { name: "OpenClaw", icon: Zap },
+  { name: "OpenClaw", icon: Zap, highlight: true },
   { name: "Windsurf", icon: Code2 },
 ]
 
@@ -26,22 +26,39 @@ export function Hero({ stats }: { stats?: NpmStats }) {
           initial="hidden"
           animate="visible"
         >
-          {/* ClawdBot pill */}
-          <motion.a
-            href="https://www.npmjs.com/package/agent-security-scanner-mcp"
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Status pills */}
+          <motion.div
             variants={fadeIn}
             transition={{ duration: 0.7 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-200/60 bg-emerald-50/80 px-4 py-1.5 text-sm font-medium text-emerald-700 transition-colors hover:bg-emerald-100/80"
+            className="mb-6 flex flex-col items-center gap-3 sm:flex-row"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-            </span>
-            Now live on npm &middot; MIT open source
-            <ExternalLink className="h-3.5 w-3.5 text-emerald-500" />
-          </motion.a>
+            <a
+              href="https://www.npmjs.com/package/agent-security-scanner-mcp"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-200/60 bg-emerald-50/80 px-4 py-1.5 text-sm font-medium text-emerald-700 transition-colors hover:bg-emerald-100/80"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              Now live on npm &middot; MIT open source
+              <ExternalLink className="h-3.5 w-3.5 text-emerald-500" />
+            </a>
+            <a
+              href="https://clawproof.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-violet-200/60 bg-violet-50/80 px-4 py-1.5 text-sm font-medium text-violet-700 transition-colors hover:bg-violet-100/80"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-violet-500" />
+              </span>
+              ClawProof for OpenClaw &mdash; launching Feb 20
+              <ExternalLink className="h-3.5 w-3.5 text-violet-500" />
+            </a>
+          </motion.div>
 
           {/* Headline */}
           <motion.h1
@@ -60,7 +77,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
             transition={{ duration: 0.7 }}
             className="mt-8 max-w-2xl text-xl leading-relaxed text-gray-400 sm:text-2xl lg:text-[28px] lg:leading-relaxed"
           >
-            Traditional security tools scan code after it&apos;s written. ProofLayer intercepts threats as AI writes code — catching hallucinated packages, injected prompts, and exfiltration attempts in real-time.
+            Traditional security tools scan code after it&apos;s written. ProofLayer intercepts threats as AI writes code — from MCP agents to OpenClaw skills — catching hallucinated packages, injected prompts, and exfiltration attempts in real-time.
           </motion.p>
 
           {/* Stats line */}
@@ -69,7 +86,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
             transition={{ duration: 0.7 }}
             className="mt-8 font-mono text-sm text-gray-400"
           >
-            {stats?.totalDownloads?.toLocaleString() ?? "2,962"} npm downloads &middot; &lt;30s setup &middot; 9 agent clients &middot; MIT license
+            {stats?.totalDownloads?.toLocaleString() ?? "2,962"} npm downloads &middot; &lt;30s setup &middot; 9 agent clients &middot; OpenClaw plugin &middot; MIT license
           </motion.p>
 
           {/* CTAs */}
@@ -141,7 +158,11 @@ export function Hero({ stats }: { stats?: NpmStats }) {
                   return (
                     <div
                       key={`${agent.name}-${i}`}
-                      className="flex shrink-0 items-center gap-2.5 rounded-xl border border-gray-100 bg-white px-5 py-3 shadow-sm"
+                      className={`flex shrink-0 items-center gap-2.5 rounded-xl border px-5 py-3 shadow-sm ${
+                        agent.highlight
+                          ? "border-violet-200 bg-violet-50/80"
+                          : "border-gray-100 bg-white"
+                      }`}
                     >
                       <Icon className="h-5 w-5 text-indigo-500" />
                       <span className="text-base font-semibold text-gray-700 whitespace-nowrap">
