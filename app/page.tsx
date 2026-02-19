@@ -3,7 +3,7 @@ import { Hero } from "@/components/hero"
 import { WhySection } from "@/components/why-section"
 import { DemoSection } from "@/components/demo-section"
 import { ProductsSection } from "@/components/products-section"
-import { OpenClawCrisis } from "@/components/openclaw-crisis"
+import { SecurityGap } from "@/components/openclaw-crisis"
 import { ComparisonTable } from "@/components/comparison-table"
 import { WhyProofLayer } from "@/components/why-prooflayer"
 import { FinalCta } from "@/components/final-cta"
@@ -27,7 +27,7 @@ export default async function Home() {
         <WhySection />
         <DemoSection />
         <ProductsSection />
-        <OpenClawCrisis />
+        <SecurityGap />
         <ComparisonTable />
         <WhyProofLayer />
         <FinalCta />

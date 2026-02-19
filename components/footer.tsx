@@ -47,12 +47,30 @@ export function Footer() {
                     rel="noopener noreferrer"
                     className="text-gray-500 hover:text-gray-900 transition-colors"
                   >
-                    Agent Security Scanner
+                    MCP Server
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.npmjs.com/package/agent-security-scanner-mcp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-gray-900 transition-colors"
+                  >
+                    CLI
                   </a>
                 </li>
                 <li>
                   <span className="inline-flex items-center gap-2 text-gray-400">
-                    ClawProof
+                    OpenClaw Plugin
+                    <span className="inline-flex items-center rounded-full bg-violet-100 px-1.5 py-0.5 text-[10px] font-semibold text-violet-600">
+                      Soon
+                    </span>
+                  </span>
+                </li>
+                <li>
+                  <span className="inline-flex items-center gap-2 text-gray-400">
+                    OpenClaw Skill
                     <span className="inline-flex items-center rounded-full bg-violet-100 px-1.5 py-0.5 text-[10px] font-semibold text-violet-600">
                       Soon
                     </span>

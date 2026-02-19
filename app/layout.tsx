@@ -19,22 +19,24 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "ProofLayer — Security for Autonomous AI Agents",
+  title: "ProofLayer — The Immune System for AI Agents",
   description:
-    "Prompt injection firewall, hallucination detection, and behavior guardrails for AI agents. Agent Security Scanner for MCP agents. ClawProof plugin for OpenClaw. Free and open source.",
+    "Deep static analysis, package hallucination detection, prompt injection defense, and auto-fix for every AI coding agent. One npm package. MCP Server, CLI, OpenClaw Plugin, and OpenClaw Skill. Free and open source.",
   keywords: [
     "AI agent security",
     "autonomous AI security",
     "prompt injection firewall",
-    "ClawdBot security",
+    "agent-security-scanner-mcp",
     "AI agent guardrails",
     "package hallucination detection",
     "MCP security",
     "OpenClaw security",
-    "ClawProof",
-    "OpenClaw security plugin",
-    "OpenClaw vulnerability scanner",
-    "Snyk alternative for AI agents",
+    "Claude Code security",
+    "Cursor security",
+    "Windsurf security",
+    "Cline security",
+    "AST taint analysis",
+    "SecureClaw alternative",
     "agentic AI security",
     "AI assistant security",
     "prompt injection detection",
@@ -42,15 +44,15 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "ProofLayer" }],
   openGraph: {
-    title: "ProofLayer — Security for Autonomous AI Agents",
-    description: "AI agents are taking real-world actions. We make sure they're safe. Agent Security Scanner + ClawProof for OpenClaw.",
+    title: "ProofLayer — The Immune System for AI Agents",
+    description: "Deep code analysis, hallucination detection, prompt injection defense, and auto-fix for every AI coding agent. Free and open source.",
     type: "website",
     siteName: "ProofLayer",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ProofLayer — Security for Autonomous AI Agents",
-    description: "AI agents are taking real-world actions. We make sure they're safe. Agent Security Scanner + ClawProof for OpenClaw.",
+    title: "ProofLayer — The Immune System for AI Agents",
+    description: "Deep code analysis, hallucination detection, prompt injection defense, and auto-fix for every AI coding agent. Free and open source.",
   },
   icons: {
     icon: [

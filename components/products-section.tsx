@@ -6,49 +6,62 @@ import {
   Shield,
   Check,
   Copy,
-  ArrowRight,
+  Puzzle,
+  Brain,
   Sparkles,
 } from "lucide-react"
 import { useCopyToClipboard } from "@/lib/use-copy"
 import { fadeUp, fadeIn, staggerContainer } from "@/lib/animations"
 
-const products = [
+const surfaces = [
   {
-    name: "Agent Security Scanner",
-    tagline: "MCP Server for AI coding agents",
-    description:
-      "Real-time security scanning that runs inside any MCP-compatible agent. Catches vulnerabilities, hallucinated packages, and prompt injection as code is written.",
-    status: "live" as const,
-    installCommand: "npx agent-security-scanner-mcp init",
-    link: "https://www.npmjs.com/package/agent-security-scanner-mcp",
+    name: "MCP Server",
     icon: Terminal,
-    accent: "indigo",
+    status: "live" as const,
+    accent: "indigo" as const,
+    tagline: "Real-time security inside any MCP agent",
+    installCommand: "npx agent-security-scanner-mcp init",
     features: [
-      "1,700+ security rules",
-      "AST + taint analysis",
+      "Real-time interception",
       "12 language support",
-      "Claude Code, Cursor, Windsurf & more",
-      "97.7% precision",
-      "432 passing tests",
+      "Zero config",
     ],
   },
   {
-    name: "ClawProof",
-    tagline: "Making your OpenClaw bulletproof",
-    description:
-      "The first deep security plugin for OpenClaw. Scans skills for malicious code, audits gateway config, detects prompt injection, prevents package hallucinations, and auto-fixes vulnerabilities.",
-    status: "coming_soon" as const,
-    launchDate: "Feb 20",
-    link: "",
+    name: "CLI",
     icon: Shield,
-    accent: "violet",
+    status: "live" as const,
+    accent: "indigo" as const,
+    tagline: "Scan any codebase from the terminal",
+    installCommand: "npx agent-security-scanner-mcp scan .",
     features: [
-      "Skill code deep analysis (AST + taint)",
-      "Gateway security audit (60+ checks)",
+      "CI/CD integration",
+      "SARIF output",
+      "Batch scanning",
+    ],
+  },
+  {
+    name: "OpenClaw Plugin",
+    icon: Puzzle,
+    status: "coming_soon" as const,
+    accent: "violet" as const,
+    tagline: "Gateway-level security for OpenClaw",
+    features: [
+      "Gateway-level scanning",
+      "Config audit (60+ checks)",
+      "Kill switch",
+    ],
+  },
+  {
+    name: "OpenClaw Skill",
+    icon: Brain,
+    status: "coming_soon" as const,
+    accent: "violet" as const,
+    tagline: "In-context behavioral enforcement",
+    features: [
+      "20+ behavioral rules",
       "Prompt injection firewall",
-      "Package hallucination prevention",
-      "Auto-fix (120 templates)",
-      "Same engine — 1,700+ rules, 97.7% precision",
+      "In-context enforcement",
     ],
   },
 ]
@@ -60,9 +73,6 @@ const accentStyles = {
     check: "text-indigo-500",
     badge: "border-emerald-200/60 bg-emerald-50/80 text-emerald-700",
     badgeDot: "bg-emerald-400",
-    badgeDotPing: "bg-emerald-400",
-    cta: "bg-gray-900 text-white hover:bg-gray-800",
-    ctaText: "Get Started",
   },
   violet: {
     card: "border-violet-100 bg-violet-50/40 ring-1 ring-violet-100/50",
@@ -70,23 +80,20 @@ const accentStyles = {
     check: "text-violet-500",
     badge: "border-violet-200/60 bg-violet-50/80 text-violet-700",
     badgeDot: "bg-violet-500",
-    badgeDotPing: "bg-violet-400",
-    cta: "border border-violet-200 text-violet-700 hover:bg-violet-50",
-    ctaText: "Learn More",
   },
 }
 
-function ProductCard({
-  product,
+function SurfaceCard({
+  surface,
   index,
 }: {
-  product: (typeof products)[number]
+  surface: (typeof surfaces)[number]
   index: number
 }) {
-  const styles = accentStyles[product.accent as keyof typeof accentStyles]
-  const Icon = product.icon
+  const styles = accentStyles[surface.accent]
+  const Icon = surface.icon
   const { copied, copy } = useCopyToClipboard(
-    product.status === "live" ? product.installCommand! : ""
+    surface.status === "live" ? surface.installCommand! : ""
   )
 
   return (
@@ -94,31 +101,31 @@ function ProductCard({
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.12 }}
-      className={`relative rounded-2xl border p-8 lg:p-10 ${styles.card}`}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className={`relative rounded-2xl border p-6 lg:p-7 ${styles.card}`}
     >
-      {/* Status pill */}
-      <div className="mb-6">
-        {product.status === "live" ? (
+      {/* Status badge */}
+      <div className="mb-5">
+        {surface.status === "live" ? (
           <span
             className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium ${styles.badge}`}
           >
             <span className="relative flex h-1.5 w-1.5">
               <span
-                className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${styles.badgeDotPing}`}
+                className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${styles.badgeDot}`}
               />
               <span
                 className={`relative inline-flex h-1.5 w-1.5 rounded-full ${styles.badgeDot}`}
               />
             </span>
-            Live on npm
+            Live
           </span>
         ) : (
           <span
             className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium ${styles.badge}`}
           >
             <Sparkles className="h-3 w-3" />
-            Launching {product.launchDate}
+            Coming Soon
           </span>
         )}
       </div>
@@ -126,63 +133,49 @@ function ProductCard({
       {/* Icon + Name */}
       <div className="flex items-center gap-3">
         <div className={`rounded-xl p-2.5 ${styles.icon}`}>
-          <Icon className="h-6 w-6" />
+          <Icon className="h-5 w-5" />
         </div>
         <div>
-          <h3 className="text-xl font-bold tracking-tight text-gray-900">
-            {product.name}
+          <h3 className="text-lg font-bold tracking-tight text-gray-900">
+            {surface.name}
           </h3>
-          <p className="text-sm text-gray-500">{product.tagline}</p>
         </div>
       </div>
 
-      {/* Description */}
-      <p className="mt-5 text-base leading-relaxed text-gray-500">
-        {product.description}
+      {/* Tagline */}
+      <p className="mt-3 text-sm leading-relaxed text-gray-500">
+        {surface.tagline}
       </p>
 
       {/* Features */}
-      <ul className="mt-6 space-y-2.5">
-        {product.features.map((feature) => (
-          <li key={feature} className="flex items-start gap-2.5">
+      <ul className="mt-4 space-y-2">
+        {surface.features.map((feature) => (
+          <li key={feature} className="flex items-start gap-2">
             <Check
-              className={`mt-0.5 h-4 w-4 shrink-0 ${styles.check}`}
+              className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${styles.check}`}
             />
             <span className="text-sm text-gray-600">{feature}</span>
           </li>
         ))}
       </ul>
 
-      {/* CTA */}
-      <div className="mt-8">
-        {product.status === "live" ? (
-          <div className="space-y-3">
-            <button
-              onClick={copy}
-              className="flex w-full items-center justify-between rounded-xl bg-gray-950 px-5 py-3 font-mono text-sm text-gray-300 transition-all hover:bg-gray-900"
-            >
-              <span>
-                <span className="text-gray-500">$ </span>
-                {product.installCommand}
-              </span>
-              {copied ? (
-                <Check className="h-4 w-4 text-emerald-400" />
-              ) : (
-                <Copy className="h-4 w-4 text-gray-500" />
-              )}
-            </button>
-            <a
-              href={product.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-medium transition-all hover:scale-[1.02] ${styles.cta}`}
-            >
-              {styles.ctaText}
-              <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-        ) : null}
-      </div>
+      {/* Install command (live only) */}
+      {surface.status === "live" && surface.installCommand && (
+        <button
+          onClick={copy}
+          className="mt-5 flex w-full items-center justify-between rounded-lg bg-gray-950 px-4 py-2.5 font-mono text-xs text-gray-300 transition-all hover:bg-gray-900"
+        >
+          <span className="truncate">
+            <span className="text-gray-500">$ </span>
+            {surface.installCommand}
+          </span>
+          {copied ? (
+            <Check className="ml-2 h-3.5 w-3.5 shrink-0 text-emerald-400" />
+          ) : (
+            <Copy className="ml-2 h-3.5 w-3.5 shrink-0 text-gray-500" />
+          )}
+        </button>
+      )}
     </motion.div>
   )
 }
@@ -190,7 +183,7 @@ function ProductCard({
 export function ProductsSection() {
   return (
     <section
-      id="products"
+      id="install"
       className="scroll-mt-24 px-4 py-32 sm:px-6 lg:px-8 lg:py-48"
     >
       <div className="mx-auto max-w-6xl">
@@ -203,23 +196,57 @@ export function ProductsSection() {
           className="text-center"
         >
           <span className="text-sm font-medium uppercase tracking-[0.2em] text-indigo-600/80">
-            Our Products
+            Install
           </span>
           <h2 className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[64px] lg:leading-[1.05]">
-            One security engine.
+            One codebase.
             <br />
-            <span className="text-gradient">Two powerful products.</span>
+            <span className="text-gradient">Four surfaces.</span>
           </h2>
           <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-gray-400 lg:text-2xl lg:leading-relaxed">
-            The same battle-tested analysis engine that powers our MCP scanner is
-            now coming to OpenClaw.
+            Install once from npm. Deploy as an MCP server, a CLI tool, an OpenClaw plugin, or an OpenClaw skill. Same engine everywhere — 1,700+ rules, AST + taint analysis, 97.7% precision.
           </p>
         </motion.div>
 
-        {/* Product cards */}
-        <div className="mt-20 grid gap-8 lg:mt-24 lg:grid-cols-2">
-          {products.map((product, index) => (
-            <ProductCard key={product.name} product={product} index={index} />
+        {/* npm package branching visual */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mx-auto mt-16 max-w-3xl lg:mt-20"
+        >
+          <div className="flex flex-col items-center">
+            {/* Package name */}
+            <div className="inline-flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-6 py-3 shadow-sm">
+              <span className="font-mono text-sm font-semibold text-gray-400">npm:</span>
+              <span className="font-mono text-sm font-bold text-gray-900">agent-security-scanner-mcp</span>
+            </div>
+            {/* Vertical connector */}
+            <div className="h-8 w-px bg-gray-200" />
+            {/* Horizontal branch */}
+            <div className="relative flex w-full max-w-2xl items-start justify-between px-4">
+              {/* Horizontal line */}
+              <div className="absolute top-0 left-[12.5%] right-[12.5%] h-px bg-gray-200" />
+              {/* Branch labels */}
+              {["MCP Server", "CLI", "Plugin", "Skill"].map((label, i) => (
+                <div key={label} className="relative flex flex-col items-center" style={{ width: "25%" }}>
+                  <div className="h-5 w-px bg-gray-200" />
+                  <span className={`mt-1 text-xs font-medium ${
+                    i < 2 ? "text-indigo-600" : "text-violet-600"
+                  }`}>
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Surface cards */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
+          {surfaces.map((surface, index) => (
+            <SurfaceCard key={surface.name} surface={surface} index={index} />
           ))}
         </div>
       </div>

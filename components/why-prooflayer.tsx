@@ -52,7 +52,7 @@ const withItems = [
   {
     icon: Workflow,
     label: "Inline with the agent",
-    description: "Operates inside MCP, no separate pipeline needed",
+    description: "Operates inside the agent — MCP, CLI, or OpenClaw plugin",
   },
   {
     icon: ShieldCheck,
@@ -62,7 +62,7 @@ const withItems = [
   {
     icon: Puzzle,
     label: "Native integration",
-    description: "Same workflow, same context, zero config overhead",
+    description: "Same workflow, same context — whether in Claude Code, Cursor, or OpenClaw",
   },
   {
     icon: Brain,

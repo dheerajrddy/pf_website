@@ -40,8 +40,8 @@ export function Header({ stats }: { stats?: NpmStats }) {
 
         {/* Desktop Nav */}
         <nav className="hidden items-center gap-6 md:flex">
-          <a href="#products" className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900">
-            Products
+          <a href="#install" className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900">
+            Install
           </a>
           <a href="#features" className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900">
             Features
@@ -79,11 +79,11 @@ export function Header({ stats }: { stats?: NpmStats }) {
         <div className="bg-white/95 backdrop-blur-xl md:hidden">
           <nav className="flex flex-col gap-1 px-4 py-6">
             <a
-              href="#products"
+              href="#install"
               className="rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Products
+              Install
             </a>
             <a
               href="#features"

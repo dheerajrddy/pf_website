@@ -106,7 +106,7 @@ function StatCard({
   )
 }
 
-export function OpenClawCrisis() {
+export function SecurityGap() {
   return (
     <section className="bg-violet-50/20 px-4 py-32 sm:px-6 lg:px-8 lg:py-48">
       <div className="mx-auto max-w-7xl">
@@ -119,16 +119,15 @@ export function OpenClawCrisis() {
           className="text-center"
         >
           <span className="text-sm font-medium uppercase tracking-[0.2em] text-violet-600/80">
-            The OpenClaw Security Gap
+            The Security Gap
           </span>
           <h2 className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[64px] lg:leading-[1.05]">
-            Massive adoption.
+            AI agents are everywhere.
             <br />
-            Minimal security.
+            Security isn&apos;t.
           </h2>
           <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-gray-400 lg:text-2xl lg:leading-relaxed">
-            OpenClaw is the fastest-growing AI agent framework. But 36.8% of its
-            skills ship with security flaws. ClawProof closes this gap.
+            OpenClaw alone has 200K+ GitHub stars and 720K weekly npm downloads. Across all AI coding agents, adoption is exploding — but 36.8% of skills ship with security flaws.
           </p>
         </motion.div>
 

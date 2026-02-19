@@ -7,11 +7,13 @@ import { fadeUp, fadeIn, staggerContainer } from "@/lib/animations"
 import type { NpmStats } from "@/lib/npm-stats"
 
 const agents = [
-  { name: "ClawdBot", icon: Bot },
   { name: "Claude Code", icon: Terminal },
   { name: "Cursor", icon: MousePointerClick },
-  { name: "OpenClaw", icon: Zap, highlight: true },
   { name: "Windsurf", icon: Code2 },
+  { name: "Cline", icon: Bot },
+  { name: "OpenClaw", icon: Zap },
+  { name: "OpenCode", icon: Code2 },
+  { name: "Cody", icon: Bot },
 ]
 
 export function Hero({ stats }: { stats?: NpmStats }) {
@@ -52,7 +54,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-violet-500" />
               </span>
-              ClawProof for OpenClaw &mdash; launching Feb 20
+              Coming soon &mdash; OpenClaw plugin &amp; skill
             </span>
           </motion.div>
 
@@ -73,7 +75,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
             transition={{ duration: 0.7 }}
             className="mt-8 max-w-2xl text-xl leading-relaxed text-gray-400 sm:text-2xl lg:text-[28px] lg:leading-relaxed"
           >
-            Traditional security tools scan code after it&apos;s written. ProofLayer intercepts threats as AI writes code — from MCP agents to OpenClaw skills — catching hallucinated packages, injected prompts, and exfiltration attempts in real-time.
+            One npm package that scans code as AI writes it — across every agent. Deep static analysis, hallucinated package detection, prompt injection defense, and auto-fix. From MCP to OpenClaw, from Claude Code to Cline.
           </motion.p>
 
           {/* Stats line */}
@@ -82,7 +84,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
             transition={{ duration: 0.7 }}
             className="mt-8 font-mono text-sm text-gray-400"
           >
-            {stats?.totalDownloads?.toLocaleString() ?? "2,962"} npm downloads &middot; &lt;30s setup &middot; 9 agent clients &middot; OpenClaw plugin &middot; MIT license
+            {stats?.totalDownloads?.toLocaleString() ?? "2,962"} npm downloads &middot; &lt;30s setup &middot; 7+ AI coding agents &middot; 4 surfaces &middot; 1,700+ rules
           </motion.p>
 
           {/* CTAs */}
@@ -129,7 +131,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
             className="mt-14 w-full max-w-2xl"
           >
             <p className="mb-5 text-sm font-medium uppercase tracking-[0.15em] text-gray-400">
-              Works with any MCP agent
+              Works with every AI coding agent
             </p>
             <div className="relative overflow-hidden">
               {/* Fade edges */}
@@ -154,11 +156,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
                   return (
                     <div
                       key={`${agent.name}-${i}`}
-                      className={`flex shrink-0 items-center gap-2.5 rounded-xl border px-5 py-3 shadow-sm ${
-                        agent.highlight
-                          ? "border-violet-200 bg-violet-50/80"
-                          : "border-gray-100 bg-white"
-                      }`}
+                      className="flex shrink-0 items-center gap-2.5 rounded-xl border border-gray-100 bg-white px-5 py-3 shadow-sm"
                     >
                       <Icon className="h-5 w-5 text-indigo-500" />
                       <span className="text-base font-semibold text-gray-700 whitespace-nowrap">

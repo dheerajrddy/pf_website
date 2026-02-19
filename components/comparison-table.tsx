@@ -8,68 +8,90 @@ type Status = "yes" | "no" | "partial"
 const rows: {
   capability: string
   prooflayer: Status
+  secureclaw: Status
   snyk: Status
-  semgrep: Status
+  cisco: Status
+  agentsec: Status
 }[] = [
   {
-    capability: "Scans inside AI coding agents (MCP)",
+    capability: "Deep code analysis (AST + taint)",
     prooflayer: "yes",
-    snyk: "no",
-    semgrep: "no",
+    secureclaw: "no",
+    snyk: "partial",
+    cisco: "partial",
+    agentsec: "no",
   },
   {
-    capability: "Real-time scanning as code is written",
+    capability: "Cross-file taint tracking",
     prooflayer: "yes",
+    secureclaw: "no",
     snyk: "no",
-    semgrep: "no",
-  },
-  {
-    capability: "AI-generated code-specific rules",
-    prooflayer: "yes",
-    snyk: "no",
-    semgrep: "partial",
+    cisco: "no",
+    agentsec: "no",
   },
   {
     capability: "Package hallucination detection",
     prooflayer: "yes",
+    secureclaw: "no",
     snyk: "no",
-    semgrep: "no",
+    cisco: "no",
+    agentsec: "no",
   },
   {
-    capability: "Prompt injection firewall",
+    capability: "Prompt injection defense",
     prooflayer: "yes",
-    snyk: "no",
-    semgrep: "no",
+    secureclaw: "partial",
+    snyk: "yes",
+    cisco: "yes",
+    agentsec: "partial",
   },
   {
     capability: "Auto-fix with one command",
     prooflayer: "yes",
-    snyk: "partial",
-    semgrep: "partial",
-  },
-  {
-    capability: "Works with Cursor, Claude Code, Copilot",
-    prooflayer: "yes",
+    secureclaw: "no",
     snyk: "no",
-    semgrep: "no",
+    cisco: "no",
+    agentsec: "no",
   },
   {
-    capability: "Free open-source core",
+    capability: "Works across all AI coding agents (MCP)",
     prooflayer: "yes",
+    secureclaw: "no",
     snyk: "partial",
-    semgrep: "yes",
+    cisco: "no",
+    agentsec: "no",
   },
   {
-    capability: "< 5 min setup",
+    capability: "OpenClaw native support",
     prooflayer: "yes",
+    secureclaw: "yes",
     snyk: "no",
-    semgrep: "no",
+    cisco: "partial",
+    agentsec: "no",
   },
   {
-    capability: "CWE + OWASP mapped",
+    capability: "Real-time monitoring",
     prooflayer: "yes",
-    snyk: "yes",
-    semgrep: "yes",
+    secureclaw: "no",
+    snyk: "no",
+    cisco: "no",
+    agentsec: "no",
+  },
+  {
+    capability: "OWASP / MITRE mapping",
+    prooflayer: "yes",
+    secureclaw: "yes",
+    snyk: "partial",
+    cisco: "partial",
+    agentsec: "yes",
+  },
+  {
+    capability: "Free and open source",
+    prooflayer: "yes",
+    secureclaw: "yes",
+    snyk: "no",
+    cisco: "no",
+    agentsec: "yes",
   },
 ]
 
@@ -104,7 +126,7 @@ function StatusPill({ status, label }: { status: Status; label: string }) {
 export function ComparisonTable() {
   return (
     <section className="px-4 py-32 sm:px-6 lg:px-8 lg:py-48">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -122,8 +144,7 @@ export function ComparisonTable() {
             <span className="text-gradient">Not&nbsp;retrofitted.</span>
           </h2>
           <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-gray-400 lg:text-2xl lg:leading-relaxed">
-            See how ProofLayer compares to traditional security tools
-            that were designed for human-written code.
+            See how ProofLayer compares to the leading AI agent security tools.
           </p>
         </motion.div>
 
@@ -136,18 +157,24 @@ export function ComparisonTable() {
           className="mt-20 hidden overflow-hidden rounded-2xl border border-gray-200 md:block lg:mt-24"
         >
           {/* Table header */}
-          <div className="grid grid-cols-[1fr_140px_120px_120px] border-b border-gray-200 bg-gray-50/80">
+          <div className="grid grid-cols-[1fr_100px_100px_100px_100px_100px] border-b border-gray-200 bg-gray-50/80">
             <div className="px-6 py-4 text-sm font-semibold text-gray-900">
               Capability
             </div>
-            <div className="px-4 py-4 text-center text-sm font-bold text-indigo-600">
+            <div className="px-2 py-4 text-center text-sm font-bold text-indigo-600">
               ProofLayer
             </div>
-            <div className="px-4 py-4 text-center text-sm font-semibold text-gray-500">
+            <div className="px-2 py-4 text-center text-xs font-semibold text-gray-500">
+              SecureClaw
+            </div>
+            <div className="px-2 py-4 text-center text-xs font-semibold text-gray-500">
               Snyk
             </div>
-            <div className="px-4 py-4 text-center text-sm font-semibold text-gray-500">
-              Semgrep
+            <div className="px-2 py-4 text-center text-xs font-semibold text-gray-500">
+              Cisco
+            </div>
+            <div className="px-2 py-4 text-center text-xs font-semibold text-gray-500">
+              AgentSec
             </div>
           </div>
 
@@ -155,21 +182,27 @@ export function ComparisonTable() {
           {rows.map((row, i) => (
             <div
               key={row.capability}
-              className={`grid grid-cols-[1fr_140px_120px_120px] border-b border-gray-100 last:border-b-0 ${
+              className={`grid grid-cols-[1fr_100px_100px_100px_100px_100px] border-b border-gray-100 last:border-b-0 ${
                 i % 2 === 0 ? "bg-white" : "bg-gray-50/40"
               }`}
             >
               <div className="px-6 py-3.5 text-sm text-gray-700">
                 {row.capability}
               </div>
-              <div className="flex items-center justify-center bg-indigo-50/30 px-4 py-3.5">
+              <div className="flex items-center justify-center bg-indigo-50/30 px-2 py-3.5">
                 <StatusIcon status={row.prooflayer} />
               </div>
-              <div className="flex items-center justify-center px-4 py-3.5">
+              <div className="flex items-center justify-center px-2 py-3.5">
+                <StatusIcon status={row.secureclaw} />
+              </div>
+              <div className="flex items-center justify-center px-2 py-3.5">
                 <StatusIcon status={row.snyk} />
               </div>
-              <div className="flex items-center justify-center px-4 py-3.5">
-                <StatusIcon status={row.semgrep} />
+              <div className="flex items-center justify-center px-2 py-3.5">
+                <StatusIcon status={row.cisco} />
+              </div>
+              <div className="flex items-center justify-center px-2 py-3.5">
+                <StatusIcon status={row.agentsec} />
               </div>
             </div>
           ))}
@@ -191,8 +224,10 @@ export function ComparisonTable() {
               </p>
               <div className="space-y-2">
                 <StatusPill status={row.prooflayer} label="ProofLayer" />
+                <StatusPill status={row.secureclaw} label="SecureClaw" />
                 <StatusPill status={row.snyk} label="Snyk" />
-                <StatusPill status={row.semgrep} label="Semgrep" />
+                <StatusPill status={row.cisco} label="Cisco" />
+                <StatusPill status={row.agentsec} label="AgentSec" />
               </div>
             </motion.div>
           ))}
@@ -207,14 +242,16 @@ export function ComparisonTable() {
           className="mt-12 rounded-2xl border border-indigo-100 bg-indigo-50/60 p-8 text-center lg:mt-16"
         >
           <p className="text-lg leading-relaxed text-gray-600 lg:text-xl">
-            <span className="font-semibold text-gray-700">Snyk</span> is valued at{" "}
-            <span className="font-semibold text-gray-700">$8.5B</span>{" "}
-            protecting human-written code.
+            The only tool that combines{" "}
+            <span className="font-semibold text-gray-700">deep code analysis</span>,{" "}
+            <span className="font-semibold text-gray-700">hallucination detection</span>,{" "}
+            <span className="font-semibold text-gray-700">prompt injection defense</span>,{" "}
+            <span className="font-semibold text-gray-700">auto-fix</span>, and works across every AI coding agent
             <br className="hidden sm:block" />
-            We&apos;re building the security layer for the{" "}
-            <span className="font-semibold text-indigo-600">
-              41% that AI writes
-            </span>.
+            — from{" "}
+            <span className="font-semibold text-indigo-600">Claude Code</span>{" "}
+            to{" "}
+            <span className="font-semibold text-indigo-600">OpenClaw</span>.
           </p>
         </motion.div>
       </div>
