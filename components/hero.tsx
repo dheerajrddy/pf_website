@@ -14,6 +14,7 @@ const agents = [
   { name: "OpenClaw", icon: Zap },
   { name: "OpenCode", icon: Code2 },
   { name: "Cody", icon: Bot },
+  { name: "Kilo Code", icon: Code2 },
 ]
 
 export function Hero({ stats }: { stats?: NpmStats }) {
@@ -75,7 +76,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
             transition={{ duration: 0.7 }}
             className="mt-8 max-w-2xl text-xl leading-relaxed text-gray-400 sm:text-2xl lg:text-[28px] lg:leading-relaxed"
           >
-            One npm package that scans code as AI writes it — across every agent. Deep static analysis, hallucinated package detection, prompt injection defense, and auto-fix. From MCP to OpenClaw, from Claude Code to Cline.
+            One npm package that scans code as AI writes it — across every agent. Deep static analysis, hallucinated package detection, prompt injection defense, malware signatures, and auto-fix. From MCP to OpenClaw, from Claude Code to Cline.
           </motion.p>
 
           {/* Stats line */}
@@ -84,7 +85,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
             transition={{ duration: 0.7 }}
             className="mt-8 font-mono text-sm text-gray-400"
           >
-            {stats?.totalDownloads?.toLocaleString() ?? "2,962"} npm downloads &middot; &lt;30s setup &middot; 7+ AI coding agents &middot; 4 surfaces &middot; 1,700+ rules
+            {stats?.totalDownloads?.toLocaleString() ?? "2,962"} npm downloads &middot; &lt;30s setup &middot; 8 AI coding agents &middot; 4 surfaces &middot; 1,700+ rules
           </motion.p>
 
           {/* CTAs */}
