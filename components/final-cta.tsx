@@ -43,7 +43,7 @@ function ComingSoonRow({ label }: { label: string }) {
           Coming Soon
         </span>
       </div>
-      <span className="text-sm text-gray-600">Coming Q1 2026</span>
+      <span className="text-sm text-gray-600">Coming soon</span>
     </div>
   )
 }

@@ -45,10 +45,10 @@ const surfaces = [
     icon: Puzzle,
     status: "coming_soon" as const,
     accent: "violet" as const,
-    tagline: "Gateway-level security for OpenClaw",
+    tagline: "Native security plugin for OpenClaw",
     features: [
       "Gateway-level scanning",
-      "Config audit (60+ checks)",
+      "Plugin health monitoring",
       "Kill switch",
     ],
   },
@@ -57,11 +57,11 @@ const surfaces = [
     icon: Brain,
     status: "coming_soon" as const,
     accent: "violet" as const,
-    tagline: "In-context behavioral enforcement",
+    tagline: "Deep skill security scanning for OpenClaw",
     features: [
-      "20+ behavioral rules",
-      "Prompt injection firewall",
-      "In-context enforcement",
+      "6-layer deep analysis",
+      "ClawHavoc malware detection",
+      "Rug pull detection",
     ],
   },
 ]

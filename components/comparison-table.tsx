@@ -70,6 +70,14 @@ const rows: {
     agentsec: "no",
   },
   {
+    capability: "Skill & plugin security scanning",
+    prooflayer: "yes",
+    secureclaw: "no",
+    snyk: "no",
+    cisco: "no",
+    agentsec: "no",
+  },
+  {
     capability: "Real-time monitoring",
     prooflayer: "yes",
     secureclaw: "no",
