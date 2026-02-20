@@ -21,7 +21,7 @@ export function Footer() {
                 Proof<span className="text-indigo-600">Layer</span>
               </span>
             </div>
-            <p className="mt-4 text-base text-gray-500">The immune system for AI agents.</p>
+            <p className="mt-4 text-base text-gray-500">Security scanning for AI coding agents.</p>
             <div className="mt-6">
               <a
                 href="https://linkedin.com/company/prooflayer"
@@ -61,20 +61,24 @@ export function Footer() {
                   </a>
                 </li>
                 <li>
-                  <span className="inline-flex items-center gap-2 text-gray-400">
+                  <a
+                    href="https://www.npmjs.com/package/agent-security-scanner-mcp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-gray-900 transition-colors"
+                  >
                     OpenClaw Plugin
-                    <span className="inline-flex items-center rounded-full bg-violet-100 px-1.5 py-0.5 text-[10px] font-semibold text-violet-600">
-                      Soon
-                    </span>
-                  </span>
+                  </a>
                 </li>
                 <li>
-                  <span className="inline-flex items-center gap-2 text-gray-400">
+                  <a
+                    href="https://www.npmjs.com/package/agent-security-scanner-mcp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-gray-900 transition-colors"
+                  >
                     OpenClaw Skill
-                    <span className="inline-flex items-center rounded-full bg-violet-100 px-1.5 py-0.5 text-[10px] font-semibold text-violet-600">
-                      Soon
-                    </span>
-                  </span>
+                  </a>
                 </li>
               </ul>
             </div>
