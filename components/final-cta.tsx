@@ -34,20 +34,6 @@ function CopyRow({ command, label }: { command: string; label: string }) {
   )
 }
 
-function ComingSoonRow({ label }: { label: string }) {
-  return (
-    <div className="flex items-center justify-between gap-4">
-      <div className="flex items-center gap-3">
-        <span className="shrink-0 text-sm font-medium text-gray-500">{label}</span>
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 px-2 py-0.5 text-[10px] font-semibold text-violet-400">
-          Coming Soon
-        </span>
-      </div>
-      <span className="text-sm text-gray-600">Coming soon</span>
-    </div>
-  )
-}
-
 export function FinalCta() {
   return (
     <section className="scroll-mt-24 bg-gray-50/50 px-4 py-36 sm:px-6 lg:px-8 lg:py-52">
@@ -60,12 +46,10 @@ export function FinalCta() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-5xl font-extrabold tracking-tighter text-gray-900 sm:text-6xl lg:text-[72px] lg:leading-[1.05]">
-            Give your agents
-            <br className="hidden sm:block" />
-            an immune&nbsp;system.
+            Start scanning.
           </h2>
           <p className="mt-8 text-xl text-gray-400 sm:text-2xl lg:text-[28px] lg:leading-relaxed">
-            One package. Four surfaces. Every AI coding agent. Free and open source.
+            One npm package. Four surfaces. Free and open source.
           </p>
 
           <div className="mt-12 mx-auto max-w-2xl rounded-2xl bg-gray-900 p-6 shadow-[0_0_60px_-15px_rgba(79,70,229,0.15)]">
@@ -74,9 +58,9 @@ export function FinalCta() {
               <div className="border-t border-gray-800" />
               <CopyRow label="CLI" command="npx agent-security-scanner-mcp scan ." />
               <div className="border-t border-gray-800" />
-              <ComingSoonRow label="OpenClaw Plugin" />
+              <CopyRow label="OpenClaw Plugin" command="npx agent-security-scanner-mcp init openclaw" />
               <div className="border-t border-gray-800" />
-              <ComingSoonRow label="OpenClaw Skill" />
+              <CopyRow label="OpenClaw Skill" command="npx agent-security-scanner-mcp init openclaw" />
             </div>
           </div>
 

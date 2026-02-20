@@ -29,7 +29,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
           initial="hidden"
           animate="visible"
         >
-          {/* Status pills */}
+          {/* Status pill */}
           <motion.div
             variants={fadeIn}
             transition={{ duration: 0.7 }}
@@ -48,15 +48,6 @@ export function Hero({ stats }: { stats?: NpmStats }) {
               Now live on npm &middot; MIT open source
               <ExternalLink className="h-3.5 w-3.5 text-emerald-500" />
             </a>
-            <span
-              className="inline-flex items-center gap-2 rounded-full border border-violet-200/60 bg-violet-50/80 px-4 py-1.5 text-sm font-medium text-violet-700"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-violet-500" />
-              </span>
-              Coming soon &mdash; OpenClaw plugin &amp; skill
-            </span>
           </motion.div>
 
           {/* Headline */}
@@ -65,9 +56,9 @@ export function Hero({ stats }: { stats?: NpmStats }) {
             transition={{ duration: 0.7 }}
             className="max-w-5xl text-[52px] font-extrabold leading-[1.0] tracking-tighter text-gray-900 sm:text-[80px] lg:text-[96px]"
           >
-            The immune system
+            Scan what AI
             <br />
-            <span className="text-gradient">for AI agents.</span>
+            <span className="text-gradient">agents write.</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -76,7 +67,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
             transition={{ duration: 0.7 }}
             className="mt-8 max-w-2xl text-xl leading-relaxed text-gray-400 sm:text-2xl lg:text-[28px] lg:leading-relaxed"
           >
-            One npm package that scans code as AI writes it — across every agent. Deep static analysis, hallucinated package detection, prompt injection defense, malware signatures, and auto-fix. From MCP to OpenClaw, from Claude Code to Cline.
+            Security scanner for AI coding agents. Detects vulnerabilities, hallucinated packages, and prompt injection — via MCP or CLI.
           </motion.p>
 
           {/* Stats line */}

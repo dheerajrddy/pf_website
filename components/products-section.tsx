@@ -8,10 +8,8 @@ import {
   Copy,
   Puzzle,
   Brain,
-  Sparkles,
 } from "lucide-react"
 import { useCopyToClipboard } from "@/lib/use-copy"
-import { fadeUp, fadeIn, staggerContainer } from "@/lib/animations"
 
 const surfaces = [
   {
@@ -43,9 +41,10 @@ const surfaces = [
   {
     name: "OpenClaw Plugin",
     icon: Puzzle,
-    status: "coming_soon" as const,
-    accent: "violet" as const,
+    status: "live" as const,
+    accent: "indigo" as const,
     tagline: "Native security plugin for OpenClaw",
+    installCommand: "npx agent-security-scanner-mcp init openclaw",
     features: [
       "Gateway-level scanning",
       "Plugin health monitoring",
@@ -55,9 +54,10 @@ const surfaces = [
   {
     name: "OpenClaw Skill",
     icon: Brain,
-    status: "coming_soon" as const,
-    accent: "violet" as const,
+    status: "live" as const,
+    accent: "indigo" as const,
     tagline: "Deep skill security scanning for OpenClaw",
+    installCommand: "npx agent-security-scanner-mcp init openclaw",
     features: [
       "6-layer deep analysis",
       "ClawHavoc malware detection",
@@ -74,13 +74,6 @@ const accentStyles = {
     badge: "border-emerald-200/60 bg-emerald-50/80 text-emerald-700",
     badgeDot: "bg-emerald-400",
   },
-  violet: {
-    card: "border-violet-100 bg-violet-50/40 ring-1 ring-violet-100/50",
-    icon: "text-violet-600 bg-violet-100/80",
-    check: "text-violet-500",
-    badge: "border-violet-200/60 bg-violet-50/80 text-violet-700",
-    badgeDot: "bg-violet-500",
-  },
 }
 
 function SurfaceCard({
@@ -92,9 +85,7 @@ function SurfaceCard({
 }) {
   const styles = accentStyles[surface.accent]
   const Icon = surface.icon
-  const { copied, copy } = useCopyToClipboard(
-    surface.status === "live" ? surface.installCommand! : ""
-  )
+  const { copied, copy } = useCopyToClipboard(surface.installCommand ?? "")
 
   return (
     <motion.div
@@ -106,28 +97,19 @@ function SurfaceCard({
     >
       {/* Status badge */}
       <div className="mb-5">
-        {surface.status === "live" ? (
-          <span
-            className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium ${styles.badge}`}
-          >
-            <span className="relative flex h-1.5 w-1.5">
-              <span
-                className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${styles.badgeDot}`}
-              />
-              <span
-                className={`relative inline-flex h-1.5 w-1.5 rounded-full ${styles.badgeDot}`}
-              />
-            </span>
-            Live
+        <span
+          className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium ${styles.badge}`}
+        >
+          <span className="relative flex h-1.5 w-1.5">
+            <span
+              className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${styles.badgeDot}`}
+            />
+            <span
+              className={`relative inline-flex h-1.5 w-1.5 rounded-full ${styles.badgeDot}`}
+            />
           </span>
-        ) : (
-          <span
-            className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium ${styles.badge}`}
-          >
-            <Sparkles className="h-3 w-3" />
-            Coming Soon
-          </span>
-        )}
+          Live
+        </span>
       </div>
 
       {/* Icon + Name */}
@@ -229,12 +211,10 @@ export function ProductsSection() {
               {/* Horizontal line */}
               <div className="absolute top-0 left-[12.5%] right-[12.5%] h-px bg-gray-200" />
               {/* Branch labels */}
-              {["MCP Server", "CLI", "Plugin", "Skill"].map((label, i) => (
+              {["MCP Server", "CLI", "Plugin", "Skill"].map((label) => (
                 <div key={label} className="relative flex flex-col items-center" style={{ width: "25%" }}>
                   <div className="h-5 w-px bg-gray-200" />
-                  <span className={`mt-1 text-xs font-medium ${
-                    i < 2 ? "text-indigo-600" : "text-violet-600"
-                  }`}>
+                  <span className="mt-1 text-xs font-medium text-indigo-600">
                     {label}
                   </span>
                 </div>

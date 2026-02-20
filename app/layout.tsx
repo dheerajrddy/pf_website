@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "ProofLayer — The Immune System for AI Agents",
+  title: "ProofLayer — Security Scanner for AI Coding Agents",
   description:
     "Deep static analysis, package hallucination detection, prompt injection defense, and auto-fix for every AI coding agent. One npm package. MCP Server, CLI, OpenClaw Plugin, and OpenClaw Skill. Free and open source.",
   keywords: [
@@ -44,14 +44,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "ProofLayer" }],
   openGraph: {
-    title: "ProofLayer — The Immune System for AI Agents",
+    title: "ProofLayer — Security Scanner for AI Coding Agents",
     description: "Deep code analysis, hallucination detection, prompt injection defense, and auto-fix for every AI coding agent. Free and open source.",
     type: "website",
     siteName: "ProofLayer",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ProofLayer — The Immune System for AI Agents",
+    title: "ProofLayer — Security Scanner for AI Coding Agents",
     description: "Deep code analysis, hallucination detection, prompt injection defense, and auto-fix for every AI coding agent. Free and open source.",
   },
   icons: {
