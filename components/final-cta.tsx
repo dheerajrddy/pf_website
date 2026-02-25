@@ -8,9 +8,9 @@ import { fadeIn } from "@/lib/animations"
 function CopyRow({ command, label }: { command: string; label: string }) {
   const { copied, copy } = useCopyToClipboard(command)
   return (
-    <div className="flex items-center justify-between gap-4">
-      <div className="flex items-center gap-3 min-w-0">
-        <span className="shrink-0 text-sm font-medium text-gray-400">{label}</span>
+    <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+      <div className="flex items-center gap-3 sm:min-w-[160px] sm:shrink-0">
+        <span className="text-sm font-medium text-gray-400">{label}</span>
         <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold text-emerald-400">
           <span className="h-1 w-1 rounded-full bg-emerald-400" />
           Live
@@ -18,16 +18,16 @@ function CopyRow({ command, label }: { command: string; label: string }) {
       </div>
       <button
         onClick={copy}
-        className="group flex items-center gap-2 rounded-lg bg-gray-950/50 px-4 py-2 font-mono text-sm text-gray-300 transition-all hover:bg-gray-950/70"
+        className="group flex min-w-0 flex-1 items-center gap-2 rounded-lg bg-gray-950/50 px-4 py-2 font-mono text-sm text-gray-300 transition-all hover:bg-gray-950/70"
       >
         <span className="truncate">
           <span className="text-gray-500">$ </span>
           {command}
         </span>
         {copied ? (
-          <Check className="h-3.5 w-3.5 shrink-0 text-emerald-400" />
+          <Check className="ml-auto h-3.5 w-3.5 shrink-0 text-emerald-400" />
         ) : (
-          <Copy className="h-3.5 w-3.5 shrink-0 text-gray-500 transition-colors group-hover:text-gray-300" />
+          <Copy className="ml-auto h-3.5 w-3.5 shrink-0 text-gray-500 transition-colors group-hover:text-gray-300" />
         )}
       </button>
     </div>
@@ -60,7 +60,7 @@ export function FinalCta() {
               <div className="border-t border-gray-800" />
               <CopyRow label="OpenClaw Plugin" command="npx agent-security-scanner-mcp init openclaw" />
               <div className="border-t border-gray-800" />
-              <CopyRow label="OpenClaw Skill" command="npx agent-security-scanner-mcp init openclaw" />
+              <CopyRow label="OpenClaw Skill" command="npx agent-security-scanner-mcp scan-skill ." />
             </div>
           </div>
 

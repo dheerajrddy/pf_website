@@ -57,7 +57,7 @@ const surfaces = [
     status: "live" as const,
     accent: "indigo" as const,
     tagline: "Deep skill security scanning for OpenClaw",
-    installCommand: "npx agent-security-scanner-mcp init openclaw",
+    installCommand: "npx agent-security-scanner-mcp scan-skill .",
     features: [
       "6-layer deep analysis",
       "ClawHavoc malware detection",
@@ -186,7 +186,7 @@ export function ProductsSection() {
             <span className="text-gradient">Four surfaces.</span>
           </h2>
           <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-gray-400 lg:text-2xl lg:leading-relaxed">
-            Install once from npm. Deploy as an MCP server, a CLI tool, an OpenClaw plugin, or an OpenClaw skill. Same engine everywhere — 1,700+ rules, AST + taint analysis, 97.7% precision.
+            Install once from npm. Deploy as an MCP server, a CLI tool, an OpenClaw plugin, or an OpenClaw skill. Same engine everywhere — 1,700+ rules, AST + taint analysis.
           </p>
         </motion.div>
 

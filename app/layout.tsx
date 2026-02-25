@@ -41,7 +41,6 @@ export const metadata: Metadata = {
     "agentic AI security",
     "AI assistant security",
     "prompt injection detection",
-    "AI agent behavior monitoring",
   ],
   authors: [{ name: "ProofLayer" }],
   openGraph: {
