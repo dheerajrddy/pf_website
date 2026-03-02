@@ -20,9 +20,9 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "ProofLayer — Security Scanner for AI Coding Agents",
+  title: "ProofLayer — Runtime Security for AI Coding Agents",
   description:
-    "Deep static analysis, package hallucination detection, prompt injection defense, and auto-fix for every AI coding agent. One npm package. MCP Server, CLI, OpenClaw Plugin, and OpenClaw Skill. Free and open source.",
+    "Runtime security for MCP infrastructure. Detects vulnerabilities, hallucinated packages, and prompt injection inline — before AI agents execute. One npm package. MCP Server, CLI, OpenClaw Plugin, and OpenClaw Skill. Free and open source.",
   keywords: [
     "AI agent security",
     "autonomous AI security",
@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     "AI agent guardrails",
     "package hallucination detection",
     "MCP security",
+    "MCP runtime security",
     "OpenClaw security",
     "Claude Code security",
     "Cursor security",
@@ -44,15 +45,15 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "ProofLayer" }],
   openGraph: {
-    title: "ProofLayer — Security Scanner for AI Coding Agents",
-    description: "Deep code analysis, hallucination detection, prompt injection defense, and auto-fix for every AI coding agent. Free and open source.",
+    title: "ProofLayer — Runtime Security for AI Coding Agents",
+    description: "Runtime security for MCP infrastructure. Detects vulnerabilities, hallucinated packages, and prompt injection inline — before AI agents execute. Free and open source.",
     type: "website",
     siteName: "ProofLayer",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ProofLayer — Security Scanner for AI Coding Agents",
-    description: "Deep code analysis, hallucination detection, prompt injection defense, and auto-fix for every AI coding agent. Free and open source.",
+    title: "ProofLayer — Runtime Security for AI Coding Agents",
+    description: "Runtime security for MCP infrastructure. Detects vulnerabilities, hallucinated packages, and prompt injection inline — before AI agents execute. Free and open source.",
   },
   icons: {
     icon: [

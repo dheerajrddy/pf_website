@@ -1,4 +1,4 @@
-import { Linkedin } from "lucide-react"
+import { Linkedin, Github } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -22,7 +22,7 @@ export function Footer() {
               </span>
             </div>
             <p className="mt-4 text-base text-gray-500">Security scanning for AI coding agents.</p>
-            <div className="mt-6">
+            <div className="mt-6 flex items-center gap-4">
               <a
                 href="https://linkedin.com/company/prooflayer"
                 target="_blank"
@@ -30,6 +30,14 @@ export function Footer() {
                 className="text-gray-400 transition-colors hover:text-gray-600"
               >
                 <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="https://github.com/sinewaveai/agent-security-scanner-mcp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 transition-colors hover:text-gray-600"
+              >
+                <Github className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -41,42 +49,22 @@ export function Footer() {
               <h4 className="text-sm font-medium uppercase tracking-wider text-gray-400">Products</h4>
               <ul className="mt-4 space-y-3 text-base">
                 <li>
-                  <a
-                    href="https://www.npmjs.com/package/agent-security-scanner-mcp"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-gray-900 transition-colors"
-                  >
+                  <a href="#install" className="text-gray-500 hover:text-gray-900 transition-colors">
                     MCP Server
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.npmjs.com/package/agent-security-scanner-mcp"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-gray-900 transition-colors"
-                  >
+                  <a href="#install" className="text-gray-500 hover:text-gray-900 transition-colors">
                     CLI
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.npmjs.com/package/agent-security-scanner-mcp"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-gray-900 transition-colors"
-                  >
+                  <a href="#install" className="text-gray-500 hover:text-gray-900 transition-colors">
                     OpenClaw Plugin
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.npmjs.com/package/agent-security-scanner-mcp"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-gray-900 transition-colors"
-                  >
+                  <a href="#install" className="text-gray-500 hover:text-gray-900 transition-colors">
                     OpenClaw Skill
                   </a>
                 </li>

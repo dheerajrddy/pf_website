@@ -56,25 +56,25 @@ export function Hero({ stats }: { stats?: NpmStats }) {
             transition={{ duration: 0.7 }}
             className="max-w-5xl text-[52px] font-extrabold leading-[1.0] tracking-tighter text-gray-900 sm:text-[80px] lg:text-[96px]"
           >
-            Scan what AI
+            Secure what AI
             <br />
-            <span className="text-gradient">agents write.</span>
+            <span className="text-gradient">agents execute.</span>
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
             variants={fadeIn}
             transition={{ duration: 0.7 }}
-            className="mt-8 max-w-2xl text-xl leading-relaxed text-gray-400 sm:text-2xl lg:text-[28px] lg:leading-relaxed"
+            className="mt-8 max-w-2xl text-xl leading-relaxed text-gray-500 sm:text-2xl lg:text-[28px] lg:leading-relaxed"
           >
-            Security scanner for AI coding agents. Detects vulnerabilities, hallucinated packages, and prompt injection — via MCP or CLI.
+            Runtime security for AI coding agents. Intercepts vulnerabilities, hallucinated packages, and prompt injection inline — before agents execute.
           </motion.p>
 
           {/* Stats line */}
           <motion.p
             variants={fadeIn}
             transition={{ duration: 0.7 }}
-            className="mt-8 font-mono text-sm text-gray-400"
+            className="mt-8 font-mono text-sm text-gray-500"
           >
             {stats?.totalDownloads?.toLocaleString() ?? "2,962"} npm downloads &middot; &lt;30s setup &middot; 8 AI coding agents &middot; 4 surfaces &middot; 1,700+ rules
           </motion.p>
@@ -122,7 +122,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
             transition={{ duration: 0.7 }}
             className="mt-14 w-full max-w-2xl"
           >
-            <p className="mb-5 text-sm font-medium uppercase tracking-[0.15em] text-gray-400">
+            <p className="mb-5 text-sm font-medium uppercase tracking-[0.15em] text-gray-500">
               Works with every AI coding agent
             </p>
             <div className="relative overflow-hidden">
@@ -130,18 +130,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
               <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-r from-white to-transparent" />
               <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-l from-white to-transparent" />
 
-              <motion.div
-                className="flex gap-10"
-                animate={{ x: [0, -600] }}
-                transition={{
-                  x: {
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    duration: 15,
-                    ease: "linear",
-                  },
-                }}
-              >
+              <div className="flex gap-10 animate-carousel">
                 {/* Double the items for seamless loop */}
                 {[...agents, ...agents, ...agents].map((agent, i) => {
                   const Icon = agent.icon
@@ -157,7 +146,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
                     </div>
                   )
                 })}
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         </motion.div>

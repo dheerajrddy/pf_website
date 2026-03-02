@@ -220,7 +220,7 @@ export function DemoSection() {
             <br className="hidden sm:block" />
             Different&nbsp;timing.
           </h2>
-          <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-gray-400 lg:text-2xl lg:leading-relaxed">
+          <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-gray-500 lg:text-2xl lg:leading-relaxed">
             See how ProofLayer intercepts threats that traditional tools miss until it&apos;s too late.
           </p>
         </motion.div>

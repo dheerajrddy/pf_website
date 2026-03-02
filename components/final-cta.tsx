@@ -48,7 +48,7 @@ export function FinalCta() {
           <h2 className="text-5xl font-extrabold tracking-tighter text-gray-900 sm:text-6xl lg:text-[72px] lg:leading-[1.05]">
             Start scanning.
           </h2>
-          <p className="mt-8 text-xl text-gray-400 sm:text-2xl lg:text-[28px] lg:leading-relaxed">
+          <p className="mt-8 text-xl text-gray-500 sm:text-2xl lg:text-[28px] lg:leading-relaxed">
             One npm package. Four surfaces. Free and open source.
           </p>
 
@@ -64,7 +64,7 @@ export function FinalCta() {
             </div>
           </div>
 
-          <p className="mt-6 text-xs text-gray-400">
+          <p className="mt-6 text-xs text-gray-500">
             Free and open source. No credit card required.
           </p>
         </motion.div>

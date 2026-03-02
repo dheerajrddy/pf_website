@@ -104,3 +104,16 @@
     background-size: 28px 28px;
   }
 }
+
+@keyframes scroll-carousel {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-carousel {
+  animation: scroll-carousel 25s linear infinite;
+}

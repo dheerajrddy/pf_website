@@ -185,8 +185,8 @@ export function ProductsSection() {
             <br />
             <span className="text-gradient">Four surfaces.</span>
           </h2>
-          <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-gray-400 lg:text-2xl lg:leading-relaxed">
-            Install once from npm. Deploy as an MCP server, a CLI tool, an OpenClaw plugin, or an OpenClaw skill. Same engine everywhere — 1,700+ rules, AST + taint analysis.
+          <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-gray-500 lg:text-2xl lg:leading-relaxed">
+            Install once from npm. Deploy as an MCP server, a CLI tool, an OpenClaw plugin, or an OpenClaw skill. Same engine everywhere — 1,700+ rules, AST + taint analysis, OWASP-mapped.
           </p>
         </motion.div>
 
@@ -201,7 +201,7 @@ export function ProductsSection() {
           <div className="flex flex-col items-center">
             {/* Package name */}
             <div className="inline-flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-6 py-3 shadow-sm">
-              <span className="font-mono text-sm font-semibold text-gray-400">npm:</span>
+              <span className="font-mono text-sm font-semibold text-gray-500">npm:</span>
               <span className="font-mono text-sm font-bold text-gray-900">agent-security-scanner-mcp</span>
             </div>
             {/* Vertical connector */}

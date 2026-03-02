@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Github } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { NpmStatsBadge } from "@/components/npm-stats"
@@ -17,6 +17,13 @@ export function Header({ stats }: { stats?: NpmStats }) {
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return
+    const closeMenu = () => setMobileMenuOpen(false)
+    window.addEventListener("scroll", closeMenu, { passive: true })
+    return () => window.removeEventListener("scroll", closeMenu)
+  }, [mobileMenuOpen])
 
   return (
     <header
@@ -54,6 +61,15 @@ export function Header({ stats }: { stats?: NpmStats }) {
           </Link>
           {stats && <NpmStatsBadge stats={stats} />}
           <div className="mx-1 h-5 border-l border-gray-200" />
+          <a
+            href="https://github.com/sinewaveai/agent-security-scanner-mcp"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 transition-colors hover:text-gray-900"
+            aria-label="GitHub repository"
+          >
+            <Github className="h-5 w-5" />
+          </a>
           <a
             href="https://www.npmjs.com/package/agent-security-scanner-mcp"
             target="_blank"
@@ -107,6 +123,16 @@ export function Header({ stats }: { stats?: NpmStats }) {
               Blog
             </Link>
             <div className="my-2 border-t border-gray-100" />
+            <a
+              href="https://github.com/sinewaveai/agent-security-scanner-mcp"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <Github className="h-5 w-5" />
+              GitHub
+            </a>
             <a
               href="https://www.npmjs.com/package/agent-security-scanner-mcp"
               target="_blank"

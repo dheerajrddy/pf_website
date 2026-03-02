@@ -91,7 +91,7 @@ export function WhyProofLayer() {
             <br />
             A different architecture.
           </h2>
-          <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-gray-400 lg:text-2xl lg:leading-relaxed">
+          <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-gray-500 lg:text-2xl lg:leading-relaxed">
             ProofLayer doesn&apos;t compete with CI/CD tools. It operates inside the agent itself — intercepting threats at the source.
           </p>
         </motion.div>
