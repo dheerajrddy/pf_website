@@ -1,7 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Copy, Check, Calendar, ExternalLink, Bot, Code2, MousePointerClick, Zap, Terminal } from "lucide-react"
+import Link from "next/link"
+import { ArrowRight, Copy, Check, Calendar, ExternalLink, Bot, Code2, MousePointerClick, Zap, Terminal, BarChart3 } from "lucide-react"
 import { useCopyToClipboard } from "@/lib/use-copy"
 import { fadeUp, fadeIn, staggerContainer } from "@/lib/animations"
 import type { NpmStats } from "@/lib/npm-stats"
@@ -105,6 +106,13 @@ export function Hero({ stats }: { stats?: NpmStats }) {
                 <Copy className="h-4 w-4 text-indigo-400" />
               )}
             </button>
+            <Link
+              href="/dashboard"
+              className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-7 py-3.5 text-base font-medium text-gray-700 transition-all hover:border-gray-300 hover:bg-gray-50 hover:scale-[1.02]"
+            >
+              <BarChart3 className="h-4 w-4 text-indigo-500" />
+              Explore ClawHub Dashboard
+            </Link>
             <a
               href="https://calendly.com/divyachitimalla/intro"
               target="_blank"

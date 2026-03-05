@@ -56,6 +56,9 @@ export function Header({ stats }: { stats?: NpmStats }) {
           <a href="#demo" className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900">
             How It Works
           </a>
+          <Link href="/dashboard" className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900">
+            Dashboard
+          </Link>
           <Link href="/blog" className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900">
             Blog
           </Link>
@@ -115,6 +118,13 @@ export function Header({ stats }: { stats?: NpmStats }) {
             >
               How It Works
             </a>
+            <Link
+              href="/dashboard"
+              className="rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Dashboard
+            </Link>
             <Link
               href="/blog"
               className="rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
