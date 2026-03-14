@@ -1,170 +1,116 @@
 "use client"
 
 import { motion } from "framer-motion"
-import {
-  Clock,
-  GitBranch,
-  Eye,
-  Layers,
-  AlertTriangle,
-  Zap,
-  Workflow,
-  ShieldCheck,
-  Puzzle,
-  Brain,
-} from "lucide-react"
-import { fadeUp } from "@/lib/animations"
+import { Check, X } from "lucide-react"
+import { fadeUp, fadeIn, staggerContainer } from "@/lib/animations"
 
-const withoutItems = [
-  {
-    icon: Clock,
-    label: "Post-hoc detection",
-    description: "Threats found hours or days after code is written",
-  },
-  {
-    icon: GitBranch,
-    label: "CI/CD pipeline dependent",
-    description: "Security only runs when code is committed and pushed",
-  },
-  {
-    icon: Eye,
-    label: "Manual review required",
-    description: "Security alerts need human triage before action",
-  },
-  {
-    icon: Layers,
-    label: "Bolted-on integration",
-    description: "Separate tool, separate workflow, separate context",
-  },
-  {
-    icon: AlertTriangle,
-    label: "Blind to agent behavior",
-    description: "Can\u2019t see prompt injection, hallucination, or exfiltration",
-  },
+const columns = [
+  { label: "ProofLayer", highlighted: true },
+  { label: "Traditional Pentest", highlighted: false },
+  { label: "Acquired / Vendor-Locked", highlighted: false },
+  { label: "Static AI Scanners", highlighted: false },
 ]
 
-const withItems = [
-  {
-    icon: Zap,
-    label: "Real-time interception",
-    description: "Threats blocked as the agent writes code, before execution",
-  },
-  {
-    icon: Workflow,
-    label: "Inline with the agent",
-    description: "Operates inside the agent — MCP, CLI, or OpenClaw plugin",
-  },
-  {
-    icon: ShieldCheck,
-    label: "Automatic blocking",
-    description: "Dangerous actions prevented without human intervention",
-  },
-  {
-    icon: Puzzle,
-    label: "Native integration",
-    description: "Same workflow, same context — whether in Claude Code, Cursor, or OpenClaw",
-  },
-  {
-    icon: Brain,
-    label: "Agent-aware security",
-    description: "Purpose-built for prompt injection, hallucination, exfiltration",
-  },
+const rows = [
+  { capability: "Autonomous AI attack agents", values: [true, false, false, false] },
+  { capability: "Continuous 24/7 red-teaming", values: [true, false, false, false] },
+  { capability: "Self-evolving attack mutations", values: [true, false, false, false] },
+  { capability: "AI-native threat coverage", values: [true, false, true, true] },
+  { capability: "MCP / tool poisoning detection", values: [true, false, false, false] },
+  { capability: "Open-source & vendor-independent", values: [true, false, false, false] },
+  { capability: "Proof-of-exploit generation", values: [true, true, false, false] },
+  { capability: "Sub-30s setup, no config", values: [true, false, false, true] },
 ]
 
 export function WhyProofLayer() {
   return (
-    <section id="features" className="scroll-mt-24 px-4 py-32 sm:px-6 lg:px-8 lg:py-48">
+    <section id="why-prooflayer" className="scroll-mt-24 bg-[#0F172A] bg-dot-pattern px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={fadeUp}
-          transition={{ duration: 0.6 }}
+          variants={staggerContainer}
           className="text-center"
         >
-          <span className="text-sm font-medium uppercase tracking-[0.2em] text-indigo-600/80">
-            Why ProofLayer
-          </span>
-          <h2 className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[64px] lg:leading-[1.05]">
-            Not a better scanner.
+          <motion.span
+            variants={fadeIn}
+            className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-cyan-400"
+          >
+            05 — Why ProofLayer
+          </motion.span>
+          <motion.h2
+            variants={fadeUp}
+            transition={{ duration: 0.6 }}
+            className="mt-5 text-4xl font-extrabold tracking-tighter text-white sm:text-5xl lg:text-[56px] lg:leading-[1.1]"
+          >
+            The only independent, autonomous
             <br />
-            A different architecture.
-          </h2>
-          <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-gray-500 lg:text-2xl lg:leading-relaxed">
-            ProofLayer doesn&apos;t compete with CI/CD tools. It operates inside the agent itself — intercepting threats at the source.
-          </p>
+            AI red-teaming platform.
+          </motion.h2>
         </motion.div>
 
-        <div className="mt-20 grid gap-8 lg:grid-cols-2">
-          {/* Without ProofLayer */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-2xl border border-gray-200 bg-gray-50/80 p-8"
-          >
-            <h3 className="text-lg font-bold text-gray-500">Without ProofLayer</h3>
-            <div className="mt-6 space-y-5">
-              {withoutItems.map((item, index) => {
-                const Icon = item.icon
-                return (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.2 + index * 0.08 }}
-                    className="flex items-start gap-4"
+        {/* Comparison grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-16 overflow-x-auto"
+        >
+          <table className="w-full min-w-[640px] border-collapse">
+            <thead>
+              <tr>
+                <th className="p-4 text-left text-sm font-medium text-slate-500" />
+                {columns.map((col) => (
+                  <th
+                    key={col.label}
+                    className={`p-4 text-center text-sm font-bold ${
+                      col.highlighted
+                        ? "bg-cyan-500/10 text-cyan-400 rounded-t-xl"
+                        : "text-slate-500"
+                    }`}
                   >
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gray-200/80">
-                      <Icon className="h-4.5 w-4.5 text-gray-400" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-600">{item.label}</p>
-                      <p className="mt-0.5 text-sm text-gray-400">{item.description}</p>
-                    </div>
-                  </motion.div>
-                )
-              })}
-            </div>
-          </motion.div>
+                    {col.label}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, ri) => (
+                <tr key={row.capability} className="border-t border-slate-800">
+                  <td className="p-4 text-sm font-medium text-slate-300">{row.capability}</td>
+                  {row.values.map((val, ci) => (
+                    <td
+                      key={ci}
+                      className={`p-4 text-center ${
+                        columns[ci].highlighted
+                          ? "bg-cyan-500/5"
+                          : ""
+                      } ${ri === rows.length - 1 && columns[ci].highlighted ? "rounded-b-xl" : ""}`}
+                    >
+                      {val ? (
+                        <Check className="mx-auto h-5 w-5 text-emerald-400" />
+                      ) : (
+                        <X className="mx-auto h-5 w-5 text-slate-600" />
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </motion.div>
 
-          {/* With ProofLayer */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="rounded-2xl border border-indigo-100 bg-indigo-50/40 p-8 ring-1 ring-indigo-100/50"
-          >
-            <h3 className="text-lg font-bold text-indigo-600">With ProofLayer</h3>
-            <div className="mt-6 space-y-5">
-              {withItems.map((item, index) => {
-                const Icon = item.icon
-                return (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.3 + index * 0.08 }}
-                    className="flex items-start gap-4"
-                  >
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-indigo-100/80">
-                      <Icon className="h-4.5 w-4.5 text-indigo-500" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">{item.label}</p>
-                      <p className="mt-0.5 text-sm text-gray-500">{item.description}</p>
-                    </div>
-                  </motion.div>
-                )
-              })}
-            </div>
-          </motion.div>
-        </div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-8 text-center text-sm text-slate-500 max-w-2xl mx-auto"
+        >
+          The leading open-source AI security tools have been acquired by major platform vendors — losing their independence. ProofLayer is the only vendor-neutral, autonomous red-teaming platform for AI.
+        </motion.p>
       </div>
     </section>
   )

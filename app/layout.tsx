@@ -6,7 +6,6 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Inter, JetBrains_Mono } from 'next/font/google'
 
-// Initialize fonts - Clean, modern sans-serif
 const inter = Inter({
   subsets: ['latin'],
   weight: ["400", "500", "600", "700", "800"],
@@ -20,40 +19,40 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "ProofLayer — Runtime Security for AI Coding Agents",
+  title: "ProofLayer — Autonomous Red-Teaming for AI Systems",
   description:
-    "Runtime security for MCP infrastructure. Detects vulnerabilities, hallucinated packages, and prompt injection inline — before AI agents execute. One npm package. MCP Server, CLI, OpenClaw Plugin, and OpenClaw Skill. Free and open source.",
+    "Self-evolving AI agents that continuously attack your AI — finding what humans and scanners miss. Prompt injection, MCP exploits, tool poisoning, agent hijacking. Open source.",
   keywords: [
-    "AI agent security",
-    "autonomous AI security",
-    "prompt injection firewall",
-    "agent-security-scanner-mcp",
-    "AI agent guardrails",
-    "package hallucination detection",
+    "AI red teaming",
+    "autonomous red team",
+    "AI security",
+    "prompt injection",
     "MCP security",
-    "MCP runtime security",
-    "OpenClaw security",
-    "Claude Code security",
-    "Cursor security",
-    "Windsurf security",
-    "Cline security",
-    "AST taint analysis",
-    "SecureClaw alternative",
+    "tool poisoning",
+    "agent hijacking",
+    "AI red-teaming platform",
+    "agent-security-scanner-mcp",
+    "AI agent security",
+    "RAG injection",
+    "MCP exploit",
+    "AI penetration testing",
+    "continuous red-teaming",
+    "self-evolving attacks",
+    "AI vulnerability scanner",
     "agentic AI security",
-    "AI assistant security",
-    "prompt injection detection",
+    "LLM security",
   ],
   authors: [{ name: "ProofLayer" }],
   openGraph: {
-    title: "ProofLayer — Runtime Security for AI Coding Agents",
-    description: "Runtime security for MCP infrastructure. Detects vulnerabilities, hallucinated packages, and prompt injection inline — before AI agents execute. Free and open source.",
+    title: "ProofLayer — Autonomous Red-Teaming for AI Systems",
+    description: "Self-evolving AI agents that continuously attack your AI — finding what humans and scanners miss. Prompt injection, MCP exploits, tool poisoning, agent hijacking. Open source.",
     type: "website",
     siteName: "ProofLayer",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ProofLayer — Runtime Security for AI Coding Agents",
-    description: "Runtime security for MCP infrastructure. Detects vulnerabilities, hallucinated packages, and prompt injection inline — before AI agents execute. Free and open source.",
+    title: "ProofLayer — Autonomous Red-Teaming for AI Systems",
+    description: "Self-evolving AI agents that continuously attack your AI — finding what humans and scanners miss. Open source.",
   },
   icons: {
     icon: [
@@ -73,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         {children}
         <Analytics />

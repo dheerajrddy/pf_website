@@ -1,9 +1,14 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
+import { SocialProof } from "@/components/social-proof"
 import { WhySection } from "@/components/why-section"
+import { AttackSurface } from "@/components/attack-surface"
+import { Solution } from "@/components/solution"
 import { DemoSection } from "@/components/demo-section"
-import { ProductsSection } from "@/components/products-section"
 import { WhyProofLayer } from "@/components/why-prooflayer"
+import { Pricing } from "@/components/pricing"
+import { ProductsSection } from "@/components/products-section"
+import { Team } from "@/components/team"
 import { FinalCta } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
 import { getNpmStats } from "@/lib/npm-stats"
@@ -12,20 +17,19 @@ export default async function Home() {
   const stats = await getNpmStats()
 
   return (
-    <main className="relative min-h-screen bg-white bg-dot-pattern text-gray-900">
-      {/* Ambient glow behind hero */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/4 h-[600px] w-[900px] rounded-full bg-indigo-400/[0.04] blur-[100px]" />
-        <div className="absolute right-1/4 top-20 h-[400px] w-[600px] rounded-full bg-violet-300/[0.03] blur-[80px]" />
-      </div>
-
+    <main className="relative min-h-screen">
       <div className="relative">
         <Header stats={stats} />
         <Hero stats={stats} />
+        <SocialProof stats={stats} />
         <WhySection />
+        <AttackSurface />
+        <Solution />
         <DemoSection />
-        <ProductsSection />
         <WhyProofLayer />
+        <Pricing />
+        <ProductsSection />
+        <Team />
         <FinalCta />
         <Footer />
       </div>
