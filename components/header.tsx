@@ -91,12 +91,6 @@ export function Header({ stats }: { stats?: NpmStats }) {
           >
             Book a Demo
           </a>
-          <a
-            href="#install"
-            className="rounded-full border border-gray-200 px-5 py-2 text-sm font-medium text-gray-700 transition-all hover:border-indigo-300 hover:text-gray-900"
-          >
-            Install Free
-          </a>
         </nav>
 
         {/* Mobile: CTA always visible + hamburger */}
@@ -154,13 +148,6 @@ export function Header({ stats }: { stats?: NpmStats }) {
             >
               <Github className="h-5 w-5" />
               GitHub
-            </a>
-            <a
-              href="#install"
-              className="rounded-xl bg-indigo-600 px-4 py-3 text-base font-medium text-white hover:bg-indigo-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Install Free
             </a>
           </nav>
         </div>

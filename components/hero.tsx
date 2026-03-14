@@ -2,21 +2,9 @@
 
 import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import { ArrowRight, Copy, Check, Calendar, ExternalLink, Terminal, MousePointerClick, Code2, Bot, Zap } from "lucide-react"
+import { ArrowRight, Copy, Check, Calendar, ExternalLink } from "lucide-react"
 import { useCopyToClipboard } from "@/lib/use-copy"
 import { fadeUp, fadeIn, staggerContainer } from "@/lib/animations"
-import type { NpmStats } from "@/lib/npm-stats"
-
-const agents = [
-  { name: "Claude Code", icon: Terminal },
-  { name: "Cursor", icon: MousePointerClick },
-  { name: "Windsurf", icon: Code2 },
-  { name: "Cline", icon: Bot },
-  { name: "OpenClaw", icon: Zap },
-  { name: "OpenCode", icon: Code2 },
-  { name: "Cody", icon: Bot },
-  { name: "Kilo Code", icon: Code2 },
-]
 
 const terminalLines = [
   { text: "$ npx agent-security-scanner-mcp init", type: "command" as const },
@@ -95,13 +83,13 @@ function TerminalAnimation() {
   )
 }
 
-export function Hero({ stats }: { stats?: NpmStats }) {
+export function Hero() {
   const { copied, copy } = useCopyToClipboard("npx agent-security-scanner-mcp init")
 
   return (
-    <section className="relative px-4 pt-32 pb-20 sm:px-6 lg:px-8 lg:pt-40 lg:pb-28 bg-white overflow-hidden">
+    <section className="relative px-4 pt-36 pb-24 sm:px-6 lg:px-8 lg:pt-48 lg:pb-32 bg-white overflow-hidden">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+        <div className="grid gap-16 lg:grid-cols-2 lg:gap-20 items-center">
           {/* Left column — copy */}
           <motion.div
             variants={staggerContainer}
@@ -144,46 +132,37 @@ export function Hero({ stats }: { stats?: NpmStats }) {
               transition={{ duration: 0.7 }}
               className="mt-6 max-w-xl text-lg leading-relaxed text-gray-500 sm:text-xl"
             >
-              Self-evolving AI agents that continuously attack your AI — finding what humans and scanners miss. Prompt injection, MCP exploits, tool poisoning, agent hijacking. 24/7.
-            </motion.p>
-
-            {/* Stat bar */}
-            <motion.p
-              variants={fadeIn}
-              transition={{ duration: 0.7 }}
-              className="mt-6 font-mono text-sm text-gray-500"
-            >
-              50+ AI models red-teamed &middot; 200+ vulnerabilities discovered &middot; &lt;30s setup &middot; 1,700+ rules
+              Autonomous AI agents that continuously red-team your AI systems — finding the vulnerabilities that manual pentests and static scanners miss.
             </motion.p>
 
             {/* CTAs */}
             <motion.div
               variants={fadeUp}
               transition={{ duration: 0.7 }}
-              className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-5"
+              className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-5"
             >
-              <a
-                href="https://www.npmjs.com/package/agent-security-scanner-mcp"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-full bg-gray-900 px-8 py-3.5 text-base font-medium text-white transition-all hover:bg-gray-800 hover:scale-[1.02]"
-              >
-                Get Started
-                <ArrowRight className="h-5 w-5" />
-              </a>
               <a
                 href="https://calendly.com/divyachitimalla/intro"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-gray-200 px-7 py-3.5 text-base font-medium text-gray-700 transition-all hover:border-indigo-300 hover:text-gray-900 hover:scale-[1.02]"
+                className="inline-flex items-center gap-2.5 rounded-full bg-gray-900 px-8 py-3.5 text-base font-medium text-white transition-all hover:bg-gray-800 hover:scale-[1.02]"
               >
-                <Calendar className="h-4 w-4" />
+                <Calendar className="h-4.5 w-4.5" />
                 Book a Demo
+              </a>
+              <a
+                href="https://www.npmjs.com/package/agent-security-scanner-mcp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-base font-medium text-gray-600 transition-colors hover:text-gray-900"
+              >
+                Get Started
+                <ArrowRight className="h-4 w-4" />
               </a>
             </motion.div>
 
             {/* Copy command */}
-            <motion.div variants={fadeIn} transition={{ duration: 0.7 }} className="mt-6">
+            <motion.div variants={fadeIn} transition={{ duration: 0.7 }} className="mt-8">
               <button
                 onClick={copy}
                 className="inline-flex items-center gap-3 rounded-lg border border-indigo-200 bg-indigo-50/80 px-5 py-2.5 text-sm backdrop-blur-sm transition-all hover:bg-indigo-50 hover:border-indigo-300"
@@ -208,39 +187,6 @@ export function Hero({ stats }: { stats?: NpmStats }) {
             <TerminalAnimation />
           </motion.div>
         </div>
-
-        {/* Agent logos carousel */}
-        <motion.div
-          variants={fadeIn}
-          initial="hidden"
-          animate="visible"
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="mt-20 w-full"
-        >
-          <p className="mb-5 text-center text-sm font-medium uppercase tracking-[0.15em] text-gray-500">
-            Works with every AI coding agent
-          </p>
-          <div className="relative overflow-hidden">
-            <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-r from-white to-transparent" />
-            <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-l from-white to-transparent" />
-            <div className="flex gap-10 animate-carousel">
-              {[...agents, ...agents, ...agents].map((agent, i) => {
-                const Icon = agent.icon
-                return (
-                  <div
-                    key={`${agent.name}-${i}`}
-                    className="flex shrink-0 items-center gap-2.5 rounded-xl border border-gray-100 bg-white px-5 py-3 shadow-sm"
-                  >
-                    <Icon className="h-5 w-5 text-indigo-500" />
-                    <span className="text-base font-semibold text-gray-700 whitespace-nowrap">
-                      {agent.name}
-                    </span>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

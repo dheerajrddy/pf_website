@@ -22,6 +22,11 @@ export function Footer() {
               </span>
             </div>
             <p className="mt-4 text-base text-gray-400">Autonomous red-teaming for AI systems.</p>
+            <p className="mt-2 text-sm text-gray-500">
+              <a href="mailto:hello@prooflayer.com" className="hover:text-gray-300 transition-colors">
+                hello@prooflayer.com
+              </a>
+            </p>
             <div className="mt-6 flex items-center gap-4">
               <a
                 href="https://linkedin.com/company/prooflayer"
@@ -114,13 +119,20 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-16 border-t border-gray-800 pt-10">
-          <p className="text-sm text-gray-400">
-            &copy; 2026 ProofLayer. All rights reserved.
-          </p>
-          <p className="text-xs text-gray-500 mt-2">
-            ProofLayer is a product of SineWave AI, Inc.
-          </p>
+        <div className="mt-16 border-t border-gray-800 pt-10 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-sm text-gray-400">
+              &copy; 2026 ProofLayer. All rights reserved.
+            </p>
+            <p className="text-xs text-gray-500 mt-2">
+              ProofLayer is a product of SineWave AI, Inc.
+            </p>
+          </div>
+          <div className="flex items-center gap-4 text-sm text-gray-500">
+            <a href="#" className="hover:text-gray-300 transition-colors">Privacy Policy</a>
+            <span className="text-gray-700">&middot;</span>
+            <a href="#" className="hover:text-gray-300 transition-colors">Terms of Service</a>
+          </div>
         </div>
       </div>
     </footer>

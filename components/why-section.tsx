@@ -2,47 +2,47 @@
 
 import { motion } from "framer-motion"
 import { fadeUp, fadeIn, staggerContainer } from "@/lib/animations"
+import { Syringe, Wrench, Bot, Crosshair, Clock, Dna, ShieldCheck } from "lucide-react"
 
-const offenseStats = [
-  { value: "27s", label: "Average breakout time for AI-powered attacks" },
-  { value: "$1", label: "Cost to weaponize a CVE exploit in 10 minutes" },
-  { value: "89%", label: "Surge in AI-driven cyber intrusions" },
-  { value: "80-90%", label: "AI-generated phishing success rate" },
-  { value: "5 docs", label: "Enough poisoned documents for 90% RAG injection success" },
+const threats = [
+  {
+    icon: Syringe,
+    title: "Prompt Injection",
+    description: "Attackers manipulate LLM inputs to bypass instructions and exfiltrate data.",
+    badge: "OWASP #1",
+  },
+  {
+    icon: Wrench,
+    title: "MCP / Tool Poisoning",
+    description: "Malicious tool responses hijack agent behavior and execute unintended actions.",
+  },
+  {
+    icon: Bot,
+    title: "AI Agent Exploits",
+    description: "Autonomous agents are tricked into running harmful code or leaking secrets.",
+  },
 ]
 
-const defenseStats = [
-  { value: "Weeks", label: "Annual pentests take weeks to schedule and execute" },
-  { value: "Manual", label: "Red teams still rely on manual test creation" },
-  { value: "<30%", label: "Of AI-specific threats caught by traditional tools" },
-  { value: "43%", label: "MCP servers have injection vulnerabilities" },
-  { value: "75%", label: "Of security reviews are still manual processes" },
-]
-
-const breachCases = [
+const solutions = [
   {
-    stat: "1M+",
-    name: "EchoLeak",
-    description: "Conversational AI leaked over 1 million user records via prompt injection in a customer support bot.",
-    accent: "border-l-red-500",
+    icon: Crosshair,
+    title: "Autonomous AI Attack Agents",
+    description: "Deploy AI agents that think like attackers — no manual scripting required.",
   },
   {
-    stat: "5 CVEs",
-    name: "OpenClaw MCP Vulns",
-    description: "Critical vulnerabilities found in official MCP servers — CVSS scores up to 9.6. Remote code execution possible.",
-    accent: "border-l-amber-500",
+    icon: Clock,
+    title: "Continuous 24/7 Red-Teaming",
+    description: "Your AI changes daily. ProofLayer tests it around the clock.",
   },
   {
-    stat: "$10M+",
-    name: "Devin AI Incident",
-    description: "Autonomous coding agent executed malicious code from a poisoned dependency, exposing proprietary source code.",
-    accent: "border-l-red-500",
+    icon: Dna,
+    title: "Self-Evolving Attacks",
+    description: "Attack agents learn from each run and generate new exploit variants.",
   },
   {
-    stat: "APT",
-    name: "State-Sponsored AI Attacks",
-    description: "Nation-state actors using AI to generate polymorphic exploits, evading traditional detection at scale.",
-    accent: "border-l-amber-500",
+    icon: ShieldCheck,
+    title: "AI-Native Threat Coverage",
+    description: "Purpose-built for prompt injection, MCP exploits, RAG poisoning, and agent hijacking.",
   },
 ]
 
@@ -62,94 +62,85 @@ export function WhySection() {
             variants={fadeIn}
             className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-indigo-600/80"
           >
-            01 — The Gap
+            The Problem
           </motion.span>
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.6 }}
             className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.1]"
           >
-            AI proliferates at light speed.
+            AI created a massive new attack surface.
             <br />
-            <span className="text-gray-400">Security is still crawling.</span>
+            <span className="text-gray-400">Traditional security can&apos;t keep up.</span>
           </motion.h2>
         </motion.div>
 
-        {/* Offense vs Defense comparison */}
-        <div className="mx-auto mt-16 grid max-w-6xl gap-8 lg:grid-cols-2">
-          {/* Offense column */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm border-l-4 border-l-rose-500"
-          >
-            <h3 className="text-lg font-bold text-rose-600">Offense (Attackers)</h3>
-            <div className="mt-6 space-y-5">
-              {offenseStats.map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, x: -12 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="flex items-start gap-4"
-                >
-                  <span className="shrink-0 rounded-lg bg-rose-50 px-3 py-1.5 font-mono text-sm font-bold text-rose-600">
-                    {stat.value}
-                  </span>
-                  <p className="text-sm text-gray-600">{stat.label}</p>
-                </motion.div>
-              ))}
+        {/* Two columns */}
+        <div className="mx-auto mt-16 grid max-w-6xl gap-12 lg:grid-cols-2">
+          {/* Left — The Threat */}
+          <div>
+            <h3 className="text-lg font-bold text-gray-900 mb-6">The Threat</h3>
+            <div className="space-y-4">
+              {threats.map((threat, i) => {
+                const Icon = threat.icon
+                return (
+                  <motion.div
+                    key={threat.title}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="rounded-lg bg-red-50 p-2.5">
+                        <Icon className="h-5 w-5 text-red-500" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <h4 className="text-base font-semibold text-gray-900">{threat.title}</h4>
+                          {threat.badge && (
+                            <span className="rounded-full bg-red-50 px-2.5 py-0.5 text-xs font-medium text-red-600">
+                              {threat.badge}
+                            </span>
+                          )}
+                        </div>
+                        <p className="mt-1 text-sm text-gray-500">{threat.description}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                )
+              })}
             </div>
-          </motion.div>
+          </div>
 
-          {/* Defense column */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm border-l-4 border-l-gray-300"
-          >
-            <h3 className="text-lg font-bold text-gray-400">Defense (Current State)</h3>
-            <div className="mt-6 space-y-5">
-              {defenseStats.map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, x: 12 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="flex items-start gap-4"
-                >
-                  <span className="shrink-0 rounded-lg bg-gray-100 px-3 py-1.5 font-mono text-sm font-bold text-gray-500">
-                    {stat.value}
-                  </span>
-                  <p className="text-sm text-gray-500">{stat.label}</p>
-                </motion.div>
-              ))}
+          {/* Right — The Solution */}
+          <div>
+            <h3 className="text-lg font-bold text-gray-900 mb-6">The Solution</h3>
+            <div className="space-y-5">
+              {solutions.map((solution, i) => {
+                const Icon = solution.icon
+                return (
+                  <motion.div
+                    key={solution.title}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    className="flex items-start gap-4"
+                  >
+                    <div className="rounded-lg bg-indigo-50 p-2.5">
+                      <Icon className="h-5 w-5 text-indigo-600" />
+                    </div>
+                    <div>
+                      <h4 className="text-base font-semibold text-gray-900">{solution.title}</h4>
+                      <p className="mt-1 text-sm text-gray-500">{solution.description}</p>
+                    </div>
+                  </motion.div>
+                )
+              })}
             </div>
-          </motion.div>
-        </div>
-
-        {/* Breach case studies */}
-        <div className="mx-auto mt-16 grid max-w-6xl gap-6 sm:grid-cols-2">
-          {breachCases.map((c, i) => (
-            <motion.div
-              key={c.name}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className={`rounded-xl border-l-4 ${c.accent} border border-gray-200 bg-white p-6 shadow-sm`}
-            >
-              <p className="text-3xl font-extrabold tracking-tight text-gray-900">{c.stat}</p>
-              <p className="mt-2 text-base font-semibold text-gray-700">{c.name}</p>
-              <p className="mt-2 text-sm leading-relaxed text-gray-500">{c.description}</p>
-            </motion.div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

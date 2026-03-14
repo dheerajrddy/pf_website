@@ -12,14 +12,14 @@ const columns = [
 ]
 
 const rows = [
-  { capability: "Autonomous AI attack agents", values: [true, false, false, false] },
-  { capability: "Continuous 24/7 red-teaming", values: [true, false, false, false] },
-  { capability: "Self-evolving attack mutations", values: [true, false, false, false] },
-  { capability: "AI-native threat coverage", values: [true, false, true, true] },
-  { capability: "MCP / tool poisoning detection", values: [true, false, false, false] },
-  { capability: "Open-source & vendor-independent", values: [true, false, false, false] },
-  { capability: "Proof-of-exploit generation", values: [true, true, false, false] },
-  { capability: "Sub-30s setup, no config", values: [true, false, false, true] },
+  { capability: "Finds vulnerabilities without manual scripting", values: [true, false, false, false] },
+  { capability: "Catches new risks as your AI changes", values: [true, false, false, false] },
+  { capability: "Adapts to your defenses automatically", values: [true, false, false, false] },
+  { capability: "Covers AI-specific threats (injection, MCP, agents)", values: [true, false, true, true] },
+  { capability: "Tests MCP servers and tool integrations", values: [true, false, false, false] },
+  { capability: "Open-source, deploy anywhere", values: [true, false, false, false] },
+  { capability: "Proves exploitability with real PoCs", values: [true, true, false, false] },
+  { capability: "Deploys in under 30 seconds", values: [true, false, false, true] },
 ]
 
 export function WhyProofLayer() {
@@ -37,16 +37,16 @@ export function WhyProofLayer() {
             variants={fadeIn}
             className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-indigo-600/80"
           >
-            05 — Why ProofLayer
+            Why ProofLayer
           </motion.span>
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.6 }}
             className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.1]"
           >
-            The only independent, autonomous
+            Why security teams
             <br />
-            AI red-teaming platform.
+            choose ProofLayer.
           </motion.h2>
         </motion.div>
 
@@ -101,16 +101,6 @@ export function WhyProofLayer() {
             </tbody>
           </table>
         </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-8 text-center text-sm text-gray-500 max-w-2xl mx-auto"
-        >
-          The leading open-source AI security tools have been acquired by major platform vendors — losing their independence. ProofLayer is the only vendor-neutral, autonomous red-teaming platform for AI.
-        </motion.p>
       </div>
     </section>
   )

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Copy, Check, ArrowRight } from "lucide-react"
+import { Copy, Check, ArrowRight, Calendar } from "lucide-react"
 import { useCopyToClipboard } from "@/lib/use-copy"
 import { fadeIn, fadeUp, staggerContainer } from "@/lib/animations"
 
@@ -31,7 +31,7 @@ export function FinalCta() {
             transition={{ duration: 0.6 }}
             className="mt-8 text-xl text-gray-500 sm:text-2xl"
           >
-            One npm package. Autonomous attack agents. Free and open source.
+            See what attackers see — before they do.
           </motion.p>
 
           {/* CTAs */}
@@ -41,21 +41,22 @@ export function FinalCta() {
             className="mt-10 flex flex-col items-center gap-5 sm:flex-row sm:justify-center sm:gap-6"
           >
             <a
-              href="https://www.npmjs.com/package/agent-security-scanner-mcp"
+              href="https://calendly.com/divyachitimalla/intro"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 rounded-full bg-gray-900 px-8 py-4 text-base font-medium text-white transition-all hover:bg-gray-800 hover:scale-[1.02]"
             >
-              Get Started
-              <ArrowRight className="h-5 w-5" />
+              <Calendar className="h-4.5 w-4.5" />
+              Book a Demo
             </a>
             <a
-              href="https://calendly.com/divyachitimalla/intro"
+              href="https://www.npmjs.com/package/agent-security-scanner-mcp"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base font-medium text-indigo-600 transition-colors hover:text-indigo-700"
+              className="inline-flex items-center gap-2 text-base font-medium text-indigo-600 transition-colors hover:text-indigo-700"
             >
-              Book a Demo →
+              Get Started
+              <ArrowRight className="h-4 w-4" />
             </a>
           </motion.div>
 
