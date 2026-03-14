@@ -70,9 +70,9 @@ function TerminalAnimation() {
   }
 
   return (
-    <div className="rounded-xl border border-slate-700/50 bg-[#0B1120] shadow-2xl overflow-hidden">
+    <div className="rounded-xl border border-gray-200 bg-[#1E1E2E] shadow-2xl overflow-hidden">
       {/* Title bar */}
-      <div className="flex items-center gap-2 border-b border-slate-800 px-4 py-3">
+      <div className="flex items-center gap-2 border-b border-gray-700/50 px-4 py-3">
         <div className="flex gap-1.5">
           <div className="h-3 w-3 rounded-full bg-red-500/80" />
           <div className="h-3 w-3 rounded-full bg-amber-500/80" />
@@ -88,7 +88,7 @@ function TerminalAnimation() {
           </div>
         ))}
         {visibleLines < terminalLines.length && (
-          <span className="inline-block h-4 w-2 bg-cyan-400 animate-cursor" />
+          <span className="inline-block h-4 w-2 bg-indigo-400 animate-cursor" />
         )}
       </div>
     </div>
@@ -99,7 +99,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
   const { copied, copy } = useCopyToClipboard("npx agent-security-scanner-mcp init")
 
   return (
-    <section className="relative px-4 pt-32 pb-20 sm:px-6 lg:px-8 lg:pt-40 lg:pb-28 bg-[#0F172A] bg-dot-pattern overflow-hidden">
+    <section className="relative px-4 pt-32 pb-20 sm:px-6 lg:px-8 lg:pt-40 lg:pb-28 bg-white overflow-hidden">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           {/* Left column — copy */}
@@ -114,14 +114,14 @@ export function Hero({ stats }: { stats?: NpmStats }) {
                 href="https://www.npmjs.com/package/agent-security-scanner-mcp"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-sm font-medium text-cyan-400 transition-colors hover:bg-cyan-500/20"
+                className="inline-flex items-center gap-2 rounded-full border border-emerald-200/60 bg-emerald-50/80 px-4 py-1.5 text-sm font-medium text-emerald-700 transition-colors hover:bg-emerald-50"
               >
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                 </span>
                 Now live on npm &middot; MIT open source
-                <ExternalLink className="h-3.5 w-3.5 text-cyan-500" />
+                <ExternalLink className="h-3.5 w-3.5 text-emerald-500" />
               </a>
             </motion.div>
 
@@ -129,7 +129,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
             <motion.h1
               variants={fadeUp}
               transition={{ duration: 0.7 }}
-              className="mt-8 text-[44px] font-extrabold leading-[1.05] tracking-tighter text-white sm:text-[64px] lg:text-[72px]"
+              className="mt-8 text-[44px] font-extrabold leading-[1.05] tracking-tighter text-gray-900 sm:text-[64px] lg:text-[72px]"
             >
               The autonomous
               <br />
@@ -142,7 +142,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
             <motion.p
               variants={fadeIn}
               transition={{ duration: 0.7 }}
-              className="mt-6 max-w-xl text-lg leading-relaxed text-slate-400 sm:text-xl"
+              className="mt-6 max-w-xl text-lg leading-relaxed text-gray-500 sm:text-xl"
             >
               Self-evolving AI agents that continuously attack your AI — finding what humans and scanners miss. Prompt injection, MCP exploits, tool poisoning, agent hijacking. 24/7.
             </motion.p>
@@ -151,7 +151,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
             <motion.p
               variants={fadeIn}
               transition={{ duration: 0.7 }}
-              className="mt-6 font-mono text-sm text-slate-500"
+              className="mt-6 font-mono text-sm text-gray-500"
             >
               50+ AI models red-teamed &middot; 200+ vulnerabilities discovered &middot; &lt;30s setup &middot; 1,700+ rules
             </motion.p>
@@ -166,7 +166,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
                 href="https://www.npmjs.com/package/agent-security-scanner-mcp"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-full bg-cyan-500 px-8 py-3.5 text-base font-medium text-white transition-all hover:bg-cyan-600 hover:scale-[1.02]"
+                className="inline-flex items-center gap-2.5 rounded-full bg-gray-900 px-8 py-3.5 text-base font-medium text-white transition-all hover:bg-gray-800 hover:scale-[1.02]"
               >
                 Get Started
                 <ArrowRight className="h-5 w-5" />
@@ -175,7 +175,7 @@ export function Hero({ stats }: { stats?: NpmStats }) {
                 href="https://calendly.com/divyachitimalla/intro"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-600 px-7 py-3.5 text-base font-medium text-slate-300 transition-all hover:border-cyan-500/50 hover:text-white hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 rounded-full border border-gray-200 px-7 py-3.5 text-base font-medium text-gray-700 transition-all hover:border-indigo-300 hover:text-gray-900 hover:scale-[1.02]"
               >
                 <Calendar className="h-4 w-4" />
                 Book a Demo
@@ -186,13 +186,13 @@ export function Hero({ stats }: { stats?: NpmStats }) {
             <motion.div variants={fadeIn} transition={{ duration: 0.7 }} className="mt-6">
               <button
                 onClick={copy}
-                className="inline-flex items-center gap-3 rounded-lg border border-slate-700 bg-slate-800/80 px-5 py-2.5 text-sm backdrop-blur-sm transition-all hover:bg-slate-800 hover:border-slate-600"
+                className="inline-flex items-center gap-3 rounded-lg border border-indigo-200 bg-indigo-50/80 px-5 py-2.5 text-sm backdrop-blur-sm transition-all hover:bg-indigo-50 hover:border-indigo-300"
               >
-                <code className="font-mono text-sm text-cyan-400">npx agent-security-scanner-mcp init</code>
+                <code className="font-mono text-sm text-indigo-600">npx agent-security-scanner-mcp init</code>
                 {copied ? (
-                  <Check className="h-4 w-4 text-emerald-400" />
+                  <Check className="h-4 w-4 text-emerald-500" />
                 ) : (
-                  <Copy className="h-4 w-4 text-slate-500" />
+                  <Copy className="h-4 w-4 text-gray-400" />
                 )}
               </button>
             </motion.div>
@@ -217,22 +217,22 @@ export function Hero({ stats }: { stats?: NpmStats }) {
           transition={{ duration: 0.7, delay: 0.5 }}
           className="mt-20 w-full"
         >
-          <p className="mb-5 text-center text-sm font-medium uppercase tracking-[0.15em] text-slate-500">
+          <p className="mb-5 text-center text-sm font-medium uppercase tracking-[0.15em] text-gray-500">
             Works with every AI coding agent
           </p>
           <div className="relative overflow-hidden">
-            <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-r from-[#0F172A] to-transparent" />
-            <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-l from-[#0F172A] to-transparent" />
+            <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-r from-white to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-l from-white to-transparent" />
             <div className="flex gap-10 animate-carousel">
               {[...agents, ...agents, ...agents].map((agent, i) => {
                 const Icon = agent.icon
                 return (
                   <div
                     key={`${agent.name}-${i}`}
-                    className="flex shrink-0 items-center gap-2.5 rounded-xl border border-slate-700/50 bg-slate-800/50 px-5 py-3"
+                    className="flex shrink-0 items-center gap-2.5 rounded-xl border border-gray-100 bg-white px-5 py-3 shadow-sm"
                   >
-                    <Icon className="h-5 w-5 text-cyan-400" />
-                    <span className="text-base font-semibold text-slate-300 whitespace-nowrap">
+                    <Icon className="h-5 w-5 text-indigo-500" />
+                    <span className="text-base font-semibold text-gray-700 whitespace-nowrap">
                       {agent.name}
                     </span>
                   </div>

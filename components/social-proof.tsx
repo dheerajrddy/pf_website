@@ -46,7 +46,7 @@ const metrics = [
 
 export function SocialProof({ stats }: SocialProofProps) {
   return (
-    <section className="relative bg-slate-50 px-4 py-16 sm:px-6 lg:px-8 bg-dot-pattern-light">
+    <section className="relative bg-gray-50 px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -57,7 +57,7 @@ export function SocialProof({ stats }: SocialProofProps) {
         >
           {metrics.map((metric) => (
             <div key={metric.label} className="text-center">
-              <p className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+              <p className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                 {metric.static ? (
                   metric.static
                 ) : metric.key === "downloads" ? (
@@ -66,7 +66,7 @@ export function SocialProof({ stats }: SocialProofProps) {
                   <AnimatedNumber value={metric.value!} suffix={metric.suffix} />
                 )}
               </p>
-              <p className="mt-1 text-sm font-medium text-slate-500">{metric.label}</p>
+              <p className="mt-1 text-sm font-medium text-gray-500">{metric.label}</p>
             </div>
           ))}
         </motion.div>

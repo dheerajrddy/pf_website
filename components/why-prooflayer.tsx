@@ -24,7 +24,7 @@ const rows = [
 
 export function WhyProofLayer() {
   return (
-    <section id="why-prooflayer" className="scroll-mt-24 bg-[#0F172A] bg-dot-pattern px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section id="why-prooflayer" className="scroll-mt-24 bg-white px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial="hidden"
@@ -35,14 +35,14 @@ export function WhyProofLayer() {
         >
           <motion.span
             variants={fadeIn}
-            className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-cyan-400"
+            className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-indigo-600/80"
           >
             05 — Why ProofLayer
           </motion.span>
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.6 }}
-            className="mt-5 text-4xl font-extrabold tracking-tighter text-white sm:text-5xl lg:text-[56px] lg:leading-[1.1]"
+            className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.1]"
           >
             The only independent, autonomous
             <br />
@@ -61,14 +61,14 @@ export function WhyProofLayer() {
           <table className="w-full min-w-[640px] border-collapse">
             <thead>
               <tr>
-                <th className="p-4 text-left text-sm font-medium text-slate-500" />
+                <th className="p-4 text-left text-sm font-medium text-gray-500" />
                 {columns.map((col) => (
                   <th
                     key={col.label}
                     className={`p-4 text-center text-sm font-bold ${
                       col.highlighted
-                        ? "bg-cyan-500/10 text-cyan-400 rounded-t-xl"
-                        : "text-slate-500"
+                        ? "bg-indigo-50 text-indigo-600 rounded-t-xl"
+                        : "text-gray-500"
                     }`}
                   >
                     {col.label}
@@ -78,21 +78,21 @@ export function WhyProofLayer() {
             </thead>
             <tbody>
               {rows.map((row, ri) => (
-                <tr key={row.capability} className="border-t border-slate-800">
-                  <td className="p-4 text-sm font-medium text-slate-300">{row.capability}</td>
+                <tr key={row.capability} className="border-t border-gray-100">
+                  <td className="p-4 text-sm font-medium text-gray-700">{row.capability}</td>
                   {row.values.map((val, ci) => (
                     <td
                       key={ci}
                       className={`p-4 text-center ${
                         columns[ci].highlighted
-                          ? "bg-cyan-500/5"
+                          ? "bg-indigo-50/30"
                           : ""
                       } ${ri === rows.length - 1 && columns[ci].highlighted ? "rounded-b-xl" : ""}`}
                     >
                       {val ? (
-                        <Check className="mx-auto h-5 w-5 text-emerald-400" />
+                        <Check className="mx-auto h-5 w-5 text-emerald-500" />
                       ) : (
-                        <X className="mx-auto h-5 w-5 text-slate-600" />
+                        <X className="mx-auto h-5 w-5 text-gray-300" />
                       )}
                     </td>
                   ))}
@@ -107,7 +107,7 @@ export function WhyProofLayer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-8 text-center text-sm text-slate-500 max-w-2xl mx-auto"
+          className="mt-8 text-center text-sm text-gray-500 max-w-2xl mx-auto"
         >
           The leading open-source AI security tools have been acquired by major platform vendors — losing their independence. ProofLayer is the only vendor-neutral, autonomous red-teaming platform for AI.
         </motion.p>

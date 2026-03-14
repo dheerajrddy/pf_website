@@ -35,7 +35,7 @@ const agents = [
 
 export function ProductsSection() {
   return (
-    <section id="open-source" className="scroll-mt-24 bg-[#0F172A] bg-dot-pattern px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section id="open-source" className="scroll-mt-24 bg-gray-50 px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial="hidden"
@@ -46,14 +46,14 @@ export function ProductsSection() {
         >
           <motion.span
             variants={fadeIn}
-            className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-cyan-400"
+            className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-indigo-600/80"
           >
-            07 — Our Foundation
+            06 — Our Foundation
           </motion.span>
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.6 }}
-            className="mt-5 text-4xl font-extrabold tracking-tighter text-white sm:text-5xl lg:text-[56px] lg:leading-[1.1]"
+            className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.1]"
           >
             Built on the tools that
             <br />
@@ -74,15 +74,15 @@ export function ProductsSection() {
             >
               {/* Timeline line */}
               <div className="flex flex-col items-center">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cyan-500/30 bg-cyan-500/10">
-                  <GitBranch className="h-4 w-4 text-cyan-400" />
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-indigo-200 bg-indigo-50">
+                  <GitBranch className="h-4 w-4 text-indigo-600" />
                 </div>
-                {i < timeline.length - 1 && <div className="w-px grow bg-slate-700/50" />}
+                {i < timeline.length - 1 && <div className="w-px grow bg-gray-200" />}
               </div>
               <div className="pb-4">
-                <span className="font-mono text-sm font-bold text-cyan-400">{item.year}</span>
-                <h3 className="mt-1 text-lg font-bold text-white">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-400">{item.description}</p>
+                <span className="font-mono text-sm font-bold text-indigo-600">{item.year}</span>
+                <h3 className="mt-1 text-lg font-bold text-gray-900">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">{item.description}</p>
               </div>
             </motion.div>
           ))}
@@ -100,7 +100,7 @@ export function ProductsSection() {
             href="https://www.npmjs.com/package/agent-security-scanner-mcp"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-800/80 px-5 py-2 text-sm font-medium text-slate-300 transition-colors hover:border-cyan-500/50"
+            className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-5 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-indigo-300"
           >
             npm &middot; agent-security-scanner-mcp
             <ArrowRight className="h-3.5 w-3.5" />
@@ -109,12 +109,12 @@ export function ProductsSection() {
             href="https://github.com/sinewaveai/agent-security-scanner-mcp"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-800/80 px-5 py-2 text-sm font-medium text-slate-300 transition-colors hover:border-cyan-500/50"
+            className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-5 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-indigo-300"
           >
             GitHub &middot; Open Source
             <ArrowRight className="h-3.5 w-3.5" />
           </a>
-          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm font-medium text-emerald-400">
+          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-600">
             MIT License
           </span>
         </motion.div>
@@ -127,7 +127,7 @@ export function ProductsSection() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-12"
         >
-          <p className="mb-5 text-center text-sm font-medium uppercase tracking-[0.15em] text-slate-500">
+          <p className="mb-5 text-center text-sm font-medium uppercase tracking-[0.15em] text-gray-500">
             Compatible with
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
@@ -136,10 +136,10 @@ export function ProductsSection() {
               return (
                 <div
                   key={agent.name}
-                  className="flex items-center gap-2 rounded-lg border border-slate-700/50 bg-slate-800/50 px-4 py-2"
+                  className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2"
                 >
-                  <Icon className="h-4 w-4 text-cyan-400" />
-                  <span className="text-sm font-medium text-slate-400">{agent.name}</span>
+                  <Icon className="h-4 w-4 text-indigo-500" />
+                  <span className="text-sm font-medium text-gray-600">{agent.name}</span>
                 </div>
               )
             })}

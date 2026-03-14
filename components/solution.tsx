@@ -33,7 +33,7 @@ const pillars = [
 
 export function Solution() {
   return (
-    <section className="bg-[#0F172A] bg-dot-pattern px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section className="bg-white px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial="hidden"
@@ -44,14 +44,14 @@ export function Solution() {
         >
           <motion.span
             variants={fadeIn}
-            className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-cyan-400"
+            className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-indigo-600/80"
           >
             03 — The Solution
           </motion.span>
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.6 }}
-            className="mt-5 text-4xl font-extrabold tracking-tighter text-white sm:text-5xl lg:text-[56px] lg:leading-[1.1]"
+            className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.1]"
           >
             Continuous, self-evolving
             <br />
@@ -69,13 +69,13 @@ export function Solution() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-2xl border border-cyan-500/20 bg-slate-800/60 p-8 glow-border"
+                className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm"
               >
-                <div className="rounded-xl bg-cyan-500/10 p-3 w-fit">
-                  <Icon className="h-6 w-6 text-cyan-400" />
+                <div className="rounded-xl bg-indigo-50 p-3 w-fit">
+                  <Icon className="h-6 w-6 text-indigo-600" />
                 </div>
-                <h3 className="mt-5 text-xl font-bold tracking-tight text-white">{pillar.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-400">{pillar.description}</p>
+                <h3 className="mt-5 text-xl font-bold tracking-tight text-gray-900">{pillar.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-gray-600">{pillar.description}</p>
               </motion.div>
             )
           })}

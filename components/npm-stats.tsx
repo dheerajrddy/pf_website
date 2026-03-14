@@ -9,25 +9,25 @@ export function NpmStatsBadge({ stats }: { stats: NpmStats }) {
       href="https://www.npmjs.com/package/agent-security-scanner-mcp"
       target="_blank"
       rel="noopener noreferrer"
-      className="hidden lg:inline-flex items-center gap-3 rounded-full border border-slate-700 bg-slate-800/80 px-4 py-1.5 backdrop-blur-sm transition-colors hover:border-cyan-500/50 hover:bg-slate-800"
+      className="hidden lg:inline-flex items-center gap-3 rounded-full border border-gray-200/80 bg-gray-50/80 px-4 py-1.5 backdrop-blur-sm transition-colors hover:border-indigo-200"
     >
       <span className="flex items-center gap-1.5">
-        <Download className="h-3.5 w-3.5 text-slate-500" />
-        <span className="font-mono text-xs font-semibold text-slate-300">
+        <Download className="h-3.5 w-3.5 text-gray-400" />
+        <span className="font-mono text-xs font-semibold text-gray-700">
           {stats.totalDownloads.toLocaleString()} downloads
         </span>
       </span>
-      <span className="h-3 border-l border-slate-700" />
+      <span className="h-3 border-l border-gray-200" />
       <span className="flex items-center gap-1.5">
-        <Tag className="h-3.5 w-3.5 text-slate-500" />
-        <span className="font-mono text-xs font-semibold text-slate-300">
+        <Tag className="h-3.5 w-3.5 text-gray-400" />
+        <span className="font-mono text-xs font-semibold text-gray-700">
           v{stats.version}
         </span>
       </span>
-      <span className="h-3 border-l border-slate-700" />
+      <span className="h-3 border-l border-gray-200" />
       <span className="flex items-center gap-1.5">
-        <Scale className="h-3.5 w-3.5 text-slate-500" />
-        <span className="font-mono text-xs font-semibold text-slate-300">
+        <Scale className="h-3.5 w-3.5 text-gray-400" />
+        <span className="font-mono text-xs font-semibold text-gray-700">
           {stats.license}
         </span>
       </span>

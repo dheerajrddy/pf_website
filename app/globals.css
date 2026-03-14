@@ -1,29 +1,29 @@
 @import 'tailwindcss';
 
-/* ProofLayer - Dark Navy Theme */
+/* ProofLayer - Light Theme (Indigo/Violet) */
 :root {
   /* Backgrounds */
-  --background: #0F172A;
-  --foreground: #F8FAFC;
-  --card: #1E293B;
-  --card-foreground: #F8FAFC;
+  --background: #FFFFFF;
+  --foreground: #111827;
+  --card: #FFFFFF;
+  --card-foreground: #111827;
 
-  /* Primary - Cyan/Teal */
-  --primary: #0EA5E9;
+  /* Primary - Indigo */
+  --primary: #4F46E5;
   --primary-foreground: #FFFFFF;
 
-  /* Secondary - Dark slate */
-  --secondary: #1E293B;
-  --secondary-foreground: #F8FAFC;
+  /* Secondary - Light gray */
+  --secondary: #F9FAFB;
+  --secondary-foreground: #111827;
 
   /* Muted */
-  --muted: #334155;
-  --muted-foreground: #94A3B8;
+  --muted: #F9FAFB;
+  --muted-foreground: #6B7280;
 
-  /* Accent - Cyan */
-  --accent: #0EA5E9;
+  /* Accent - Violet */
+  --accent: #6366F1;
   --accent-foreground: #FFFFFF;
-  --accent-hover: #0284C7;
+  --accent-hover: #4F46E5;
 
   /* Danger / Offense */
   --danger: #EF4444;
@@ -32,9 +32,9 @@
   --success: #22C55E;
 
   /* Borders & Inputs */
-  --border: #334155;
-  --input: #334155;
-  --ring: #0EA5E9;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #4F46E5;
 
   /* Radius */
   --radius: 0.75rem;
@@ -44,7 +44,7 @@
   --shadow-y: 4px;
   --shadow-blur: 12px;
   --shadow-spread: -2px;
-  --shadow-opacity: 0.2;
+  --shadow-opacity: 0.04;
   --shadow-color: #000000;
 }
 
@@ -99,27 +99,15 @@
 
 /* Custom utility classes for ProofLayer */
 @layer utilities {
-  /* Gradient text - cyan/teal accent */
+  /* Gradient text - indigo/violet accent */
   .text-gradient {
-    @apply bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-500 bg-clip-text text-transparent;
   }
 
-  /* Dark dot grid texture */
+  /* Subtle dot grid texture */
   .bg-dot-pattern {
-    background-image: radial-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+    background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
     background-size: 28px 28px;
-  }
-
-  /* Light dot grid texture for light sections */
-  .bg-dot-pattern-light {
-    background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
-    background-size: 28px 28px;
-  }
-
-  /* Glow border for cards */
-  .glow-border {
-    box-shadow: 0 0 20px -5px rgba(14, 165, 233, 0.15), 0 0 40px -10px rgba(14, 165, 233, 0.1);
-    border-color: rgba(14, 165, 233, 0.3);
   }
 }
 
