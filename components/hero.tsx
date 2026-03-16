@@ -2,32 +2,31 @@
 
 import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import { ArrowRight, Copy, Check, Calendar, ExternalLink } from "lucide-react"
-import { useCopyToClipboard } from "@/lib/use-copy"
+import { Calendar, Shield } from "lucide-react"
 import { fadeUp, fadeIn, staggerContainer } from "@/lib/animations"
 
 const terminalLines = [
-  { text: "$ npx agent-security-scanner-mcp init", type: "command" as const },
+  { text: "$ prooflayer swarm --target acme-ai", type: "command" as const },
   { text: "", type: "blank" as const },
-  { text: "ProofLayer v3.3.0 — Autonomous Red-Teaming", type: "info" as const },
-  { text: "Target: acme-ai-chatbot (GPT-4 + RAG pipeline)", type: "info" as const },
+  { text: "ProofLayer v4.0 — Autonomous Red-Team Swarm", type: "info" as const },
+  { text: "Deploying 5 attack agents...", type: "info" as const },
   { text: "", type: "blank" as const },
-  { text: "[Recon]  Mapping attack surface...", type: "info" as const },
-  { text: "[Recon]  Found: 3 MCP tools, 2 RAG endpoints, 1 agent chain", type: "info" as const },
+  { text: "[Agent-01:Recon]  Mapping attack surface...", type: "info" as const },
+  { text: "[Agent-01:Recon]  Found: 4 MCP tools, 2 RAG endpoints, 1 agent chain", type: "info" as const },
   { text: "", type: "blank" as const },
-  { text: "[Attack] Prompt injection via RAG document...", type: "warning" as const },
-  { text: "[VULN]   Severity: CRITICAL", type: "danger" as const },
-  { text: "[VULN]   RAG context injection — exfiltrated API key", type: "danger" as const },
-  { text: "[VULN]   Proof-of-exploit generated ✓", type: "danger" as const },
+  { text: "[Agent-02:Inject] Prompt injection via RAG context...", type: "warning" as const },
+  { text: "[Agent-03:MCP]    Testing tool poisoning vectors...", type: "warning" as const },
   { text: "", type: "blank" as const },
-  { text: "[Attack] MCP tool poisoning via shadow endpoint...", type: "warning" as const },
-  { text: "[VULN]   Severity: HIGH", type: "danger" as const },
-  { text: "[VULN]   Tool response manipulated — agent hijacked", type: "danger" as const },
+  { text: "[Agent-02:Inject] CRITICAL — RAG context injection: API key exfiltrated", type: "danger" as const },
+  { text: "[Agent-03:MCP]    HIGH — Shadow endpoint: agent control hijacked", type: "danger" as const },
   { text: "", type: "blank" as const },
-  { text: "[Evolve] Learning from exploit patterns...", type: "success" as const },
-  { text: "[Evolve] Generated 3 new attack variants", type: "success" as const },
+  { text: "[Agent-04:Chain]  Multi-step agent chain exploit...", type: "warning" as const },
+  { text: "[Agent-04:Chain]  CRITICAL — Chained 3 tools → RCE achieved", type: "danger" as const },
   { text: "", type: "blank" as const },
-  { text: "Found 2 critical, 1 high vulnerability in 27s", type: "result" as const },
+  { text: "[Agent-05:Evolve] Mutating successful patterns...", type: "evolve" as const },
+  { text: "[Agent-05:Evolve] Generated 7 new attack variants", type: "evolve" as const },
+  { text: "", type: "blank" as const },
+  { text: "Swarm complete: 3 critical, 1 high in 47s", type: "result" as const },
 ]
 
 function TerminalAnimation() {
@@ -52,6 +51,7 @@ function TerminalAnimation() {
     info: "text-slate-400",
     warning: "text-amber-400",
     danger: "text-red-400",
+    evolve: "text-violet-400",
     success: "text-emerald-400",
     result: "text-cyan-300 font-semibold",
     blank: "",
@@ -66,10 +66,10 @@ function TerminalAnimation() {
           <div className="h-3 w-3 rounded-full bg-amber-500/80" />
           <div className="h-3 w-3 rounded-full bg-emerald-500/80" />
         </div>
-        <span className="ml-2 font-mono text-xs text-slate-500">prooflayer — red-team</span>
+        <span className="ml-2 font-mono text-xs text-slate-500">prooflayer — red-team-swarm</span>
       </div>
       {/* Terminal content */}
-      <div ref={containerRef} className="h-[320px] overflow-y-auto p-4 font-mono text-sm leading-relaxed">
+      <div ref={containerRef} className="h-[340px] overflow-y-auto p-4 font-mono text-sm leading-relaxed">
         {terminalLines.slice(0, visibleLines).map((line, i) => (
           <div key={i} className={`${colorMap[line.type]} ${line.type === "blank" ? "h-4" : ""}`}>
             {line.text}
@@ -84,10 +84,8 @@ function TerminalAnimation() {
 }
 
 export function Hero() {
-  const { copied, copy } = useCopyToClipboard("npx agent-security-scanner-mcp init")
-
   return (
-    <section className="relative px-4 pt-36 pb-24 sm:px-6 lg:px-8 lg:pt-48 lg:pb-32 bg-white overflow-hidden">
+    <section className="relative px-4 pt-36 pb-24 sm:px-6 lg:px-8 lg:pt-48 lg:pb-32 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-20 items-center">
           {/* Left column — copy */}
@@ -98,19 +96,13 @@ export function Hero() {
           >
             {/* Eyebrow */}
             <motion.div variants={fadeIn} transition={{ duration: 0.7 }}>
-              <a
-                href="https://www.npmjs.com/package/agent-security-scanner-mcp"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-emerald-200/60 bg-emerald-50/80 px-4 py-1.5 text-sm font-medium text-emerald-700 transition-colors hover:bg-emerald-50"
-              >
+              <span className="inline-flex items-center gap-2 rounded-full border border-indigo-200/60 bg-indigo-50/80 px-4 py-1.5 text-sm font-medium text-indigo-700">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-500" />
                 </span>
-                Now live on npm &middot; MIT open source
-                <ExternalLink className="h-3.5 w-3.5 text-emerald-500" />
-              </a>
+                Autonomous AI Red Team
+              </span>
             </motion.div>
 
             {/* H1 */}
@@ -119,9 +111,9 @@ export function Hero() {
               transition={{ duration: 0.7 }}
               className="mt-8 text-[44px] font-extrabold leading-[1.05] tracking-tighter text-gray-900 sm:text-[64px] lg:text-[72px]"
             >
-              The autonomous
+              The <span className="text-gradient">autonomous</span>
               <br />
-              <span className="text-gradient">red team</span> for
+              red team for
               <br />
               AI systems.
             </motion.h1>
@@ -132,48 +124,33 @@ export function Hero() {
               transition={{ duration: 0.7 }}
               className="mt-6 max-w-xl text-lg leading-relaxed text-gray-500 sm:text-xl"
             >
-              Autonomous AI agents that continuously red-team your AI systems — finding the vulnerabilities that manual pentests and static scanners miss.
+              AI agents that continuously attack your LLMs, RAG pipelines, MCP servers, and AI agents — finding what humans and scanners miss.
             </motion.p>
 
             {/* CTAs */}
             <motion.div
               variants={fadeUp}
               transition={{ duration: 0.7 }}
-              className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-5"
+              className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4"
             >
               <a
                 href="https://calendly.com/divyachitimalla/intro"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-full bg-gray-900 px-8 py-3.5 text-base font-medium text-white transition-all hover:bg-gray-800 hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gray-900 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-gray-800 hover:scale-[1.02]"
               >
-                <Calendar className="h-4.5 w-4.5" />
+                <Calendar className="h-4 w-4" />
                 Book a Demo
               </a>
               <a
-                href="https://www.npmjs.com/package/agent-security-scanner-mcp"
+                href="https://calendly.com/divyachitimalla/intro"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-base font-medium text-gray-600 transition-colors hover:text-gray-900"
+                className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-indigo-200 bg-white px-6 py-3 text-sm font-semibold text-indigo-600 transition-all hover:bg-indigo-50 hover:scale-[1.02]"
               >
-                Get Started
-                <ArrowRight className="h-4 w-4" />
+                <Shield className="h-4 w-4" />
+                Free AI Security Assessment
               </a>
-            </motion.div>
-
-            {/* Copy command */}
-            <motion.div variants={fadeIn} transition={{ duration: 0.7 }} className="mt-8">
-              <button
-                onClick={copy}
-                className="inline-flex items-center gap-3 rounded-lg border border-indigo-200 bg-indigo-50/80 px-5 py-2.5 text-sm backdrop-blur-sm transition-all hover:bg-indigo-50 hover:border-indigo-300"
-              >
-                <code className="font-mono text-sm text-indigo-600">npx agent-security-scanner-mcp init</code>
-                {copied ? (
-                  <Check className="h-4 w-4 text-emerald-500" />
-                ) : (
-                  <Copy className="h-4 w-4 text-gray-400" />
-                )}
-              </button>
             </motion.div>
           </motion.div>
 

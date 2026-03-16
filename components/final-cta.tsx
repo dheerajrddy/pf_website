@@ -1,15 +1,12 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Copy, Check, ArrowRight, Calendar } from "lucide-react"
-import { useCopyToClipboard } from "@/lib/use-copy"
+import { Calendar, Shield } from "lucide-react"
 import { fadeIn, fadeUp, staggerContainer } from "@/lib/animations"
 
 export function FinalCta() {
-  const { copied, copy } = useCopyToClipboard("npx agent-security-scanner-mcp init")
-
   return (
-    <section className="bg-gray-50/50 px-4 py-28 sm:px-6 lg:px-8 lg:py-40">
+    <section className="bg-gray-50/50 bg-dot-pattern px-4 py-28 sm:px-6 lg:px-8 lg:py-40">
       <div className="mx-auto max-w-4xl text-center">
         <motion.div
           initial="hidden"
@@ -38,46 +35,26 @@ export function FinalCta() {
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.6 }}
-            className="mt-10 flex flex-col items-center gap-5 sm:flex-row sm:justify-center sm:gap-6"
+            className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-5"
           >
             <a
               href="https://calendly.com/divyachitimalla/intro"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 rounded-full bg-gray-900 px-8 py-4 text-base font-medium text-white transition-all hover:bg-gray-800 hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gray-900 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-gray-800 hover:scale-[1.02]"
             >
-              <Calendar className="h-4.5 w-4.5" />
+              <Calendar className="h-4 w-4" />
               Book a Demo
             </a>
             <a
-              href="https://www.npmjs.com/package/agent-security-scanner-mcp"
+              href="https://calendly.com/divyachitimalla/intro"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-base font-medium text-indigo-600 transition-colors hover:text-indigo-700"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-indigo-200 bg-white px-7 py-3.5 text-sm font-semibold text-indigo-600 transition-all hover:bg-indigo-50 hover:scale-[1.02]"
             >
-              Get Started
-              <ArrowRight className="h-4 w-4" />
+              <Shield className="h-4 w-4" />
+              Free AI Security Assessment
             </a>
-          </motion.div>
-
-          {/* Code block */}
-          <motion.div
-            variants={fadeIn}
-            transition={{ duration: 0.6 }}
-            className="mt-10"
-          >
-            <button
-              onClick={copy}
-              className="inline-flex items-center gap-3 rounded-xl border border-gray-700 bg-gray-900 px-6 py-3 font-mono text-sm text-gray-300 transition-all hover:bg-gray-800"
-            >
-              <span className="text-gray-500">$ </span>
-              npx agent-security-scanner-mcp init
-              {copied ? (
-                <Check className="h-4 w-4 text-emerald-400" />
-              ) : (
-                <Copy className="h-4 w-4 text-gray-500" />
-              )}
-            </button>
           </motion.div>
         </motion.div>
       </div>

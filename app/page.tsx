@@ -4,7 +4,7 @@ import { SocialProof } from "@/components/social-proof"
 import { WhySection } from "@/components/why-section"
 import { DemoSection } from "@/components/demo-section"
 import { WhyProofLayer } from "@/components/why-prooflayer"
-import { FAQ } from "@/components/faq"
+import { BuiltShipped } from "@/components/built-shipped"
 import { FinalCta } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
 import { getNpmStats } from "@/lib/npm-stats"
@@ -20,13 +20,13 @@ export default async function Home() {
         <div className="absolute right-1/4 top-20 h-[400px] w-[600px] rounded-full bg-violet-300/[0.03] blur-[80px]" />
       </div>
       <div className="relative">
-        <Header stats={stats} />
+        <Header />
         <Hero />
         <SocialProof stats={stats} />
         <WhySection />
         <DemoSection />
         <WhyProofLayer />
-        <FAQ />
+        <BuiltShipped stats={stats} />
         <FinalCta />
         <Footer />
       </div>

@@ -4,16 +4,14 @@ import { useState, useEffect } from "react"
 import { Menu, X, Github } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { NpmStatsBadge } from "@/components/npm-stats"
-import type { NpmStats } from "@/lib/npm-stats"
 
 const navLinks = [
   { label: "How It Works", href: "#how-it-works" },
+  { label: "Why ProofLayer", href: "#why-prooflayer" },
   { label: "Blog", href: "/blog", isPage: true },
-  { label: "Dashboard", href: "/dashboard", isPage: true },
 ]
 
-export function Header({ stats }: { stats?: NpmStats }) {
+export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -72,7 +70,6 @@ export function Header({ stats }: { stats?: NpmStats }) {
               </a>
             )
           )}
-          {stats && <NpmStatsBadge stats={stats} />}
           <div className="mx-1 h-5 border-l border-gray-200" />
           <a
             href="https://github.com/sinewaveai/agent-security-scanner-mcp"

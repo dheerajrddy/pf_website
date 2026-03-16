@@ -1,4 +1,4 @@
-import { Linkedin, Github, Twitter } from "lucide-react"
+import { Linkedin, Github } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -23,13 +23,13 @@ export function Footer() {
             </div>
             <p className="mt-4 text-base text-gray-400">Autonomous red-teaming for AI systems.</p>
             <p className="mt-2 text-sm text-gray-500">
-              <a href="mailto:hello@prooflayer.com" className="hover:text-gray-300 transition-colors">
-                hello@prooflayer.com
+              <a href="mailto:divya@sinewave.ai" className="hover:text-gray-300 transition-colors">
+                divya@sinewave.ai
               </a>
             </p>
             <div className="mt-6 flex items-center gap-4">
               <a
-                href="https://linkedin.com/company/prooflayer"
+                href="https://www.linkedin.com/company/proof-layer/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 transition-colors hover:text-gray-300"
@@ -44,77 +44,39 @@ export function Footer() {
               >
                 <Github className="h-5 w-5" />
               </a>
-              <a
-                href="https://x.com/prooflayer"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 transition-colors hover:text-gray-300"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
             </div>
           </div>
 
           {/* Links */}
-          <div className="flex gap-16">
-            {/* Platform */}
-            <div>
-              <h4 className="text-sm font-medium uppercase tracking-wider text-gray-500">Platform</h4>
-              <ul className="mt-4 space-y-3 text-base">
-                <li>
-                  <a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors">
-                    How It Works
-                  </a>
-                </li>
-                <li>
-                  <a href="#why-prooflayer" className="text-gray-400 hover:text-white transition-colors">
-                    Why ProofLayer
-                  </a>
-                </li>
-                <li>
-                  <a href="#open-source" className="text-gray-400 hover:text-white transition-colors">
-                    Open Source
-                  </a>
-                </li>
-                <li>
-                  <Link href="/dashboard" className="text-gray-400 hover:text-white transition-colors">
-                    Dashboard
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Resources */}
-            <div>
-              <h4 className="text-sm font-medium uppercase tracking-wider text-gray-500">Resources</h4>
-              <ul className="mt-4 space-y-3 text-base">
-                <li>
-                  <Link href="/blog" className="text-gray-400 hover:text-white transition-colors">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/sinewaveai/agent-security-scanner-mcp"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Documentation
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/sinewaveai/agent-security-scanner-mcp"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    GitHub
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div>
+            <h4 className="text-sm font-medium uppercase tracking-wider text-gray-500">Resources</h4>
+            <ul className="mt-4 space-y-3 text-base">
+              <li>
+                <Link href="/blog" className="text-gray-400 hover:text-white transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/sinewaveai/agent-security-scanner-mcp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Documentation
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/sinewaveai/agent-security-scanner-mcp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  GitHub
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -127,11 +89,6 @@ export function Footer() {
             <p className="text-xs text-gray-500 mt-2">
               ProofLayer is a product of SineWave AI, Inc.
             </p>
-          </div>
-          <div className="flex items-center gap-4 text-sm text-gray-500">
-            <a href="#" className="hover:text-gray-300 transition-colors">Privacy Policy</a>
-            <span className="text-gray-700">&middot;</span>
-            <a href="#" className="hover:text-gray-300 transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Search, Swords, BadgeCheck, Dna } from "lucide-react"
+import { Search, Swords, BadgeCheck, Dna, RotateCcw } from "lucide-react"
 import { fadeUp, fadeIn, staggerContainer } from "@/lib/animations"
 
 const steps = [
@@ -45,7 +45,7 @@ const steps = [
 
 export function DemoSection() {
   return (
-    <section id="how-it-works" className="scroll-mt-24 bg-white px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section id="how-it-works" className="scroll-mt-24 px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial="hidden"
@@ -58,7 +58,7 @@ export function DemoSection() {
             variants={fadeIn}
             className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-indigo-600/80"
           >
-            04 — How It Works
+            How It Works
           </motion.span>
           <motion.h2
             variants={fadeUp}
@@ -72,7 +72,7 @@ export function DemoSection() {
             transition={{ duration: 0.6 }}
             className="mx-auto mt-6 max-w-2xl text-lg text-gray-600"
           >
-            A continuous cycle that discovers, exploits, validates, and evolves — then loops back to find what changed.
+            Deploy once. AI agents continuously discover, exploit, validate, and evolve — then loop back to find what changed.
           </motion.p>
         </motion.div>
 
@@ -114,10 +114,23 @@ export function DemoSection() {
             })}
           </div>
 
-          {/* Continuous loop note */}
-          <p className="mt-8 hidden lg:block text-center font-mono text-sm text-indigo-500">
-            Continuous loop — agents evolve and restart automatically
-          </p>
+          {/* Loop-back indicator — desktop only */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="mt-8 hidden lg:flex items-center justify-center gap-3"
+          >
+            <div className="h-px flex-1 max-w-[120px] bg-gradient-to-r from-transparent to-indigo-300" />
+            <div className="flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-2">
+              <RotateCcw className="h-4 w-4 text-indigo-500 animate-spin" style={{ animationDuration: "3s" }} />
+              <span className="font-mono text-sm font-medium text-indigo-600">
+                Continuous loop — agents evolve and restart automatically
+              </span>
+            </div>
+            <div className="h-px flex-1 max-w-[120px] bg-gradient-to-l from-transparent to-indigo-300" />
+          </motion.div>
 
           {/* Mobile: vertical stack */}
           <div className="flex flex-col gap-4 lg:hidden">
@@ -152,8 +165,9 @@ export function DemoSection() {
               )
             })}
             {/* Loop indicator on mobile */}
-            <div className="flex justify-center py-2">
-              <span className="font-mono text-xs text-indigo-600 font-semibold">↻ Loop back to Recon</span>
+            <div className="flex items-center justify-center gap-2 py-2">
+              <RotateCcw className="h-4 w-4 text-indigo-500" />
+              <span className="font-mono text-xs text-indigo-600 font-semibold">Continuous loop — restart automatically</span>
             </div>
           </div>
         </div>
