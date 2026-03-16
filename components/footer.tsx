@@ -22,11 +22,6 @@ export function Footer() {
               </span>
             </div>
             <p className="mt-4 text-base text-gray-400">Autonomous red-teaming for AI systems.</p>
-            <p className="mt-2 text-sm text-gray-500">
-              <a href="mailto:divya@sinewave.ai" className="hover:text-gray-300 transition-colors">
-                divya@sinewave.ai
-              </a>
-            </p>
             <div className="mt-6 flex items-center gap-4">
               <a
                 href="https://www.linkedin.com/company/proof-layer/"
