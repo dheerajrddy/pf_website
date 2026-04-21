@@ -8,8 +8,8 @@
   --card: #FFFFFF;
   --card-foreground: #111827;
 
-  /* Primary - Indigo */
-  --primary: #4F46E5;
+  /* Primary - Apple Blue */
+  --primary: #2563EB;
   --primary-foreground: #FFFFFF;
 
   /* Secondary - Light gray */
@@ -20,10 +20,10 @@
   --muted: #F9FAFB;
   --muted-foreground: #6B7280;
 
-  /* Accent - Violet */
-  --accent: #6366F1;
+  /* Accent - Lighter Blue */
+  --accent: #3B82F6;
   --accent-foreground: #FFFFFF;
-  --accent-hover: #4F46E5;
+  --accent-hover: #1D4ED8;
 
   /* Danger / Offense */
   --danger: #EF4444;
@@ -34,7 +34,7 @@
   /* Borders & Inputs */
   --border: #E5E7EB;
   --input: #E5E7EB;
-  --ring: #4F46E5;
+  --ring: #2563EB;
 
   /* Radius */
   --radius: 0.75rem;
@@ -101,12 +101,12 @@
 @layer utilities {
   /* Gradient text - indigo/violet accent */
   .text-gradient {
-    @apply bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-600 via-blue-500 to-sky-500 bg-clip-text text-transparent;
   }
 
   /* Dot grid texture */
   .bg-dot-pattern {
-    background-image: radial-gradient(#c7d2fe 0.8px, transparent 0.8px);
+    background-image: radial-gradient(#bfdbfe 0.8px, transparent 0.8px);
     background-size: 28px 28px;
   }
 }

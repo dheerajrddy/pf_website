@@ -95,7 +95,7 @@ export function SocialProof({ stats }: SocialProofProps) {
 
           {/* Trust line */}
           <p className="text-center text-sm font-medium text-gray-600">
-            Built by former Google engineers — contributors to Garak &amp; Promptfoo
+            Built by former Google engineers — contributors to Nvidia Garak
           </p>
         </motion.div>
       </div>

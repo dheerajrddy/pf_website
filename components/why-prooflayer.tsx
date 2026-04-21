@@ -29,11 +29,21 @@ const rows: { capability: string; detail?: string; values: CellValue[] }[] = [
   },
   {
     capability: "AI Threat Coverage",
-    detail: "Prompt injection, MCP poisoning, agent hijacking, RAG attacks",
+    detail: "Prompt injection, jailbreak, exfiltration, tool abuse, RAG poisoning, memory injection",
     values: [
-      { text: "25+ attack types", variant: "strong" },
+      { text: "6 expert families, 976 exploits", variant: "strong" },
       { text: "Depends on tester", variant: "weak" },
       { text: "Rule-based only", variant: "good" },
+      { text: "Not supported", variant: "none" },
+    ],
+  },
+  {
+    capability: "Memory / Context Poisoning",
+    detail: "Cross-session propagation, tool-description poisoning, MCFA",
+    values: [
+      { text: "13 attack families", variant: "strong" },
+      { text: "Rarely tested", variant: "none" },
+      { text: "Not supported", variant: "none" },
       { text: "Not supported", variant: "none" },
     ],
   },
@@ -78,29 +88,39 @@ const rows: { capability: string; detail?: string; values: CellValue[] }[] = [
     ],
   },
   {
+    capability: "Compliance Mapping",
+    detail: "OWASP LLM Top 10, MITRE ATLAS, NIST AI RMF",
+    values: [
+      { text: "Auto-mapped, board-ready", variant: "strong" },
+      { text: "Manual in report", variant: "good" },
+      { text: "Partial", variant: "weak" },
+      { text: "Not supported", variant: "none" },
+    ],
+  },
+  {
     capability: "Deployment",
     detail: "How it integrates into your environment",
     values: [
-      { text: "npm install, MIT", variant: "strong" },
+      { text: "SaaS or VPC", variant: "strong" },
       { text: "SOW + scheduling", variant: "none" },
-      { text: "SaaS / API", variant: "good" },
+      { text: "SaaS only", variant: "good" },
       { text: "Agent install", variant: "good" },
     ],
   },
   {
-    capability: "Cost at Scale",
-    detail: "Economics of continuous security testing",
+    capability: "Access Model",
+    detail: "How you get started today",
     values: [
-      { text: "Open core + platform", variant: "strong" },
-      { text: "$20K-100K/engagement", variant: "none" },
-      { text: "$5K-15K/yr", variant: "good" },
-      { text: "$40K-200K/yr", variant: "weak" },
+      { text: "Private preview", variant: "strong" },
+      { text: "$20K–100K per engagement", variant: "none" },
+      { text: "Annual SaaS", variant: "good" },
+      { text: "Annual SaaS", variant: "weak" },
     ],
   },
 ]
 
 const variantStyles = {
-  strong: "text-indigo-700 font-semibold bg-indigo-50/50",
+  strong: "text-blue-700 font-semibold bg-blue-50/50",
   good: "text-emerald-700",
   weak: "text-amber-600",
   none: "text-gray-400",
@@ -119,7 +139,7 @@ export function WhyProofLayer() {
         >
           <motion.span
             variants={fadeIn}
-            className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-indigo-600/80"
+            className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-blue-600/80"
           >
             Why ProofLayer
           </motion.span>
@@ -152,7 +172,7 @@ export function WhyProofLayer() {
                       key={col.label}
                       className={`px-5 py-4 text-center text-sm font-bold ${
                         col.highlighted
-                          ? "bg-indigo-50 text-indigo-600 rounded-t-xl"
+                          ? "bg-blue-50 text-blue-600 rounded-t-xl"
                           : "text-gray-500"
                       }`}
                     >
@@ -175,7 +195,7 @@ export function WhyProofLayer() {
                         key={ci}
                         className={`px-5 py-4 text-center text-sm ${
                           columns[ci + 1].highlighted
-                            ? "bg-indigo-50/30"
+                            ? "bg-blue-50/30"
                             : ""
                         } ${ri === rows.length - 1 && columns[ci + 1].highlighted ? "rounded-b-xl" : ""} ${variantStyles[val.variant]}`}
                       >

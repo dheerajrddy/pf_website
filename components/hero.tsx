@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import { Calendar, Shield } from "lucide-react"
+import { Calendar } from "lucide-react"
 import { fadeUp, fadeIn, staggerContainer } from "@/lib/animations"
+import { CALENDLY_URL } from "@/lib/links"
 
 const terminalLines = [
   { text: "$ prooflayer swarm --target acme-ai", type: "command" as const },
@@ -51,7 +52,7 @@ function TerminalAnimation() {
     info: "text-slate-400",
     warning: "text-amber-400",
     danger: "text-red-400",
-    evolve: "text-violet-400",
+    evolve: "text-sky-400",
     success: "text-emerald-400",
     result: "text-cyan-300 font-semibold",
     blank: "",
@@ -76,7 +77,7 @@ function TerminalAnimation() {
           </div>
         ))}
         {visibleLines < terminalLines.length && (
-          <span className="inline-block h-4 w-2 bg-indigo-400 animate-cursor" />
+          <span className="inline-block h-4 w-2 bg-blue-400 animate-cursor" />
         )}
       </div>
     </div>
@@ -94,22 +95,11 @@ export function Hero() {
             initial="hidden"
             animate="visible"
           >
-            {/* Eyebrow */}
-            <motion.div variants={fadeIn} transition={{ duration: 0.7 }}>
-              <span className="inline-flex items-center gap-2 rounded-full border border-indigo-200/60 bg-indigo-50/80 px-4 py-1.5 text-sm font-medium text-indigo-700">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-500" />
-                </span>
-                Autonomous AI Red Team
-              </span>
-            </motion.div>
-
             {/* H1 */}
             <motion.h1
               variants={fadeUp}
               transition={{ duration: 0.7 }}
-              className="mt-8 text-[44px] font-extrabold leading-[1.05] tracking-tighter text-gray-900 sm:text-[64px] lg:text-[72px]"
+              className="text-[48px] font-extrabold leading-[1.02] tracking-tighter text-gray-900 sm:text-[72px] lg:text-[88px]"
             >
               The <span className="text-gradient">autonomous</span>
               <br />
@@ -124,7 +114,7 @@ export function Hero() {
               transition={{ duration: 0.7 }}
               className="mt-6 max-w-xl text-lg leading-relaxed text-gray-500 sm:text-xl"
             >
-              AI agents that continuously attack your LLMs, RAG pipelines, MCP servers, and AI agents — finding what humans and scanners miss.
+              Continuously red-teams your LLMs, agents, and MCP servers. Every finding mapped to OWASP and MITRE ATLAS.
             </motion.p>
 
             {/* CTAs */}
@@ -134,22 +124,13 @@ export function Hero() {
               className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4"
             >
               <a
-                href="https://calendly.com/divyachitimalla/intro"
+                href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gray-900 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-gray-800 hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gray-900 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-gray-800 hover:scale-[1.02]"
               >
                 <Calendar className="h-4 w-4" />
-                Book a Demo
-              </a>
-              <a
-                href="https://calendly.com/divyachitimalla/intro"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-indigo-200 bg-white px-6 py-3 text-sm font-semibold text-indigo-600 transition-all hover:bg-indigo-50 hover:scale-[1.02]"
-              >
-                <Shield className="h-4 w-4" />
-                Free AI Security Assessment
+                Talk to us
               </a>
             </motion.div>
           </motion.div>
