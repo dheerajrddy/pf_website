@@ -1,8 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Calendar, Shield } from "lucide-react"
+import { Calendar } from "lucide-react"
 import { fadeIn, fadeUp, staggerContainer } from "@/lib/animations"
+import { CALENDLY_URL } from "@/lib/links"
 
 export function FinalCta() {
   return (
@@ -31,29 +32,20 @@ export function FinalCta() {
             See what attackers see — before they do.
           </motion.p>
 
-          {/* CTAs */}
+          {/* CTA */}
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.6 }}
-            className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-5"
+            className="mt-10 flex justify-center"
           >
             <a
-              href="https://calendly.com/divyachitimalla/intro"
+              href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gray-900 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-gray-800 hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gray-900 px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-gray-800 hover:scale-[1.02]"
             >
               <Calendar className="h-4 w-4" />
-              Book a Demo
-            </a>
-            <a
-              href="https://calendly.com/divyachitimalla/intro"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-indigo-200 bg-white px-7 py-3.5 text-sm font-semibold text-indigo-600 transition-all hover:bg-indigo-50 hover:scale-[1.02]"
-            >
-              <Shield className="h-4 w-4" />
-              Free AI Security Assessment
+              Talk to us
             </a>
           </motion.div>
         </motion.div>

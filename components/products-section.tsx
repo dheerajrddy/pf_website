@@ -8,7 +8,7 @@ const timeline = [
   {
     year: "2023",
     title: "Open-Source Foundations",
-    description: "Core contributors to Garak (AI red-teaming framework) and Promptfoo (LLM evaluation) — the tools that defined the AI security category.",
+    description: "Core contributors to Nvidia Garak — the AI red-teaming framework that defined the AI security category.",
   },
   {
     year: "2024",

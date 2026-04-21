@@ -2,29 +2,32 @@
 
 import { motion } from "framer-motion"
 import { fadeUp, fadeIn, staggerContainer } from "@/lib/animations"
-import { Syringe, Wrench, Bot } from "lucide-react"
+import { Syringe, Wrench, Bot, Brain } from "lucide-react"
 
 const threats = [
   {
     icon: Syringe,
     title: "Prompt Injection",
-    badge: "OWASP #1",
-    stat: "OWASP #1 AI Risk",
-    description: "Attackers manipulate LLM inputs to bypass instructions, exfiltrate data, and take control of your AI system's behavior.",
+    badge: "OWASP LLM01",
+    description: "Attackers manipulate LLM inputs — directly or through retrieved documents — to bypass system instructions, exfiltrate data, and take control of your AI system's behavior.",
   },
   {
     icon: Wrench,
     title: "MCP / Tool Poisoning",
-    badge: "43% Vulnerable",
-    stat: "43% of MCP servers",
-    description: "Malicious tool responses hijack agent behavior and execute unintended actions. Most MCP servers have zero protection.",
+    badge: "OWASP LLM08",
+    description: "Malicious tool responses and poisoned tool descriptions hijack agent behavior. Most MCP deployments ship without any testing against this class at all.",
   },
   {
     icon: Bot,
-    title: "AI Agent Exploits",
-    badge: "73% At Risk",
-    stat: "73% of deployments",
-    description: "Autonomous agents are tricked into running harmful code, leaking secrets, or pivoting into your enterprise network.",
+    title: "Agent Chain Exploits",
+    badge: "OWASP LLM06",
+    description: "Autonomous agents are coaxed into chaining tools to run harmful code, leak secrets, or pivot into adjacent systems — often through inputs your code would reject.",
+  },
+  {
+    icon: Brain,
+    title: "Memory & Context Poisoning",
+    badge: "OWASP LLM04",
+    description: "The attack surface almost nobody tests: adversaries plant memory that persists across sessions, hijacks future tool calls, and spreads between users. 13 known attack families.",
   },
 ]
 
@@ -42,7 +45,7 @@ export function WhySection() {
         >
           <motion.span
             variants={fadeIn}
-            className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-indigo-600/80"
+            className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-blue-600/80"
           >
             The Problem
           </motion.span>
@@ -53,19 +56,19 @@ export function WhySection() {
           >
             Your AI systems have an attack surface
             <br />
-            <span className="text-indigo-400">your security team has never seen.</span>
+            <span className="text-blue-400">your security team has never seen.</span>
           </motion.h2>
           <motion.p
             variants={fadeIn}
             transition={{ duration: 0.6 }}
             className="mx-auto mt-6 max-w-3xl text-lg text-gray-600"
           >
-            Every LLM integration, every MCP server, every AI agent is a new attack surface that didn&apos;t exist 12 months ago. Traditional pentests happen quarterly. Attackers move in seconds.
+            Every LLM integration, every MCP server, every autonomous agent is a new attack surface that didn&apos;t exist 18 months ago. Your scanners don&apos;t know what an agent is. Your pentest vendors run playbooks written for web apps. Attackers don&apos;t.
           </motion.p>
         </motion.div>
 
-        {/* 3-column threat cards */}
-        <div className="mx-auto mt-16 grid max-w-6xl gap-6 md:grid-cols-3">
+        {/* Threat cards */}
+        <div className="mx-auto mt-16 grid max-w-7xl gap-6 md:grid-cols-2 lg:grid-cols-4">
           {threats.map((threat, i) => {
             const Icon = threat.icon
             return (
@@ -74,23 +77,42 @@ export function WhySection() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.15 }}
-                className="group rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg hover:border-rose-200"
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group rounded-2xl border border-gray-200 bg-white p-7 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg hover:border-rose-200"
               >
                 <div className="flex items-center gap-3">
                   <div className="rounded-xl bg-red-50 p-3">
                     <Icon className="h-6 w-6 text-red-500" />
                   </div>
-                  <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-semibold text-red-600">
+                  <span className="rounded-full bg-red-50 px-2.5 py-1 font-mono text-[11px] font-semibold text-red-600">
                     {threat.badge}
                   </span>
                 </div>
-                <h3 className="mt-5 text-xl font-bold text-gray-900">{threat.title}</h3>
+                <h3 className="mt-5 text-lg font-bold text-gray-900">{threat.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-gray-600">{threat.description}</p>
               </motion.div>
             )
           })}
         </div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-12 text-center text-sm text-gray-500"
+        >
+          Threat categories mapped to the{" "}
+          <a
+            href="https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-blue-600 hover:underline"
+          >
+            OWASP LLM Top 10
+          </a>
+          .
+        </motion.p>
       </div>
     </section>
   )

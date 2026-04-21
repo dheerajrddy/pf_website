@@ -8,14 +8,14 @@ const team = [
   {
     name: "Divya Chitimalla",
     role: "CTO",
-    bio: "Garak contributor. Former Google — built Safe Browsing protecting 1B+ users. Deep expertise in adversarial ML and AI security.",
+    bio: "Nvidia Garak contributor. Former Google — built Safe Browsing protecting 1B+ users. Deep expertise in adversarial ML and AI security.",
     linkedin: "https://linkedin.com/in/divyachitimalla",
     initials: "DC",
   },
   {
     name: "Dheeraj Reddy",
     role: "Product Lead",
-    bio: "Promptfoo contributor. Former Google Cloud. Building the product layer that makes autonomous red-teaming accessible to every AI team.",
+    bio: "Former Google Cloud. Building the product layer that makes autonomous red-teaming accessible to every AI team.",
     linkedin: "https://linkedin.com/in/dheerajreddy",
     initials: "DR",
   },

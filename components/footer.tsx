@@ -2,89 +2,97 @@ import { Linkedin, Github } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
+const columns: {
+  heading: string
+  links: { label: string; href: string }[]
+}[] = [
+  {
+    heading: "Product",
+    links: [
+      { label: "Dashboard", href: "/dashboard" },
+      { label: "Attack Coverage", href: "/#attack-coverage" },
+      { label: "How it Works", href: "/#how-it-works" },
+      { label: "Compliance", href: "/#compliance" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "Blog", href: "/blog" },
+    ],
+  },
+]
+
 export function Footer() {
   return (
-    <footer className="bg-gray-900 px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <footer className="bg-gray-900 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
+        <div className="grid gap-10 md:grid-cols-[1.6fr_1fr_1fr] md:gap-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               <Image
                 src="/logo.png"
                 alt="ProofLayer Logo"
-                width={40}
-                height={40}
+                width={36}
+                height={36}
                 className="rounded-lg"
               />
-              <span className="text-xl font-extrabold tracking-tighter text-white">
-                Proof<span className="text-indigo-400">Layer</span>
+              <span className="text-lg font-extrabold tracking-tighter text-white">
+                Proof<span className="text-blue-400">Layer</span>
               </span>
-            </div>
-            <p className="mt-4 text-base text-gray-400">Autonomous red-teaming for AI systems.</p>
-            <div className="mt-6 flex items-center gap-4">
+            </Link>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-400">
+              Autonomous red-teaming for AI systems. Purpose-built for teams shipping LLMs, agents, and MCP servers to production.
+            </p>
+            <div className="mt-5 flex items-center gap-4">
               <a
                 href="https://www.linkedin.com/company/proof-layer/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 transition-colors hover:text-gray-300"
+                aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="https://github.com/sinewaveai/agent-security-scanner-mcp"
+                href="https://github.com/sinewaveai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 transition-colors hover:text-gray-300"
+                aria-label="GitHub"
               >
                 <Github className="h-5 w-5" />
               </a>
             </div>
           </div>
 
-          {/* Links */}
-          <div>
-            <h4 className="text-sm font-medium uppercase tracking-wider text-gray-500">Resources</h4>
-            <ul className="mt-4 space-y-3 text-base">
-              <li>
-                <Link href="/blog" className="text-gray-400 hover:text-white transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/sinewaveai/agent-security-scanner-mcp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Documentation
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/sinewaveai/agent-security-scanner-mcp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  GitHub
-                </a>
-              </li>
-            </ul>
-          </div>
+          {/* Columns */}
+          {columns.map((col) => (
+            <div key={col.heading}>
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                {col.heading}
+              </h4>
+              <ul className="mt-4 space-y-2.5 text-sm">
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-gray-400 transition-colors hover:text-white"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         {/* Bottom */}
-        <div className="mt-16 border-t border-gray-800 pt-10 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="text-sm text-gray-400">
-              &copy; 2026 ProofLayer. All rights reserved.
-            </p>
-            <p className="text-xs text-gray-500 mt-2">
-              ProofLayer is a product of SineWave AI, Inc.
-            </p>
-          </div>
+        <div className="mt-12 flex flex-col gap-1 border-t border-gray-800 pt-8 text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>&copy; 2026 ProofLayer. All rights reserved.</p>
+          <p>A product of SineWave AI, Inc.</p>
         </div>
       </div>
     </footer>
