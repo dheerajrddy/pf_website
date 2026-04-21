@@ -18,11 +18,10 @@ export function FinalCta() {
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.6 }}
-            className="text-5xl font-extrabold tracking-tighter text-gray-900 sm:text-6xl lg:text-[72px] lg:leading-[1.05]"
+            className="text-balance text-[40px] font-extrabold leading-[1.05] tracking-tighter text-gray-900 sm:text-5xl lg:whitespace-nowrap lg:text-[68px]"
           >
-            Start red-teaming
-            <br />
-            <span className="text-gradient">your AI.</span>
+            Start <span className="whitespace-nowrap">red-teaming</span>{" "}
+            <span className="text-gradient whitespace-nowrap">your AI.</span>
           </motion.h2>
           <motion.p
             variants={fadeIn}
