@@ -8,7 +8,7 @@ interface BlogHeaderProps {
   title: string
   subtitle?: string
   category: string
-  categoryColor?: "violet" | "indigo" | "emerald" | "orange" | "rose" | "amber"
+  categoryColor?: "violet" | "indigo" | "emerald" | "orange" | "rose" | "amber" | "slate"
   readTime: string
   date: string
   author?: string
@@ -38,6 +38,10 @@ const categoryColors = {
   amber: {
     bg: "bg-amber-50",
     text: "text-amber-600",
+  },
+  slate: {
+    bg: "bg-slate-100",
+    text: "text-slate-700",
   },
 }
 

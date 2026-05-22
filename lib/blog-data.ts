@@ -4,7 +4,7 @@ export interface BlogPost {
   subtitle: string
   excerpt: string
   category: string
-  categoryColor: "violet" | "indigo" | "emerald" | "rose" | "amber"
+  categoryColor: "violet" | "indigo" | "emerald" | "rose" | "amber" | "slate"
   readTime: string
   date: string
   featured: boolean
@@ -20,6 +20,17 @@ export interface Author {
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "redteam-swarm-multi-expert-red-teaming",
+    title: "redteam-swarm: Autonomous Multi-Expert Red-Teaming of Agentic LLM Systems",
+    subtitle: "LoRA specialists, PAIR search, and GRPO self-play against a seven-agent Claude target",
+    excerpt: "Six LoRA-fine-tuned attack experts over a shared Qwen3-8B base, coordinated by a UCB1 bandit and refined by PAIR + GRPO, reach 42.2% ASR at L2 on opus and 73.4% ASR on a held-out LangChain target — with one finding scoring maximum severity at zero search iterations.",
+    category: "Research",
+    categoryColor: "slate",
+    readTime: "32 min read",
+    date: "April 14, 2026",
+    featured: true,
+  },
   {
     slug: "twelve-vulnerabilities-scanner-demo",
     title: "Twelve Vulnerabilities, One File: How We Prove the Scanner Works",

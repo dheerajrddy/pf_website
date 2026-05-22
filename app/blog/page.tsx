@@ -28,6 +28,10 @@ const categoryColors = {
     bg: "bg-amber-50",
     text: "text-amber-600",
   },
+  slate: {
+    bg: "bg-slate-100",
+    text: "text-slate-700",
+  },
 }
 
 export default function BlogPage() {
