@@ -114,7 +114,7 @@ export function Hero() {
               transition={{ duration: 0.7 }}
               className="mt-6 max-w-xl text-lg leading-relaxed text-gray-500 sm:text-xl"
             >
-              Continuously red-teams your LLMs, agents, and MCP servers. Every finding mapped to OWASP and MITRE ATLAS.
+              Continuously red-teams your LLMs, agents, and MCP servers — then turns every finding into audit-ready evidence mapped to security and AI compliance frameworks.
             </motion.p>
 
             {/* CTAs */}

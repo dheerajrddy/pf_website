@@ -39,7 +39,7 @@ const secondary = [
     title: "Board-Ready Reports",
     pitch: "Compliance-ready reporting in one click.",
     detail:
-      "Executive summary, OWASP compliance matrix, top findings, asset risk, remediation roadmap — printable PDF for audit or the board.",
+      "Executive summary, SOC 2 readiness evidence, NIST AI RMF, EU AI Act, ISO/IEC 42001, OWASP, MITRE mappings, top findings, asset risk, and remediation roadmap.",
   },
 ]
 

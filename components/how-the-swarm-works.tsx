@@ -84,21 +84,21 @@ export function HowTheSwarmWorks() {
           {/* Rail with connected stations */}
           <div className="relative px-3">
             {/* Continuous track */}
-            <div className="absolute left-3 right-3 top-3 h-0.5 -translate-y-1/2 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600" />
+            <div className="absolute bottom-3 left-6 top-3 w-0.5 bg-gradient-to-b from-blue-200 via-blue-400 to-blue-600 sm:left-3 sm:right-3 sm:top-3 sm:h-0.5 sm:w-auto sm:-translate-y-1/2 sm:bg-gradient-to-r" />
 
-            <div className="relative grid grid-cols-5">
+            <div className="relative grid gap-6 sm:grid-cols-5 sm:gap-0">
               {["Recon", "Initial Breach", "Escalation", "Exploitation", "Persistence"].map((phase, i) => (
-                <div key={phase} className="flex flex-col items-center">
+                <div key={phase} className="flex min-w-0 items-center gap-4 sm:flex-col sm:gap-0">
                   {/* Station dot */}
-                  <div className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-white shadow-[0_0_0_2px_rgb(59_130_246/0.8)]">
+                  <div className="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-white bg-white shadow-[0_0_0_2px_rgb(59_130_246/0.8)]">
                     <span className="h-2 w-2 rounded-full bg-blue-500" />
                   </div>
                   {/* Label */}
-                  <div className="mt-4 text-center">
+                  <div className="min-w-0 sm:mt-4 sm:text-center">
                     <p className="font-mono text-[10px] font-semibold uppercase tracking-wider text-gray-400">
                       Phase {String(i + 1).padStart(2, "0")}
                     </p>
-                    <p className="mt-1 text-sm font-semibold text-gray-900">{phase}</p>
+                    <p className="mt-1 text-sm font-semibold leading-snug text-gray-900">{phase}</p>
                   </div>
                 </div>
               ))}

@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "ProofLayer — Autonomous Red-Teaming for AI Systems",
   description:
-    "Self-evolving AI agents that continuously attack your AI — finding what humans and scanners miss. Prompt injection, MCP exploits, tool poisoning, agent hijacking. Open source.",
+    "Self-evolving AI agents that continuously attack your AI — finding what humans and scanners miss, then turning findings into compliance-ready evidence.",
   keywords: [
     "AI red teaming",
     "autonomous red team",
@@ -41,18 +41,24 @@ export const metadata: Metadata = {
     "AI vulnerability scanner",
     "agentic AI security",
     "LLM security",
+    "AI compliance",
+    "SOC 2 readiness",
+    "NIST AI RMF",
+    "EU AI Act",
+    "ISO 42001",
+    "ISO/IEC 42001",
   ],
   authors: [{ name: "ProofLayer" }],
   openGraph: {
     title: "ProofLayer — Autonomous Red-Teaming for AI Systems",
-    description: "Self-evolving AI agents that continuously attack your AI — finding what humans and scanners miss. Prompt injection, MCP exploits, tool poisoning, agent hijacking. Open source.",
+    description: "Self-evolving AI agents that continuously attack your AI — finding what humans and scanners miss, then turning findings into compliance-ready evidence.",
     type: "website",
     siteName: "ProofLayer",
   },
   twitter: {
     card: "summary_large_image",
     title: "ProofLayer — Autonomous Red-Teaming for AI Systems",
-    description: "Self-evolving AI agents that continuously attack your AI — finding what humans and scanners miss. Open source.",
+    description: "Self-evolving AI agents that continuously attack your AI — finding what humans and scanners miss, then turning findings into compliance-ready evidence.",
   },
   icons: {
     icon: [
