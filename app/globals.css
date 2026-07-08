@@ -124,6 +124,47 @@
   animation: scroll-carousel 25s linear infinite;
 }
 
+@keyframes logo-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-logo-marquee {
+  animation: logo-marquee 52s linear infinite;
+}
+
+.logo-marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.logo-marquee-mask:hover .animate-logo-marquee {
+  animation-play-state: paused;
+}
+
+.logo-marquee-static {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee-mask {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .logo-marquee-motion {
+    display: none;
+  }
+
+  .logo-marquee-static {
+    display: flex;
+  }
+}
+
 @keyframes typing-cursor {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
