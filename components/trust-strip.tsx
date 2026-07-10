@@ -20,9 +20,9 @@ const companyLogos: CompanyLogo[] = [
   { name: "Truist", src: "/company-logos/truist.png" },
   {
     name: "Samsung Fire & Marine Insurance",
-    src: "/company-logos/samsung-fire-marine-insurance.png",
+    src: "/company-logos/samsung-fire-marine-insurance.svg",
   },
-  { name: "Euronext", src: "/company-logos/euronext.png" },
+  { name: "Euronext", src: "/company-logos/euronext.svg" },
   { name: "Altinity", src: "/company-logos/altinity.png" },
   { name: "Alpaca", src: "/company-logos/alpaca.png" },
   { name: "Clear Street", src: "/company-logos/clear-street.png" },
