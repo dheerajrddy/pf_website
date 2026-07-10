@@ -86,7 +86,7 @@ function TerminalAnimation() {
 
 export function Hero() {
   return (
-    <section className="relative px-4 pt-36 pb-24 sm:px-6 lg:px-8 lg:pt-48 lg:pb-32 overflow-hidden">
+    <section className="relative px-4 pt-24 pb-6 sm:px-6 lg:px-8 lg:pt-32 lg:pb-8 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-20 items-center">
           {/* Left column — copy */}
@@ -101,11 +101,11 @@ export function Hero() {
               transition={{ duration: 0.7 }}
               className="text-[48px] font-extrabold leading-[1.02] tracking-tighter text-gray-900 sm:text-[72px] lg:text-[88px]"
             >
-              The <span className="text-gradient">autonomous</span>
+              The <span className="text-gradient">trust layer</span>
               <br />
-              red team for
+              for enterprise
               <br />
-              AI systems.
+              AI.
             </motion.h1>
 
             {/* Sub */}
@@ -114,7 +114,7 @@ export function Hero() {
               transition={{ duration: 0.7 }}
               className="mt-6 max-w-xl text-lg leading-relaxed text-gray-500 sm:text-xl"
             >
-              Continuously red-teams your LLMs, agents, and MCP servers — then turns every finding into audit-ready evidence mapped to security and AI compliance frameworks.
+              One platform for the three questions every CISO is being asked about AI: is it secure, will attackers get in, and can we prove it to auditors.
             </motion.p>
 
             {/* CTAs */}
