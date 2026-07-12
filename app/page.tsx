@@ -8,7 +8,6 @@ import { TargetCoverage } from "@/components/target-coverage"
 import { HowTheSwarmWorks } from "@/components/how-the-swarm-works"
 import { Proof } from "@/components/proof"
 import { Compliance } from "@/components/compliance"
-import { WhyProofLayer } from "@/components/why-prooflayer"
 import { FinalCta } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
 
@@ -31,7 +30,6 @@ export default function Home() {
         <HowTheSwarmWorks />
         <Proof />
         <Compliance />
-        <WhyProofLayer />
         <FinalCta />
         <Footer />
       </div>

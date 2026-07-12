@@ -13,10 +13,7 @@ type NavLink = {
 }
 
 const navLinks: NavLink[] = [
-  { label: "Dashboard", href: "#dashboard" },
-  { label: "Attack Coverage", href: "#attack-coverage" },
-  { label: "How it Works", href: "#how-it-works" },
-  { label: "Compliance", href: "#compliance" },
+  { label: "Pricing", href: "/pricing", isPage: true },
   { label: "Blog", href: "/blog", isPage: true },
   {
     label: "npm scanner",
