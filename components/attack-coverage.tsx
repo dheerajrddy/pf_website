@@ -47,7 +47,7 @@ const experts = [
 
 export function AttackCoverage() {
   return (
-    <section id="attack-coverage" className="scroll-mt-24 px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section id="attack-coverage" className="scroll-mt-24 px-4 pt-32 pb-24 sm:px-6 lg:px-8 lg:pt-40 lg:pb-32">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial="hidden"

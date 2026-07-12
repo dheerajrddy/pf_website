@@ -3,10 +3,6 @@ import { Hero } from "@/components/hero"
 import { TrustStrip } from "@/components/trust-strip"
 import { WhySection } from "@/components/why-section"
 import { DashboardTour } from "@/components/dashboard-tour"
-import { AttackCoverage } from "@/components/attack-coverage"
-import { TargetCoverage } from "@/components/target-coverage"
-import { HowTheSwarmWorks } from "@/components/how-the-swarm-works"
-import { Proof } from "@/components/proof"
 import { Compliance } from "@/components/compliance"
 import { FinalCta } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
@@ -25,10 +21,6 @@ export default function Home() {
         <TrustStrip />
         <WhySection />
         <DashboardTour />
-        <AttackCoverage />
-        <TargetCoverage />
-        <HowTheSwarmWorks />
-        <Proof />
         <Compliance />
         <FinalCta />
         <Footer />

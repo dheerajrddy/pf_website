@@ -1,33 +1,31 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X, ArrowUpRight } from "lucide-react"
+import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
 type NavLink = {
   label: string
   href: string
-  isPage?: boolean
-  external?: boolean
 }
 
 const navLinks: NavLink[] = [
-  { label: "Pricing", href: "/pricing", isPage: true },
-  { label: "Blog", href: "/blog", isPage: true },
-  {
-    label: "npm scanner",
-    href: "https://github.com/sinewaveai/agent-security-scanner-mcp",
-    external: true,
-  },
-  {
-    label: "ClawHub",
-    href: "https://clawhub-dashboard-650992439798.us-central1.run.app",
-    external: true,
-  },
+  { label: "AI Red Teaming", href: "/ai-red-teaming" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Blog", href: "/blog" },
 ]
 
-const firstExternalIndex = navLinks.findIndex((l) => l.external)
+const productLinks = [
+  {
+    label: "Agent audit",
+    href: "https://github.com/sinewaveai/agent-security-scanner-mcp",
+  },
+  {
+    label: "Scan your skills",
+    href: "https://clawhub-dashboard-650992439798.us-central1.run.app",
+  },
+]
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -69,51 +67,43 @@ export function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden items-center gap-6 lg:flex">
-          {navLinks.map((link, i) => {
-            const divider =
-              i === firstExternalIndex && firstExternalIndex > 0 ? (
-                <span key={`divider-${i}`} className="mx-1 h-5 border-l border-gray-200" aria-hidden />
-              ) : null
-
-            if (link.external) {
-              return (
-                <span key={link.label} className="flex items-center gap-6">
-                  {divider}
+          {/* Products dropdown */}
+          <div className="group relative">
+            <button
+              type="button"
+              className="inline-flex items-center gap-1 text-sm font-medium text-gray-600 transition-colors group-hover:text-gray-900"
+            >
+              Products
+              <ChevronDown className="h-3.5 w-3.5 text-gray-400 transition-transform group-hover:rotate-180" />
+            </button>
+            <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+              <div className="w-56 rounded-xl border border-gray-100 bg-white p-2 shadow-lg shadow-gray-900/5">
+                {productLinks.map((item) => (
                   <a
-                    href={link.href}
+                    key={item.label}
+                    href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
+                    className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
                   >
-                    {link.label}
+                    {item.label}
                     <ArrowUpRight className="h-3.5 w-3.5 text-gray-400" />
                   </a>
-                </span>
-              )
-            }
+                ))}
+              </div>
+            </div>
+          </div>
 
-            if (link.isPage) {
-              return (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
-                >
-                  {link.label}
-                </Link>
-              )
-            }
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
+            >
+              {link.label}
+            </Link>
+          ))}
 
-            return (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
-              >
-                {link.label}
-              </a>
-            )
-          })}
           <div className="mx-1 h-5 border-l border-gray-200" />
           <a
             href="https://calendly.com/divyachitimalla/intro"
@@ -149,54 +139,35 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="bg-white/95 backdrop-blur-xl lg:hidden">
           <nav className="flex flex-col gap-1 px-4 py-6">
-            {navLinks.map((link, i) => {
-              const divider =
-                i === firstExternalIndex && firstExternalIndex > 0 ? (
-                  <div key={`m-divider-${i}`} className="my-2 border-t border-gray-100" aria-hidden />
-                ) : null
+            <div className="px-4 pb-1 pt-2 text-xs font-semibold uppercase tracking-wide text-gray-400">
+              Products
+            </div>
+            {productLinks.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.label}
+                <ArrowUpRight className="h-4 w-4 text-gray-400" />
+              </a>
+            ))}
 
-              if (link.external) {
-                return (
-                  <span key={link.label} className="flex flex-col">
-                    {divider}
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {link.label}
-                      <ArrowUpRight className="h-4 w-4 text-gray-400" />
-                    </a>
-                  </span>
-                )
-              }
+            <div className="my-2 border-t border-gray-100" aria-hidden />
 
-              if (link.isPage) {
-                return (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    className="rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                )
-              }
-
-              return (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
-              )
-            })}
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
         </div>
       )}
