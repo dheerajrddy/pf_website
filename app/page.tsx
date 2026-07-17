@@ -1,15 +1,18 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { TrustStrip } from "@/components/trust-strip"
-import { WhySection } from "@/components/why-section"
-import { DashboardTour } from "@/components/dashboard-tour"
+import { AttackCoverage } from "@/components/attack-coverage"
+import { HowTheSwarmWorks } from "@/components/how-the-swarm-works"
+import { Proof } from "@/components/proof"
 import { Compliance } from "@/components/compliance"
+import { OpenSourceLadder } from "@/components/open-source-ladder"
+import { Pricing } from "@/components/pricing"
 import { FinalCta } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-white bg-dot-pattern text-gray-900">
+    <main className="relative min-h-screen bg-white text-gray-900">
       {/* Ambient glow orbs */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
         <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/4 h-[600px] w-[900px] rounded-full bg-blue-400/[0.04] blur-[100px]" />
@@ -19,9 +22,12 @@ export default function Home() {
         <Header />
         <Hero />
         <TrustStrip />
-        <WhySection />
-        <DashboardTour />
+        <HowTheSwarmWorks />
+        <OpenSourceLadder />
+        <AttackCoverage />
+        <Proof />
         <Compliance />
+        <Pricing />
         <FinalCta />
         <Footer />
       </div>

@@ -32,7 +32,7 @@ const metrics = [
 
 export function Proof() {
   return (
-    <section id="proof" className="scroll-mt-24 px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section id="proof" className="scroll-mt-24 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial="hidden"
@@ -45,23 +45,23 @@ export function Proof() {
             variants={fadeIn}
             className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-blue-600/80"
           >
-            Evidence
+            Detect
           </motion.span>
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.6 }}
             className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.1]"
           >
-            Numbers from the lab,
+            Every finding ships
             <br />
-            <span className="text-gradient">not the marketing deck.</span>
+            <span className="text-gradient">with replayable proof.</span>
           </motion.h2>
           <motion.p
             variants={fadeIn}
             transition={{ duration: 0.6 }}
             className="mx-auto mt-6 max-w-2xl text-lg text-gray-600"
           >
-            Every exploit is reproducible. No synthetic benchmarks, no cherry-picked wins.
+            ProofLayer counts observable breaches, not model guesses. Your team gets the prompt, response, tool trace, and detection signal.
           </motion.p>
         </motion.div>
 

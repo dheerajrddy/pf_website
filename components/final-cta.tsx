@@ -7,7 +7,7 @@ import { CALENDLY_URL } from "@/lib/links"
 
 export function FinalCta() {
   return (
-    <section className="bg-gray-50/50 bg-dot-pattern px-4 py-28 sm:px-6 lg:px-8 lg:py-40">
+    <section className="bg-gray-50/50 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-4xl text-center">
         <motion.div
           initial="hidden"
@@ -20,16 +20,16 @@ export function FinalCta() {
             transition={{ duration: 0.6 }}
             className="text-5xl font-extrabold tracking-tighter text-gray-900 sm:text-6xl lg:text-[72px] lg:leading-[1.05]"
           >
-            Start red-teaming
+            Prove what happens
             <br />
-            <span className="text-gradient">your AI.</span>
+            <span className="text-gradient">when your AI is attacked.</span>
           </motion.h2>
           <motion.p
             variants={fadeIn}
             transition={{ duration: 0.6 }}
             className="mt-8 text-xl text-gray-500 sm:text-2xl"
           >
-            See what attackers see — before they do.
+            Run the attack. Replay the finding. Send the evidence.
           </motion.p>
 
           {/* CTA */}

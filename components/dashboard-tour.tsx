@@ -7,37 +7,37 @@ import { fadeUp, fadeIn, staggerContainer } from "@/lib/animations"
 const hero = {
   src: "/dashboard/overview.png",
   title: "Security Posture Overview",
-  pitch: "The view a CISO hands to the board.",
+  pitch: "See the proof your board will ask for.",
   detail:
-    "Posture score, open findings by severity, active campaigns, breach-rate trends, and a ranked list of your most-breached assets — in one pane.",
+    "Track posture, active campaigns, breach trends, and exposed assets from one evidence trail.",
 }
 
 const secondary = [
   {
     src: "/dashboard/campaign-detail.png",
     title: "Campaign Detail",
-    pitch: "Watch autonomous attacks unfold in real time.",
+    pitch: "See each NEXUS attack phase unfold.",
     detail:
       "The 5-phase NEXUS timeline, attack-methodology breakdown, and per-expert performance for every campaign.",
   },
   {
     src: "/dashboard/analysis.png",
     title: "OWASP & MITRE Coverage",
-    pitch: "Provable coverage, not just a scan report.",
+    pitch: "Measure the attack classes tested.",
     detail:
       "Framework-coverage gauges for OWASP LLM Top 10 and MITRE ATLAS. Every category tagged with finding counts as campaigns run.",
   },
   {
     src: "/dashboard/findings.png",
     title: "Findings Triage",
-    pitch: "Triage, track, and remediate.",
+    pitch: "Replay the breach before assigning it.",
     detail:
       "Filterable by severity, category, target agent, and status. Every row ships with a replay trace — no false-positive grinding.",
   },
   {
     src: "/dashboard/report.png",
-    title: "Board-Ready Reports",
-    pitch: "Compliance-ready reporting in one click.",
+    title: "Audit Evidence Packets",
+    pitch: "Every attack becomes audit evidence.",
     detail:
       "Executive summary, SOC 2 readiness evidence, NIST AI RMF, EU AI Act, ISO/IEC 42001, OWASP, MITRE mappings, top findings, asset risk, and remediation roadmap.",
   },
@@ -84,23 +84,23 @@ export function DashboardTour() {
             variants={fadeIn}
             className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-blue-600/80"
           >
-            The Dashboard
+            One evidence trail
           </motion.span>
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.6 }}
             className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[64px] lg:leading-[1.05]"
           >
-            A single pane of glass
+            Attack, detect, and prove
             <br />
-            <span className="text-gradient">for every AI campaign.</span>
+            <span className="text-gradient">from one dashboard.</span>
           </motion.h2>
           <motion.p
             variants={fadeIn}
             transition={{ duration: 0.6 }}
             className="mx-auto mt-6 max-w-2xl text-lg text-gray-600"
           >
-            Launch campaigns, watch attacks execute, triage findings, and generate compliance reports — all from one interface designed for security teams, not researchers.
+            Follow each campaign from attack trace to verified finding. Export the same record for your board, auditor, or customer.
           </motion.p>
         </motion.div>
 

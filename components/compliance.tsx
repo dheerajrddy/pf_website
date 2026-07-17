@@ -65,7 +65,7 @@ const frameworks = [
     icon: ClipboardCheck,
     name: "EU AI Act",
     pitch: "High-risk evidence mapping.",
-    detail: "Artifacts aligned to classification, transparency, human oversight, accuracy, robustness, and cybersecurity obligations.",
+    detail: "Artifacts aligned to classification, transparency, human oversight, accuracy, resilience, and cybersecurity obligations.",
   },
   {
     icon: BookOpen,
@@ -89,7 +89,7 @@ const frameworks = [
 
 export function Compliance() {
   return (
-    <section id="compliance" className="scroll-mt-24 bg-gray-50/40 bg-dot-pattern px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section id="compliance" className="scroll-mt-24 bg-gray-50/40 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial="hidden"
@@ -102,23 +102,23 @@ export function Compliance() {
             variants={fadeIn}
             className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-blue-600/80"
           >
-            AI Compliance Evidence
+            Prove
           </motion.span>
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.6 }}
             className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.1]"
           >
-            Turn AI security testing{" "}
+            Every attack becomes
             <br />
-            <span className="text-gradient">into audit-ready evidence.</span>
+            <span className="text-gradient">audit-ready evidence.</span>
           </motion.h2>
           <motion.p
             variants={fadeIn}
             transition={{ duration: 0.6 }}
             className="mx-auto mt-6 max-w-3xl text-lg text-gray-600"
           >
-            ProofLayer now combines continuous AI red-team evidence with cloud and policy evidence collection for SOC 2 readiness, NIST AI RMF, EU AI Act, ISO/IEC 42001, OWASP, and MITRE reporting.
+            Combine red-team findings with cloud and policy evidence. Generate packets for SOC 2, NIST AI RMF, EU AI Act, and ISO/IEC 42001.
           </motion.p>
         </motion.div>
 

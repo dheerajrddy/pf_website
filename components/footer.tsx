@@ -7,17 +7,20 @@ const columns: {
   links: { label: string; href: string }[]
 }[] = [
   {
-    heading: "Product",
+    heading: "Products",
     links: [
-      { label: "Dashboard", href: "/dashboard" },
-      { label: "Attack Coverage", href: "/#attack-coverage" },
-      { label: "How it Works", href: "/#how-it-works" },
+      { label: "Code Scanner", href: "/#code-scanner" },
+      { label: "Automated Red Teaming", href: "/#red-team" },
+      { label: "MCP Runtime Security", href: "/#runtime-security" },
       { label: "Compliance", href: "/#compliance" },
+      { label: "Pricing", href: "/#pricing" },
     ],
   },
   {
-    heading: "Company",
+    heading: "Open Source",
     links: [
+      { label: "Code Scanner", href: "/#code-scanner" },
+      { label: "Runtime Rules", href: "https://github.com/sinewaveai/prooflayer-rules" },
       { label: "Blog", href: "/blog" },
     ],
   },
@@ -43,7 +46,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-400">
-              Autonomous red-teaming for AI systems. Purpose-built for teams shipping LLMs, agents, and MCP servers to production.
+              Continuous adversarial proof for enterprise AI. Attack, detect, and prove from one evidence trail.
             </p>
             <div className="mt-5 flex items-center gap-4">
               <a

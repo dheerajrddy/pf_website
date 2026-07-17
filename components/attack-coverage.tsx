@@ -47,7 +47,7 @@ const experts = [
 
 export function AttackCoverage() {
   return (
-    <section id="attack-coverage" className="scroll-mt-24 px-4 pt-32 pb-24 sm:px-6 lg:px-8 lg:pt-40 lg:pb-32">
+    <section id="attack-coverage" className="scroll-mt-24 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial="hidden"
@@ -60,23 +60,23 @@ export function AttackCoverage() {
             variants={fadeIn}
             className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-blue-600/80"
           >
-            Attack Coverage
+            Attack
           </motion.span>
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.6 }}
             className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.1]"
           >
-            Six coordinated experts.
+            Test the attack classes
             <br />
-            <span className="text-gradient">One autonomous swarm.</span>
+            <span className="text-gradient">your scanners miss.</span>
           </motion.h2>
           <motion.p
             variants={fadeIn}
             transition={{ duration: 0.6 }}
             className="mx-auto mt-6 max-w-3xl text-lg text-gray-600"
           >
-            Each expert is a fine-tuned attack model with a specialty. A bandit orchestrator routes traffic to the expert most likely to breach — and keeps learning which attackers work best against your defenses.
+            Autonomous campaigns test prompt injection, jailbreaks, data exfiltration, tool abuse, RAG poisoning, and memory injection.
           </motion.p>
         </motion.div>
 

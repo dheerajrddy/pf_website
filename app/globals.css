@@ -173,3 +173,72 @@
 .animate-cursor {
   animation: typing-cursor 1s step-end infinite;
 }
+
+/* Low-contrast attack swarm behind the landing-page content. */
+.swarm-field {
+  position: absolute;
+  inset: 0;
+}
+
+.swarm-particle {
+  position: absolute;
+  height: 5px;
+  width: 5px;
+  border-radius: 9999px;
+  will-change: transform, opacity;
+  animation-duration: var(--swarm-speed), 1.7s;
+  animation-name: swarm-funnel, swarm-blink;
+  animation-timing-function: linear, ease-in-out;
+  animation-delay: var(--swarm-delay), 0s;
+  animation-iteration-count: infinite, infinite;
+}
+
+.swarm-particle-blue {
+  color: #2563eb;
+  background: currentColor;
+  box-shadow: 0 0 12px rgb(37 99 235 / 0.55);
+}
+
+.swarm-particle-red {
+  height: 6px;
+  width: 6px;
+  color: #dc2626;
+  background: currentColor;
+  box-shadow: 0 0 14px rgb(220 38 38 / 0.5);
+}
+
+.swarm-particle::before {
+  content: "";
+  position: absolute;
+  right: 3px;
+  top: 2px;
+  height: 1px;
+  width: 18px;
+  background: linear-gradient(90deg, transparent, currentColor);
+  opacity: 0.32;
+}
+
+@keyframes swarm-funnel {
+  0% {
+    transform: translate3d(-8vw, 0, 0) scale(0.72);
+  }
+  55% {
+    transform: translate3d(62vw, var(--swarm-funnel-mid-y), 0) scale(1);
+  }
+  100% {
+    transform: translate3d(116vw, var(--swarm-funnel-y), 0) scale(0.78);
+  }
+}
+
+@keyframes swarm-blink {
+  0%, 100% { opacity: 0.14; }
+  48% { opacity: 0.78; }
+  64% { opacity: 0.28; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swarm-particle {
+    animation: none;
+    opacity: 0.16;
+  }
+}

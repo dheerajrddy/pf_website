@@ -1,39 +1,39 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Compass, Sparkles, GitBranch, Shield } from "lucide-react"
+import { ArrowRight, Crosshair, FileCheck2, ScanSearch } from "lucide-react"
 import { fadeUp, fadeIn, staggerContainer } from "@/lib/animations"
 
-const pillars = [
+const loop = [
   {
-    icon: Compass,
-    eyebrow: "Multi-phase campaigns",
-    title: "Every run plays out a full attack.",
-    body: "Recon, initial breach, escalation, exploitation, persistence — the same shape as a real adversary. Each phase runs concurrent attack batches on a time budget you set.",
+    step: "01",
+    label: "Attack",
+    icon: Crosshair,
+    title: "Run autonomous swarm campaigns.",
+    body: "NEXUS campaigns move through recon, breach, escalation, exploitation, and persistence against LLMs, agents, and MCP servers.",
+    detail: "Prompt injection · Tool abuse · RAG poisoning",
   },
   {
-    icon: Sparkles,
-    eyebrow: "Adaptive expert routing",
-    title: "Six attackers compete in real time.",
-    body: "Each expert has a specialty. The swarm learns which ones are landing against your target and routes more traffic to them as the campaign runs.",
+    step: "02",
+    label: "Detect",
+    icon: ScanSearch,
+    title: "Verify the breach, not a hunch.",
+    body: "Every finding includes the exact prompt, response, tool trace, detection signal, severity, and affected asset.",
+    detail: "Replay traces · Findings triage · Posture score",
   },
   {
-    icon: GitBranch,
-    eyebrow: "Self-improving",
-    title: "Every campaign trains the next one.",
-    body: "Between runs, the experts retrain on what worked and what didn't. The same swarm, three training generations later, breaches targets 3.5× more often.",
-  },
-  {
-    icon: Shield,
-    eyebrow: "Adapts to your defenses",
-    title: "Tuned to how hard your target is.",
-    body: "From undefended endpoints to agents running input filters and content guardrails, the swarm adjusts its approach. Reports include the path that got past — not just the finding.",
+    step: "03",
+    label: "Prove",
+    icon: FileCheck2,
+    title: "Package the evidence.",
+    body: "Generate board and auditor packets mapped to SOC 2, NIST AI RMF, EU AI Act, and ISO/IEC 42001.",
+    detail: "Control mappings · Executive summary · Remediation",
   },
 ]
 
 export function HowTheSwarmWorks() {
   return (
-    <section id="how-it-works" className="scroll-mt-24 px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section id="platform" className="scroll-mt-24 bg-gray-50/40 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial="hidden"
@@ -42,97 +42,54 @@ export function HowTheSwarmWorks() {
           variants={staggerContainer}
           className="text-center"
         >
-          <motion.span
-            variants={fadeIn}
-            className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-blue-600/80"
-          >
-            How the Swarm Works
+          <motion.span variants={fadeIn} className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-blue-600/80">
+            The ProofLayer loop
           </motion.span>
-          <motion.h2
-            variants={fadeUp}
-            transition={{ duration: 0.6 }}
-            className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.1]"
-          >
-            A swarm that{" "}
-            <span className="text-gradient">learns your defenses</span>
+          <motion.h2 variants={fadeUp} transition={{ duration: 0.6 }} className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.1]">
+            Attack. Detect. Prove.
             <br />
-            faster than you can ship them.
+            <span className="text-gradient">Then run it again.</span>
           </motion.h2>
-          <motion.p
-            variants={fadeIn}
-            transition={{ duration: 0.6 }}
-            className="mx-auto mt-6 max-w-2xl text-lg text-gray-600"
-          >
-            Built for engineers who want to see the internals. LoRA-fine-tuned experts, a bandit orchestrator, and a reinforcement-learning loop that makes every campaign smarter than the last.
+          <motion.p variants={fadeIn} transition={{ duration: 0.6 }} className="mx-auto mt-6 max-w-3xl text-lg text-gray-600">
+            Continuous attacks create current evidence. New models, tools, and agent workflows enter the same loop as you ship them.
           </motion.p>
         </motion.div>
 
-        {/* Phase bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-16 rounded-2xl border border-gray-200 bg-white p-8 shadow-sm"
-        >
-          <div className="mb-8">
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-blue-600/80">
-              Campaign Phases
-            </span>
-          </div>
-
-          {/* Rail with connected stations */}
-          <div className="relative px-3">
-            {/* Continuous track */}
-            <div className="absolute bottom-3 left-6 top-3 w-0.5 bg-gradient-to-b from-blue-200 via-blue-400 to-blue-600 sm:left-3 sm:right-3 sm:top-3 sm:h-0.5 sm:w-auto sm:-translate-y-1/2 sm:bg-gradient-to-r" />
-
-            <div className="relative grid gap-6 sm:grid-cols-5 sm:gap-0">
-              {["Recon", "Initial Breach", "Escalation", "Exploitation", "Persistence"].map((phase, i) => (
-                <div key={phase} className="flex min-w-0 items-center gap-4 sm:flex-col sm:gap-0">
-                  {/* Station dot */}
-                  <div className="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-white bg-white shadow-[0_0_0_2px_rgb(59_130_246/0.8)]">
-                    <span className="h-2 w-2 rounded-full bg-blue-500" />
-                  </div>
-                  {/* Label */}
-                  <div className="min-w-0 sm:mt-4 sm:text-center">
-                    <p className="font-mono text-[10px] font-semibold uppercase tracking-wider text-gray-400">
-                      Phase {String(i + 1).padStart(2, "0")}
-                    </p>
-                    <p className="mt-1 text-sm font-semibold leading-snug text-gray-900">{phase}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Pillars */}
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
-          {pillars.map((pillar, i) => {
-            const Icon = pillar.icon
+        <div className="mt-16 grid gap-5 lg:grid-cols-[1fr_auto_1fr_auto_1fr] lg:items-stretch">
+          {loop.map((item, index) => {
+            const Icon = item.icon
             return (
-              <motion.div
-                key={pillar.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="rounded-2xl border border-gray-200 bg-white p-7 shadow-sm"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="rounded-xl bg-blue-50 p-2.5">
-                    <Icon className="h-5 w-5 text-blue-600" />
+              <div key={item.label} className="contents">
+                <motion.article
+                  id={item.label === "Attack" ? "red-team" : item.label === "Prove" ? "evidence" : undefined}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: index * 0.1 }}
+                  className="scroll-mt-24 rounded-2xl border border-gray-200 bg-white p-7 shadow-sm"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="rounded-xl bg-blue-50 p-3"><Icon className="h-6 w-6 text-blue-600" /></div>
+                    <span className="font-mono text-xs font-semibold text-gray-400">{item.step}</span>
                   </div>
-                  <span className="font-mono text-xs font-semibold uppercase tracking-wider text-blue-600/80">
-                    {pillar.eyebrow}
-                  </span>
-                </div>
-                <h3 className="mt-4 text-xl font-bold text-gray-900">{pillar.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-gray-600">{pillar.body}</p>
-              </motion.div>
+                  <p className="mt-6 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">{item.label}</p>
+                  <h3 className="mt-3 text-xl font-bold text-gray-900">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-600">{item.body}</p>
+                  <p className="mt-6 border-t border-gray-100 pt-5 font-mono text-xs leading-relaxed text-gray-500">{item.detail}</p>
+                </motion.article>
+                {index < loop.length - 1 && (
+                  <div className="flex items-center justify-center py-1 text-blue-300 lg:px-1 lg:py-0" aria-hidden="true">
+                    <ArrowRight className="h-6 w-6 rotate-90 lg:rotate-0" />
+                  </div>
+                )}
+              </div>
             )
           })}
         </div>
+
+        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-10 text-center text-sm font-medium text-gray-600">
+          The result is adversarial evidence that stays current after every release.
+        </motion.p>
       </div>
     </section>
   )

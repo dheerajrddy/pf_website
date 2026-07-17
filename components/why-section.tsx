@@ -33,7 +33,7 @@ const threats = [
 
 export function WhySection() {
   return (
-    <section id="the-problem" className="scroll-mt-24 px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section id="the-problem" className="scroll-mt-24 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <motion.div
@@ -47,23 +47,23 @@ export function WhySection() {
             variants={fadeIn}
             className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-blue-600/80"
           >
-            The Problem
+            What your current stack misses
           </motion.span>
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.6 }}
             className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.1]"
           >
-            Your AI systems have an attack surface
+            Your scanners do not know
             <br />
-            <span className="text-blue-400">your security team has never seen.</span>
+            <span className="text-blue-400">what an agent is.</span>
           </motion.h2>
           <motion.p
             variants={fadeIn}
             transition={{ duration: 0.6 }}
             className="mx-auto mt-6 max-w-3xl text-lg text-gray-600"
           >
-            Every LLM integration, every MCP server, every autonomous agent is a new attack surface that didn&apos;t exist 18 months ago. Your scanners don&apos;t know what an agent is. Your pentest vendors run playbooks written for web apps. Attackers don&apos;t.
+            Your pentest becomes a static PDF. It starts aging when you ship a new model, tool call, or MCP server. These attack classes stay untested.
           </motion.p>
         </motion.div>
 
