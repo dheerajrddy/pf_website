@@ -21,34 +21,15 @@ const tiers = [
     ctaHref: "https://www.npmjs.com/package/agent-security-scanner-mcp",
     style: "border-slate-200 bg-white",
     ctaStyle: "bg-slate-900 text-white hover:bg-slate-800",
-    popular: false,
-  },
-  {
-    name: "Pro",
-    price: "$499",
-    period: "/mo",
-    description: "Continuous autonomous red-teaming for production AI systems.",
-    features: [
-      "Everything in Community",
-      "Continuous 24/7 red-teaming",
-      "Self-evolving attack agents",
-      "Proof-of-exploit reports",
-      "Security dashboard",
-      "Slack / webhook alerts",
-      "Priority support",
-    ],
-    cta: "Start Free Trial",
-    ctaHref: "https://calendly.com/divyachitimalla/intro",
-    style: "border-cyan-500/30 bg-white shadow-lg scale-[1.02] ring-1 ring-cyan-500/20",
-    ctaStyle: "bg-cyan-500 text-white hover:bg-cyan-600",
-    popular: true,
   },
   {
     name: "Enterprise",
     price: "Custom",
     description: "Dedicated red-teaming with compliance, SSO, and SLA guarantees.",
     features: [
-      "Everything in Pro",
+      "Everything in Community",
+      "Continuous autonomous red-teaming",
+      "Proof-of-exploit reports",
       "Compliance reporting (SOC 2, ISO 27001)",
       "SSO / SAML integration",
       "SLA guarantees",
@@ -60,14 +41,13 @@ const tiers = [
     ctaHref: "https://calendly.com/divyachitimalla/intro",
     style: "border-slate-200 bg-white",
     ctaStyle: "bg-slate-900 text-white hover:bg-slate-800",
-    popular: false,
   },
 ]
 
 export function Pricing() {
   return (
     <section id="pricing" className="scroll-mt-24 bg-slate-50 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-5xl">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -83,7 +63,7 @@ export function Pricing() {
           </motion.span>
         </motion.div>
 
-        <div className="mt-16 grid items-stretch gap-8 lg:grid-cols-3">
+        <div className="mt-16 grid items-stretch gap-8 lg:grid-cols-2">
           {tiers.map((tier, i) => (
             <motion.div
               key={tier.name}
@@ -93,15 +73,9 @@ export function Pricing() {
               transition={{ duration: 0.5, delay: i * 0.12 }}
               className={`relative flex h-full flex-col rounded-2xl border p-8 ${tier.style}`}
             >
-              {tier.popular && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-cyan-500 px-4 py-1 text-xs font-bold text-white">
-                  Most Popular
-                </span>
-              )}
               <h3 className="text-lg font-bold text-slate-900">{tier.name}</h3>
               <div className="mt-4 flex items-baseline gap-1">
                 <span className="text-4xl font-extrabold tracking-tight text-slate-900">{tier.price}</span>
-                {tier.period && <span className="text-base text-slate-500">{tier.period}</span>}
               </div>
               <p className="mt-3 text-sm text-slate-600">{tier.description}</p>
               <ul className="mt-6 flex-1 space-y-3">
