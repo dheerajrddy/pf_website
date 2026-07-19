@@ -41,7 +41,7 @@ export function HowTheSwarmWorks() {
             src="/prooflayer-loop.svg"
             alt="ProofLayer continuous security loop: autonomous attacks become verified findings, then audit-ready evidence, and repeat after every release"
             width={1200}
-            height={500}
+            height={640}
             className="h-auto w-full"
           />
         </motion.div>

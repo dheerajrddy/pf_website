@@ -19,6 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.proof-layer.com"),
   title: "ProofLayer — Continuous AI Security Evidence",
   description:
     "Continuously red-team LLMs, agents, and MCP servers. Turn verified findings into audit-ready evidence for SOC 2, NIST AI RMF, EU AI Act, and ISO 42001.",
@@ -53,12 +54,22 @@ export const metadata: Metadata = {
     title: "ProofLayer — Continuous AI Security Evidence",
     description: "Continuous adversarial proof for enterprise AI. Red-team LLMs, agents, and MCP servers, then turn findings into audit-ready evidence.",
     type: "website",
+    url: "https://www.proof-layer.com",
     siteName: "ProofLayer",
+    images: [
+      {
+        url: "/prooflayer-og.png",
+        width: 1200,
+        height: 630,
+        alt: "ProofLayer continuous AI security evidence",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "ProofLayer — Continuous AI Security Evidence",
     description: "Continuous adversarial proof for enterprise AI. Red-team LLMs, agents, and MCP servers, then turn findings into audit-ready evidence.",
+    images: ["/prooflayer-og.png"],
   },
   icons: {
     icon: [

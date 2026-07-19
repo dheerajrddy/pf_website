@@ -70,7 +70,7 @@ export function OpenSourceLadder() {
 
           <motion.article initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.2 }} className="rounded-2xl border border-blue-200 bg-blue-50/60 p-7 shadow-sm">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">Scheduled batch service</p>
-            <h3 className="mt-4 text-2xl font-bold tracking-tight text-gray-900">Automated Red Teaming</h3>
+            <h3 className="mt-3 break-words font-mono text-lg font-bold text-gray-900">Automated Red Teaming</h3>
             <p className="mt-3 text-sm leading-relaxed text-gray-600">Run nightly NEXUS campaigns across every deployed multi-agent system. Send verified exploits into the same vulnerability report.</p>
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex items-center gap-2 rounded-full bg-gray-900 px-5 py-3 text-sm font-semibold text-white hover:bg-gray-800">
               Talk to us <ArrowRight className="h-4 w-4" />
