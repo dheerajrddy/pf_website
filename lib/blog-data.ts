@@ -21,6 +21,17 @@ export interface Author {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gpt-red-reinforcement-learning-red-teaming",
+    title: "GPT-Red and the Case for Reinforcement Learning Red Teaming",
+    subtitle: "Why adaptive attackers are becoming necessary—and why agents still need system-level proof",
+    excerpt: "OpenAI's GPT-Red shows what changes when an attacker learns from every attempt. We compare human, static, search-based, gradient, and reinforcement learning approaches across models and agentic systems.",
+    category: "Research",
+    categoryColor: "slate",
+    readTime: "18 min read",
+    date: "July 20, 2026",
+    featured: true,
+  },
+  {
     slug: "redteam-swarm-multi-expert-red-teaming",
     title: "redteam-swarm: Autonomous Multi-Expert Red-Teaming of Agentic LLM Systems",
     subtitle: "LoRA specialists, PAIR search, and GRPO self-play against a seven-agent Claude target",
