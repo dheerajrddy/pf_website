@@ -7,6 +7,7 @@ import { CALENDLY_URL } from "@/lib/links"
 export const metadata = {
   title: "Dashboard — ProofLayer",
   description: "The ProofLayer dashboard is in private preview.",
+  robots: { index: false, follow: false },
 }
 
 export default function DashboardPlaceholder() {

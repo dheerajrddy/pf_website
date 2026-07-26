@@ -3,7 +3,7 @@ import { Hero } from "@/components/hero"
 import { TrustStrip } from "@/components/trust-strip"
 import { AttackCoverage } from "@/components/attack-coverage"
 import { HowTheSwarmWorks } from "@/components/how-the-swarm-works"
-import { Proof } from "@/components/proof"
+import { AgentDojoBenchmark } from "@/components/agentdojo-benchmark"
 import { Compliance } from "@/components/compliance"
 import { OpenSourceLadder } from "@/components/open-source-ladder"
 import { Pricing } from "@/components/pricing"
@@ -23,9 +23,9 @@ export default function Home() {
         <Hero />
         <TrustStrip />
         <HowTheSwarmWorks />
+        <AgentDojoBenchmark />
         <OpenSourceLadder />
         <AttackCoverage />
-        <Proof />
         <Compliance />
         <Pricing />
         <FinalCta />

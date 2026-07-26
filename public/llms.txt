@@ -1,0 +1,42 @@
+# ProofLayer
+
+> ProofLayer is an AI security platform from SineWave AI, Inc. It continuously red-teams LLM applications and AI agents, scans MCP servers, protects MCP traffic at runtime, and turns verified findings into audit-ready evidence.
+
+ProofLayer serves security and engineering teams that need to prove how production AI behaves under real attacks. Its core workflow is attack, detect, prove, and repeat after every model, prompt, tool, agent, or MCP server change.
+
+## Platform
+
+- [AI Red Teaming](https://www.proof-layer.com/ai-red-teaming): Autonomous multi-step campaigns against LLMs, agents, RAG pipelines, and MCP servers. Tests prompt injection, tool abuse, data exfiltration, RAG poisoning, jailbreaks, and memory poisoning.
+- [MCP Security](https://www.proof-layer.com/mcp-security): Pre-deployment MCP server scanning, adversarial testing, and inline runtime protection for Model Context Protocol traffic.
+- [Pricing](https://www.proof-layer.com/pricing): Community open-source access and enterprise deployment options.
+- [ProofLayer home](https://www.proof-layer.com/): Product overview, compliance evidence, and the continuous attack-to-evidence loop.
+
+## Open source
+
+- [agent-security-scanner-mcp](https://github.com/sinewaveai/agent-security-scanner-mcp): Air-gapped scanner for AI agent code, prompts, packages, MCP servers, and tool configurations.
+- [prooflayer-rules](https://github.com/sinewaveai/prooflayer-rules): Runtime security rules for MCP, LangChain, and LangGraph integrations.
+- [SineWave AI on GitHub](https://github.com/sinewaveai/): All public repositories.
+
+## Security coverage
+
+- Direct and indirect prompt injection
+- MCP tool poisoning and malicious tool descriptions
+- Unauthorized tool calls and excessive permissions
+- Command injection, SSRF, path traversal, and unsafe code execution
+- Sensitive-data and credential exfiltration
+- RAG and knowledge-base poisoning
+- Persistent memory and cross-session context poisoning
+- Multi-agent handoff and control-flow attacks
+
+Findings include replay traces, affected assets, severity, ownership, and control mappings. Evidence can be mapped to SOC 2, NIST AI RMF, the EU AI Act, ISO/IEC 42001, OWASP LLM Top 10, and MITRE ATLAS.
+
+## Research
+
+- [GPT-Red and reinforcement learning red teaming](https://www.proof-layer.com/blog/gpt-red-reinforcement-learning-red-teaming): Comparison of human, static, search-based, gradient, and reinforcement-learning red teaming for models and agentic systems.
+- [Autonomous multi-expert red teaming](https://www.proof-layer.com/blog/redteam-swarm-multi-expert-red-teaming): Technical research on specialist attack agents, adaptive search, and self-learning campaigns.
+- [AI agent security research](https://www.proof-layer.com/blog): ProofLayer articles and security analysis.
+
+## Contact
+
+- [Book a ProofLayer walkthrough](https://calendly.com/divyachitimalla/intro)
+- [LinkedIn](https://www.linkedin.com/company/proof-layer/)

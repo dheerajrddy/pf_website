@@ -10,10 +10,10 @@ const columns: {
     heading: "Products",
     links: [
       { label: "Code Scanner", href: "/#code-scanner" },
-      { label: "Automated Red Teaming", href: "/#red-team" },
-      { label: "MCP Runtime Security", href: "/#runtime-security" },
+      { label: "AI Red Teaming", href: "/ai-red-teaming" },
+      { label: "MCP Security", href: "/mcp-security" },
       { label: "Compliance", href: "/#compliance" },
-      { label: "Pricing", href: "/#pricing" },
+      { label: "Pricing", href: "/pricing" },
     ],
   },
   {
@@ -22,6 +22,7 @@ const columns: {
       { label: "Code Scanner", href: "/#code-scanner" },
       { label: "Runtime Rules", href: "https://github.com/sinewaveai/prooflayer-rules" },
       { label: "Blog", href: "/blog" },
+      { label: "LLM index", href: "/llms.txt" },
     ],
   },
 ]
@@ -35,8 +36,8 @@ export function Footer() {
           <div>
             <Link href="/" className="flex items-center gap-2">
               <Image
-                src="/logo.png"
-                alt="ProofLayer Logo"
+                src="/prooflayer-logo.png"
+                alt="ProofLayer shield"
                 width={36}
                 height={36}
                 className="rounded-lg"

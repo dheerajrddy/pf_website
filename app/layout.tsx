@@ -20,9 +20,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.proof-layer.com"),
-  title: "ProofLayer — Continuous AI Security Evidence",
+  title: "AI Red Teaming & MCP Security | ProofLayer",
   description:
-    "Continuously red-team LLMs, agents, and MCP servers. Turn verified findings into audit-ready evidence for SOC 2, NIST AI RMF, EU AI Act, and ISO 42001.",
+    "Continuously red-team LLMs and AI agents, scan MCP servers, and protect MCP traffic at runtime. Turn verified findings into audit-ready security evidence.",
   keywords: [
     "AI red teaming",
     "autonomous red team",
@@ -50,12 +50,31 @@ export const metadata: Metadata = {
     "ISO/IEC 42001",
   ],
   authors: [{ name: "ProofLayer" }],
+  creator: "ProofLayer",
+  publisher: "SineWave AI, Inc.",
+  applicationName: "ProofLayer",
+  category: "AI security",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "ProofLayer — Continuous AI Security Evidence",
-    description: "Continuous adversarial proof for enterprise AI. Red-team LLMs, agents, and MCP servers, then turn findings into audit-ready evidence.",
+    title: "AI Red Teaming & MCP Security | ProofLayer",
+    description: "Continuous AI red teaming, MCP server scanning, and runtime protection. Turn verified attacks into audit-ready security evidence.",
     type: "website",
-    url: "https://www.proof-layer.com",
+    url: "/",
     siteName: "ProofLayer",
+    locale: "en_US",
     images: [
       {
         url: "/prooflayer-og.png",
@@ -67,20 +86,55 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ProofLayer — Continuous AI Security Evidence",
-    description: "Continuous adversarial proof for enterprise AI. Red-team LLMs, agents, and MCP servers, then turn findings into audit-ready evidence.",
+    title: "AI Red Teaming & MCP Security | ProofLayer",
+    description: "Continuous AI red teaming, MCP server scanning, and runtime protection with audit-ready evidence.",
     images: ["/prooflayer-og.png"],
   },
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/icon-light-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon-light-32x32.png", type: "image/png", sizes: "32x32", media: "(prefers-color-scheme: light)" },
+      { url: "/icon-dark-32x32.png", type: "image/png", sizes: "32x32", media: "(prefers-color-scheme: dark)" },
     ],
     apple: "/apple-icon.png",
   },
   verification: {
     google: "Jz2fsslsGoqDXMCaGZSWwv3lgWXir845IhkKayJCw64",
   },
+}
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.proof-layer.com/#organization",
+      name: "ProofLayer",
+      legalName: "SineWave AI, Inc.",
+      url: "https://www.proof-layer.com/",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.proof-layer.com/prooflayer-logo-512.png",
+        width: 512,
+        height: 512,
+      },
+      description: "AI red teaming and MCP security platform that produces continuous adversarial evidence for enterprise AI.",
+      sameAs: [
+        "https://www.linkedin.com/company/proof-layer/",
+        "https://github.com/sinewaveai",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.proof-layer.com/#website",
+      url: "https://www.proof-layer.com/",
+      name: "ProofLayer",
+      description: "Continuous AI red teaming, MCP security, and audit-ready evidence.",
+      publisher: { "@id": "https://www.proof-layer.com/#organization" },
+      inLanguage: "en-US",
+    },
+  ],
 }
 
 export default function RootLayout({
@@ -92,6 +146,10 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <Analytics />
         <Script
           id="posthog-init"
