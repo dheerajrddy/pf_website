@@ -1,8 +1,4 @@
-"use client"
-
-import { motion } from "framer-motion"
 import { Syringe, Unlock, Database, Wrench, FileSearch, Brain } from "lucide-react"
-import { fadeUp, fadeIn, staggerContainer } from "@/lib/animations"
 
 const experts = [
   {
@@ -49,47 +45,26 @@ export function AttackCoverage() {
   return (
     <section id="attack-coverage" className="scroll-mt-24 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-7xl">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="text-center"
-        >
-          <motion.span
-            variants={fadeIn}
-            className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-blue-600/80"
-          >
+        <div className="text-center">
+          <span className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-blue-600/80">
             Attack
-          </motion.span>
-          <motion.h2
-            variants={fadeUp}
-            transition={{ duration: 0.6 }}
-            className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.1]"
-          >
+          </span>
+          <h2 className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.1]">
             Test the attack classes
             <br />
             <span className="text-gradient">your scanners miss.</span>
-          </motion.h2>
-          <motion.p
-            variants={fadeIn}
-            transition={{ duration: 0.6 }}
-            className="mx-auto mt-6 max-w-3xl text-lg text-gray-600"
-          >
+          </h2>
+          <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-600">
             Autonomous campaigns test prompt injection, jailbreaks, data exfiltration, tool abuse, RAG poisoning, and memory injection.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {experts.map((expert, i) => {
+          {experts.map((expert) => {
             const Icon = expert.icon
             return (
-              <motion.div
+              <div
                 key={expert.name}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
                 className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-blue-200 hover:shadow-md"
               >
                 <div className="flex items-center gap-3">
@@ -114,23 +89,17 @@ export function AttackCoverage() {
                     {expert.highlight}
                   </p>
                 )}
-              </motion.div>
+              </div>
             )
           })}
         </div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-12 text-center font-mono text-sm text-gray-500"
-        >
+        <p className="mt-12 text-center font-mono text-sm text-gray-500">
           <span className="font-bold text-gray-900">976 verified exploits</span>{" "}
           across{" "}
           <span className="font-bold text-gray-900">6 coordinated experts</span>{" "}
           in one autonomous campaign.
-        </motion.p>
+        </p>
       </div>
     </section>
   )

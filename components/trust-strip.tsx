@@ -1,5 +1,3 @@
-"use client"
-
 import Image from "next/image"
 
 type CompanyLogo = {
@@ -51,14 +49,15 @@ function LogoTile({ company, duplicate = false }: { company: CompanyLogo; duplic
   return (
     <div
       aria-hidden={duplicate}
-      className="flex h-20 w-40 shrink-0 flex-col items-center justify-center gap-2 rounded-xl border border-gray-200/70 bg-white px-4 shadow-sm shadow-gray-900/[0.03]"
+      className="logo-tile flex h-20 w-40 shrink-0 flex-col items-center justify-center gap-2 rounded-xl border border-gray-200/70 bg-white px-4 shadow-sm shadow-gray-900/[0.03]"
     >
       <Image
         src={company.src}
         alt={duplicate ? "" : `${company.name} logo`}
         width={220}
         height={64}
-        loading="eager"
+        loading="lazy"
+        sizes="(max-width: 639px) 120px, 144px"
         className="max-h-9 w-auto max-w-full object-contain opacity-80 saturate-[0.8] transition duration-200 hover:opacity-100 hover:saturate-100"
       />
       <span className="min-h-3 text-center text-[11px] font-medium leading-tight text-gray-500">

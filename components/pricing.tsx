@@ -1,8 +1,4 @@
-"use client"
-
-import { motion } from "framer-motion"
 import { Check, ArrowRight } from "lucide-react"
-import { fadeIn, staggerContainer } from "@/lib/animations"
 
 const tiers = [
   {
@@ -48,29 +44,16 @@ export function Pricing() {
   return (
     <section id="pricing" className="scroll-mt-24 bg-slate-50 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-5xl">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="text-center"
-        >
-          <motion.span
-            variants={fadeIn}
-            className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-cyan-600"
-          >
+        <div className="text-center">
+          <span className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-cyan-600">
             Pricing
-          </motion.span>
-        </motion.div>
+          </span>
+        </div>
 
         <div className="mt-16 grid items-stretch gap-8 lg:grid-cols-2">
-          {tiers.map((tier, i) => (
-            <motion.div
+          {tiers.map((tier) => (
+            <div
               key={tier.name}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.12 }}
               className={`relative flex h-full flex-col rounded-2xl border p-8 ${tier.style}`}
             >
               <h3 className="text-lg font-bold text-slate-900">{tier.name}</h3>
@@ -95,7 +78,7 @@ export function Pricing() {
                 {tier.cta}
                 <ArrowRight className="h-4 w-4" />
               </a>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

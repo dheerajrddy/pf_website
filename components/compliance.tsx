@@ -1,6 +1,3 @@
-"use client"
-
-import { motion } from "framer-motion"
 import {
   BarChart3,
   BookOpen,
@@ -13,7 +10,6 @@ import {
   ShieldCheck,
   Target,
 } from "lucide-react"
-import { fadeUp, fadeIn, staggerContainer } from "@/lib/animations"
 
 const tracks = [
   {
@@ -79,47 +75,26 @@ export function Compliance() {
   return (
     <section id="compliance" className="scroll-mt-24 bg-gray-50/40 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-7xl">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="text-center"
-        >
-          <motion.span
-            variants={fadeIn}
-            className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-blue-600/80"
-          >
+        <div className="text-center">
+          <span className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-blue-600/80">
             Prove
-          </motion.span>
-          <motion.h2
-            variants={fadeUp}
-            transition={{ duration: 0.6 }}
-            className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.1]"
-          >
+          </span>
+          <h2 className="mt-5 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.1]">
             Every attack becomes
             <br />
             <span className="text-gradient">audit-ready evidence.</span>
-          </motion.h2>
-          <motion.p
-            variants={fadeIn}
-            transition={{ duration: 0.6 }}
-            className="mx-auto mt-6 max-w-3xl text-lg text-gray-600"
-          >
+          </h2>
+          <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-600">
             Combine red-team findings with cloud and policy evidence. Generate packets for SOC 2, NIST AI RMF, EU AI Act, and ISO/IEC 42001.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         <div className="mt-16 grid gap-5 md:grid-cols-3">
-          {tracks.map((track, i) => {
+          {tracks.map((track) => {
             const Icon = track.icon
             return (
-              <motion.div
+              <div
                 key={track.name}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
                 className="rounded-2xl border border-gray-200 bg-white p-7 shadow-sm transition-all hover:-translate-y-1 hover:border-blue-200 hover:shadow-md"
               >
                 <div className="w-fit rounded-xl bg-blue-50 p-2.5">
@@ -128,18 +103,12 @@ export function Compliance() {
                 <h3 className="mt-5 text-xl font-bold text-gray-900">{track.name}</h3>
                 <p className="mt-2 text-sm font-semibold text-blue-600">{track.pitch}</p>
                 <p className="mt-3 text-sm leading-relaxed text-gray-600">{track.detail}</p>
-              </motion.div>
+              </div>
             )
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-12 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8"
-        >
+        <div className="mt-12 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
           <div className="max-w-2xl">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-blue-600/80">
               One evidence trail
@@ -183,7 +152,7 @@ export function Compliance() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

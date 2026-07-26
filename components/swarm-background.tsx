@@ -35,21 +35,6 @@ const particles = [
   { left: "98%", top: "57%", color: "blue", drift: "b", speed: "13s", delay: "-7s" },
 ]
 
-const swarmParticles = Array.from({ length: 10 }, (_, batch) =>
-  particles.map((particle, index) => {
-    const baseTop = Number.parseFloat(particle.top)
-    const jitter = (((batch * 7 + index * 3) % 11) - 5) * 0.65
-    const adjustedTop = Math.min(98, Math.max(2, baseTop + jitter))
-
-    return {
-      ...particle,
-      top: `${adjustedTop}%`,
-      speed: `${8 + ((index + batch * 3) % 8)}s`,
-      delay: `-${((index * 0.73 + batch * 1.37) % 14).toFixed(2)}s`,
-    }
-  }),
-).flat()
-
 type SwarmStyle = CSSProperties & {
   "--swarm-speed": string
   "--swarm-delay": string
@@ -60,7 +45,7 @@ type SwarmStyle = CSSProperties & {
 export function SwarmBackground() {
   return (
     <div className="swarm-field" aria-hidden="true">
-      {swarmParticles.map((particle, index) => {
+      {particles.map((particle, index) => {
         const startingY = Number.parseFloat(particle.top)
         const funnelOffset = `${(50 - startingY) * 0.6}vh`
         const funnelMidOffset = `${(50 - startingY) * 0.27}vh`

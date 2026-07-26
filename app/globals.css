@@ -185,7 +185,7 @@
   height: 5px;
   width: 5px;
   border-radius: 9999px;
-  will-change: transform, opacity;
+  will-change: transform;
   animation-duration: var(--swarm-speed), 1.7s;
   animation-name: swarm-funnel, swarm-blink;
   animation-timing-function: linear, ease-in-out;
@@ -240,5 +240,29 @@
   .swarm-particle {
     animation: none;
     opacity: 0.16;
+  }
+}
+
+@media (max-width: 639px) {
+  .logo-marquee-mask {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+  }
+
+  .logo-marquee-motion {
+    animation: none;
+    width: max-content;
+  }
+
+  .logo-marquee-motion > .logo-tile:nth-child(n + 9) {
+    display: none;
+  }
+
+  .swarm-particle {
+    will-change: auto;
+  }
+
+  .swarm-particle:nth-child(n + 19) {
+    display: none;
   }
 }

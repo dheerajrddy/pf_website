@@ -1,43 +1,22 @@
-"use client"
-
-import { motion } from "framer-motion"
 import { Calendar } from "lucide-react"
-import { fadeIn, fadeUp, staggerContainer } from "@/lib/animations"
 import { CALENDLY_URL } from "@/lib/links"
 
 export function FinalCta() {
   return (
     <section className="bg-gray-50/50 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-4xl text-center">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-        >
-          <motion.h2
-            variants={fadeUp}
-            transition={{ duration: 0.6 }}
-            className="text-5xl font-extrabold tracking-tighter text-gray-900 sm:text-6xl lg:text-[72px] lg:leading-[1.05]"
-          >
+        <div>
+          <h2 className="text-5xl font-extrabold tracking-tighter text-gray-900 sm:text-6xl lg:text-[72px] lg:leading-[1.05]">
             Prove what happens
             <br />
             <span className="text-gradient">when your AI is attacked.</span>
-          </motion.h2>
-          <motion.p
-            variants={fadeIn}
-            transition={{ duration: 0.6 }}
-            className="mt-8 text-xl text-gray-500 sm:text-2xl"
-          >
+          </h2>
+          <p className="mt-8 text-xl text-gray-500 sm:text-2xl">
             Run the attack. Replay the finding. Send the evidence.
-          </motion.p>
+          </p>
 
           {/* CTA */}
-          <motion.div
-            variants={fadeUp}
-            transition={{ duration: 0.6 }}
-            className="mt-10 flex justify-center"
-          >
+          <div className="mt-10 flex justify-center">
             <a
               href={CALENDLY_URL}
               target="_blank"
@@ -47,8 +26,8 @@ export function FinalCta() {
               <Calendar className="h-4 w-4" />
               Talk to us
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   )
