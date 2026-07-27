@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { Calendar, Github } from "lucide-react"
-import { CALENDLY_URL, SINEWAVE_GITHUB_URL } from "@/lib/links"
+import { CALENDLY_URL, SCANNER_GITHUB_URL } from "@/lib/links"
 import { SwarmBackground } from "@/components/swarm-background"
 
 export function Hero() {
@@ -29,7 +29,7 @@ export function Hero() {
                 <Calendar className="h-4 w-4" />
                 Talk to us
               </a>
-              <a href={SINEWAVE_GITHUB_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-gray-300 bg-white px-7 py-3.5 text-sm font-semibold text-gray-800 transition-all hover:border-gray-400 hover:bg-gray-50">
+              <a href={SCANNER_GITHUB_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-gray-300 bg-white px-7 py-3.5 text-sm font-semibold text-gray-800 transition-all hover:border-gray-400 hover:bg-gray-50">
                 <Github className="h-4 w-4" />
                 Start with open source
               </a>
