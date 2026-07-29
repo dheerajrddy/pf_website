@@ -10,7 +10,7 @@ const navGroups = [
   {
     label: "Products",
     links: [
-      { label: "Code Scanner", href: "/#code-scanner", detail: "Open-source, air-gapped developer scanning" },
+      { label: "Coding Agent Security", href: "/code-scanner", detail: "Open-source security for coding agents" },
       { label: "Automated Red Teaming", href: "/ai-red-teaming", detail: "Scheduled attacks across deployed AI systems" },
       { label: "MCP Runtime Security", href: "/mcp-security", detail: "Inline protection during serving and inference" },
     ],

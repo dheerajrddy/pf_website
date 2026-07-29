@@ -1,6 +1,6 @@
 <svg width="720" height="610" viewBox="0 0 720 610" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">ProofLayer product architecture</title>
-  <desc id="desc">Code Scanner, Automated Red Teaming, and MCP Runtime Security use one shared security plane to create one unified vulnerability report.</desc>
+  <desc id="desc">Coding Agent Security, Automated Red Teaming, and MCP Runtime Security use one shared security plane to create one unified vulnerability report.</desc>
   <defs>
     <pattern id="grid" width="18" height="18" patternUnits="userSpaceOnUse">
       <circle cx="1" cy="1" r="1" fill="#CBD5E1" fill-opacity="0.38"/>
@@ -61,8 +61,9 @@
   </g>
 
   <g fill="#334155" font-family="Inter, ui-sans-serif, sans-serif">
-    <text x="102" y="109" font-size="14" font-weight="800">Code Scanner</text>
-    <text x="102" y="128" font-size="10.5" fill="#64748B">Local and air-gapped</text>
+    <text x="102" y="106" font-size="13.5" font-weight="800">Coding Agent</text>
+    <text x="102" y="123" font-size="13.5" font-weight="800">Security</text>
+    <text x="102" y="143" font-size="10.5" fill="#64748B">Local and air-gapped</text>
     <text x="331" y="106" font-size="13.5" font-weight="800">Automated</text>
     <text x="331" y="123" font-size="13.5" font-weight="800">Red Teaming</text>
     <text x="331" y="143" font-size="10.5" fill="#64748B">Scheduled nightly</text>

@@ -4,7 +4,8 @@ const siteUrl = "https://www.proof-layer.com"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    { url: `${siteUrl}/`, lastModified: "2026-07-25", changeFrequency: "weekly", priority: 1 },
+    { url: `${siteUrl}/`, lastModified: "2026-07-30", changeFrequency: "weekly", priority: 1 },
+    { url: `${siteUrl}/code-scanner`, lastModified: "2026-07-30", changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/ai-red-teaming`, lastModified: "2026-07-25", changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/mcp-security`, lastModified: "2026-07-25", changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/pricing`, lastModified: "2026-07-25", changeFrequency: "monthly", priority: 0.7 },

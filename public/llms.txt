@@ -6,6 +6,7 @@ ProofLayer serves security and engineering teams that need to prove how producti
 
 ## Platform
 
+- [Coding Agent Security](https://www.proof-layer.com/code-scanner): Open-source security scanner for Claude Code, Codex, Cursor, Windsurf, Cline, OpenCode, MCP servers, prompts, skills, AI-suggested packages, and generated code.
 - [AI Red Teaming](https://www.proof-layer.com/ai-red-teaming): Autonomous multi-step campaigns against LLMs, agents, RAG pipelines, and MCP servers. Tests prompt injection, tool abuse, data exfiltration, RAG poisoning, jailbreaks, and memory poisoning.
 - [MCP Security](https://www.proof-layer.com/mcp-security): Pre-deployment MCP server scanning, adversarial testing, and inline runtime protection for Model Context Protocol traffic.
 - [Pricing](https://www.proof-layer.com/pricing): Community open-source access and enterprise deployment options.

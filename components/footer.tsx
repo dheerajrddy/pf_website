@@ -9,7 +9,7 @@ const columns: {
   {
     heading: "Products",
     links: [
-      { label: "Code Scanner", href: "/#code-scanner" },
+      { label: "Coding Agent Security", href: "/code-scanner" },
       { label: "AI Red Teaming", href: "/ai-red-teaming" },
       { label: "MCP Security", href: "/mcp-security" },
       { label: "Compliance", href: "/#compliance" },
@@ -19,7 +19,7 @@ const columns: {
   {
     heading: "Open Source",
     links: [
-      { label: "Code Scanner", href: "/#code-scanner" },
+      { label: "Coding Agent Security", href: "/code-scanner" },
       { label: "Runtime Rules", href: "https://github.com/sinewaveai/prooflayer-rules" },
       { label: "Blog", href: "/blog" },
       { label: "LLM index", href: "/llms.txt" },

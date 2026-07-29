@@ -133,6 +133,37 @@
   }
 }
 
+/* Coding-agent integration carousel. */
+@keyframes scanner-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
+.code-scanner-grid {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(to right, rgb(226 232 240 / 0.7) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(248 250 252 / 0.25), rgb(239 246 255 / 0.7));
+  background-size: 48px 100%, 100% 100%;
+}
+
+.scanner-marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+
+.scanner-marquee-track {
+  animation: scanner-marquee 34s linear infinite;
+}
+
+.scanner-marquee-mask:hover .scanner-marquee-track {
+  animation-play-state: paused;
+}
+
 .animate-logo-marquee {
   animation: logo-marquee 52s linear infinite;
 }
@@ -162,6 +193,16 @@
 
   .logo-marquee-static {
     display: flex;
+  }
+
+  .scanner-marquee-mask {
+    -webkit-mask-image: none;
+    mask-image: none;
+    overflow-x: auto;
+  }
+
+  .scanner-marquee-track {
+    animation: none;
   }
 }
 

@@ -1,14 +1,16 @@
 import { ArrowRight, Github, Package, ShieldCheck } from "lucide-react"
+import Link from "next/link"
 import { CALENDLY_URL, SCANNER_GITHUB_URL, RULES_GITHUB_URL } from "@/lib/links"
 
 const projects = [
   {
     id: "code-scanner",
     icon: Package,
-    name: "Code Scanner",
+    name: "Coding Agent Security",
     badge: "Open source · npm · about 8,000 users",
     body: "Run agent-security-scanner-mcp on a developer laptop. Scan code, prompts, packages, MCP servers, and tool configurations without a network call.",
     href: SCANNER_GITHUB_URL,
+    pageHref: "/code-scanner",
     cta: "Download Open Source",
   },
   {
@@ -18,6 +20,7 @@ const projects = [
     badge: "PyPI · LangChain and LangGraph",
     body: "Place the shared detection engine inline with MCP traffic. Detect prompt injection, tool abuse, and data exfiltration during inference.",
     href: RULES_GITHUB_URL,
+    pageHref: null,
     cta: "Download Open Source",
   },
 ]
@@ -47,13 +50,20 @@ export function OpenSourceLadder() {
               <article
                 id={project.id}
                 key={project.name}
-                className="scroll-mt-24 rounded-2xl border border-gray-200 bg-white p-7 shadow-sm"
+                className={`group relative scroll-mt-24 rounded-2xl border border-gray-200 bg-white p-7 shadow-sm ${project.pageHref ? "cursor-pointer transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md" : ""}`}
               >
+                {project.pageHref && (
+                  <Link
+                    href={project.pageHref}
+                    aria-label={`Explore ${project.name}`}
+                    className="absolute inset-0 z-10 rounded-2xl focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                  />
+                )}
                 <div className="w-fit rounded-xl bg-blue-50 p-3"><Icon className="h-6 w-6 text-blue-600" /></div>
                 <p className="mt-6 font-mono text-xs font-semibold text-blue-600">{project.badge}</p>
                 <h3 className="mt-3 break-words font-mono text-lg font-bold text-gray-900">{project.name}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-gray-600">{project.body}</p>
-                <a href={project.href} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-blue-600">
+                <a href={project.href} target="_blank" rel="noopener noreferrer" className="relative z-20 mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-blue-600">
                   <Github className="h-4 w-4" /> {project.cta}
                 </a>
               </article>
