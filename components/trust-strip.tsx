@@ -72,7 +72,7 @@ export function TrustStrip() {
     <section aria-label="Organizations using ProofLayer open source" className="relative border-y border-gray-100 bg-white/75 px-4 pb-3 pt-10 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl overflow-hidden">
         <h2 className="mb-2 text-center text-sm font-semibold text-gray-700">
-          Trusted by security engineers at
+          OSS trusted by security engineers at
         </h2>
         <div className="logo-marquee-mask overflow-hidden">
           <div className="logo-marquee-motion flex w-max gap-4 animate-logo-marquee">
