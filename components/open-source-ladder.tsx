@@ -20,7 +20,7 @@ const projects = [
     badge: "PyPI · LangChain and LangGraph",
     body: "Place the shared detection engine inline with MCP traffic. Detect prompt injection, tool abuse, and data exfiltration during inference.",
     href: RULES_GITHUB_URL,
-    pageHref: null,
+    pageHref: "/mcp-security",
     cta: "Download Open Source",
   },
 ]

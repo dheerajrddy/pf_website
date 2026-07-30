@@ -164,15 +164,10 @@ export default function CodeScannerPage() {
             Local scanner · Coding agent security
           </p>
           <h1 className="mx-auto mt-4 max-w-5xl text-5xl font-extrabold tracking-tighter text-gray-950 sm:mt-5 sm:text-6xl lg:text-7xl lg:leading-[1.02]">
-            Scan it before
-            <br />
-            <span className="text-gradient">your agent trusts it.</span>
+            Make your <span className="text-gradient">Coding Agents</span> secure.
           </h1>
           <p className="mx-auto mt-5 max-w-4xl text-base leading-relaxed text-gray-600 sm:mt-7 sm:text-xl">
             Scan Claude Code, Codex, Cursor, Windsurf, Cline, OpenCode, MCP servers, prompts, skills, and AI-suggested dependencies before your agent trusts them.
-          </p>
-          <p className="mx-auto mt-2 max-w-3xl text-base leading-relaxed text-gray-600 sm:mt-3 sm:text-lg">
-            Find prompt injection, hallucinated packages, secrets, unsafe MCP tools, and vulnerable code.
           </p>
           <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:mt-9 sm:flex-row">
             <a
