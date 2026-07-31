@@ -164,6 +164,30 @@
   animation-play-state: paused;
 }
 
+/* Seamless MCP framework carousel: both groups have identical widths. */
+@keyframes mcp-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.mcp-marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+
+.mcp-marquee-track {
+  animation: mcp-marquee 24s linear infinite;
+  will-change: transform;
+}
+
+.mcp-marquee-mask:hover .mcp-marquee-track {
+  animation-play-state: paused;
+}
+
 .animate-logo-marquee {
   animation: logo-marquee 52s linear infinite;
 }
@@ -204,6 +228,7 @@
   .scanner-marquee-track {
     animation: none;
   }
+
 }
 
 @keyframes typing-cursor {
