@@ -21,6 +21,17 @@ export interface Author {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "agentdojo-benchmark-results",
+    title: "AgentDojo Attacks, 100% Success: Why You Need to Red-Team Your Agents",
+    subtitle: "The benchmark result shows why deployed agents need adversarial testing before attackers find the gap",
+    excerpt: "ProofLayer reached 100% attack success across 949 AgentDojo cases. See what the result means, then put your own agents through a red-team assessment.",
+    category: "Research",
+    categoryColor: "slate",
+    readTime: "9 min read",
+    date: "August 3, 2026",
+    featured: true,
+  },
+  {
     slug: "gpt-red-reinforcement-learning-red-teaming",
     title: "GPT-Red and the Case for Reinforcement Learning Red Teaming",
     subtitle: "Why adaptive attackers are becoming necessary—and why agents still need system-level proof",
