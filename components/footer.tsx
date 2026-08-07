@@ -12,6 +12,7 @@ const columns: {
       { label: "Coding Agent Security", href: "/code-scanner" },
       { label: "AI Red Teaming", href: "/ai-red-teaming" },
       { label: "MCP Security", href: "/mcp-security" },
+      { label: "Partners", href: "/partners" },
       { label: "Compliance", href: "/#compliance" },
       { label: "Pricing", href: "/pricing" },
     ],

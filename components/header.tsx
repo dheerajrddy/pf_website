@@ -18,6 +18,7 @@ const navGroups = [
 ]
 
 const directLinks = [
+  { label: "Partners", href: "/partners" },
   { label: "Compliance", href: "/#compliance" },
   { label: "Pricing", href: "/pricing" },
   { label: "Blog", href: "/blog" },

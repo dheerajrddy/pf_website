@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/code-scanner`, lastModified: "2026-07-30", changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/ai-red-teaming`, lastModified: "2026-07-25", changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/mcp-security`, lastModified: "2026-07-25", changeFrequency: "weekly", priority: 0.9 },
+    { url: `${siteUrl}/partners`, lastModified: "2026-08-07", changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/pricing`, lastModified: "2026-07-25", changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/blog`, lastModified: "2026-08-03", changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteUrl}/blog/agentdojo-benchmark-results`, lastModified: "2026-08-03", changeFrequency: "monthly", priority: 0.8 },
